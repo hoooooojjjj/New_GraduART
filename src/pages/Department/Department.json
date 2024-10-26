@@ -1,0 +1,52 @@
+[
+  {
+    "Department": "Oriental Painting",
+    "titleColor": "#FF983B",
+    "imgPath": "landing-oriental.webp",
+    "departmentName": "서울대학교 동양화과",
+    "Instagram": "https://www.instagram.com/snu.orientalpainting_official/",
+    "collection": "https://art.snu.ac.kr/artexhibition/?cate%5B0%5D=20211&cate%5B1%5D=oriental-painting&cate%5B2%5D=&cate%5B3%5D=&cate%5B4%5D=",
+    "homepage": "https://art.snu.ac.kr/category/oriental-painting/",
+    "departmentDescription": "동양화과에는 4년 과정의 미술 학사와 2년 과정의 석,박사 과정이 설치되어 있습니다. 오랜 역사를 지닌 전통 조형론을 바탕으로, 전통미술의 계승과 동양화의 현대적 모색이 함께 이루어지고 있습니다. 학부 1학년 기초과정에서는 한국 및 동-서양미술의 상호 연계성을 종합적으로 체험하며 폭넓은 표현 능력과 교양을 쌓습니다. 이후 2, 3, 4학년 전공과정에서는 동양적 미의식에 입각한 표현 방법을 연구하며, 조형 이론을 통해 개인의 창작 능력을 배양하는 데 중점을 두고 있습니다. 대학원의 석,박사 과정에서는 전통적 회화 기법과 조형 이론에 대한 이해를 심화시키는 동시에 현대회화의 다양한 표현 방법과 매체들을 응용하여 개성적인 표현을 실험하고 있습니다. 또한 작품 전시 기획론, 감정론, 작품 비평론 및 현장 수업을 통해 작품에 대한 안목, 논리적인 분석, 교육 방법의 연구 등 미술 전문가로서의 소양을 키우게 됩니다. 창작과 이론이 밀접하게 연관되는 과정을 통해 지적 사고와 표현 영역을 확장시켜나갈 수 있습니다."
+  },
+  {
+    "Department": "Western Painting",
+    "titleColor": "#EE5397",
+    "imgPath": "landing-western.jpeg",
+    "departmentName": "서울대학교 서양화과",
+    "Instagram": "https://www.instagram.com/snufa2023/",
+    "collection": "https://art.snu.ac.kr/artexhibition/?cate%5B0%5D=20211&amp;cate%5B1%5D=painting&amp;cate%5B2%5D=&amp;cate%5B3%5D=&amp;cate%5B4%5D=",
+    "homepage": "https://art.snu.ac.kr/category/painting/",
+    "departmentDescription": "서양화과에는 창의적이고 전문성을 갖춘 미술가의 육성을 목표로 4년 과정의 미술학 학사 과정과 각각 2년 과정의 석, 박사 과정이 개설되어 있습니다. 대학 1학년 기초과정에서는 조형 및 표현 능력의 함양을 위해 다양한 매체와 조형방식을 활용하는 통합적인 실습 및 이론 교육이 이루어집니다. 2, 3 ,4학년 과정에서는 전공과 각 학년에 부합하는 학년별 전공 실기 수업을 통해 다양한 표현을 실험하고 자신만의 창작방식을 발전시킬 수 있습니다.특히 3, 4학년 과정에는 전공을 심화하기 위한 전공 스튜디오 수업이 개설되어 있습니다. 아울러 시각예술 전반에 대한 지식과 미술사를 체계적으로 습득하여 실기와 이론을 겸비할 수 있도록 미술사 및 이론 수업을 전 학년에 걸쳐수강할 수 있습니다."
+  },
+  {
+    "Department": "Sculpture",
+    "titleColor": "#FE4E4E",
+    "imgPath": "landing-sculpture.jpeg",
+    "departmentName": "서울대학교 조소과",
+    "Instagram": "https://www.instagram.com/snu_sculpture/",
+    "collection": "https://art.snu.ac.kr/artexhibition/?cate%5B0%5D=20211&cate%5B1%5D=sculpture&cate%5B2%5D=&cate%5B3%5D=&cate%5B4%5D=",
+    "homepage": "https://art.snu.ac.kr/category/sculpture/",
+    "departmentDescription": "조소과에는 4년 과정의 미술학학사와 2년 과정의 석ㆍ박사 과정이 있으며 조소과는 조소 예술에 관련한 미술학도의 표현력을 수련시키고 문화적 당위성을 고양시키기 위해서 조소를 이루는 여러 재료와 물성에 대한 이론적 접근과 실습을 병행하는 체계적이고 균형 잡힌 교육을 실시하고 있습니다. 이를 위해 학부 1학년 기초과정에서는 입체와 공간 개념에 대한 다양한 조형이론의 숙지와 이를 활용하는 개별적이고도 종합적인 표현능력의 개발에 중점을 두며 2, 3, 4학년 전공과정에서는 보다 실험적이고 창의적인 사고를 통한 개성적 표현능력을 발휘할 수 있도록 교육하고 있습니다. 아울러 조소과는 전통성과 현대성의 유기적 조화를 바탕으로 한 다양한 미적 탐구 활동을 권장하여 학생 개개인이 작가의 자질을 육성할 수 있도록 하며 이를 통해 국가와 사회가 필요로 하는 창의적 전문 인력을 양성함을 목표로 합니다."
+  },
+  {
+    "Department": "Craft",
+    "titleColor": "#00C4D4",
+    "imgPath": "landing-craft.heic",
+    "departmentName": "서울대학교 공예과",
+    "Instagram": "",
+    "collection": "https://art.snu.ac.kr/artexhibition/?cate%5B0%5D=20211&cate%5B1%5D=craft&cate%5B2%5D=&cate%5B3%5D=&cate%5B4%5D=",
+    "homepage": "https://art.snu.ac.kr/category/craft/",
+    "departmentDescription": "디자인학부 공예과는 현대인의 삶과 경험을 반영하는 사물과 장신구 등에 관한 당대적 의미를 연구하고 직접 제작, 실현함으로써 오늘날 공예의 문화적 가능성을 탐구합니다.이를 위해 학생 개개인의 장인정신과 실험정신을 고양하는데에 교육의 바탕을 두고 있습니다. 학부 1학년 기초과정은 조형에 대한 능동적 이해와 실천을 경험할 수 있는 다양한 조형 실험과 이를 보다 풍성하게 하는 개별적이고도 종합적인 표현 능력의 개발에 중점을 둡니다. 2, 3, 4학년 전공과정에서는 창의적이고 실험적인 사고 능력 배양을 통해 보다 개성적인 표현력과 장인정신이 발휘될 수 있는 터전을 제공하고 궁극적으로는 수공 작업에 대한 가치와 열정을 가지고, 사회구조나 산업의 발달에 능동적으로 대처할 수 있는 창의적인 공예가의 양성을 목표로 합니다."
+  },
+  {
+    "Department": "Design",
+    "titleColor": "#3466A5",
+    "imgPath": "landing-design.avif",
+    "departmentName": "서울대학교 디자인과",
+    "Instagram": "https://www.instagram.com/snudesign/",
+    "collection": "https://art.snu.ac.kr/artexhibition/?cate%5B0%5D=20211&cate%5B1%5D=design&cate%5B2%5D=&cate%5B3%5D=&cate%5B4%5D=",
+    "homepage": "https://art.snu.ac.kr/category/design/",
+    "departmentDescription": "디자인학부 디자인과는‘21세기의 창의적 디자인 리더양성’과 ‘새로운 디자인가치 창조의 세계적 요람’을 교육의 목표로 하고 있습니다. 학부 1학년 기초과정에서는 용구의 쓰임과 그 문화적 의미에 대한 능동적 이해와 실천을 경험할 수 있는 다양한 조형실험의 경험, 이러한 경험을 보다 풍성하게 하는 개별적이고도 종합적인 표현능력의 개발에 중점을 둡니다. 2, 3, 4학년의 산업 및 시각디자인 전공과정에서는 디자이너가 갖추어야 하는 전인적인 창의력과 사고력, 전문적인 수행력을 함양하고 훈련할 수 있는 다양한 디자인 교육 경험을 제공하여, 디자인이 실현되고 있는 오늘날의 여러 전문 분야에서 각자의 가능성을 발휘할 수 있도록 다양한 교육실험을 진행하고 있습니다. 2년, 3년 과정의 석ㆍ박사 과정은 산업디자인 전공의 공간 및 제품디자인, 시각디자인 전공의 그래픽 및 미디어디자인, 그리고 디자인이론을 연구하는 디자인역사문화로 나뉘어져 있습니다."
+  }
+]
