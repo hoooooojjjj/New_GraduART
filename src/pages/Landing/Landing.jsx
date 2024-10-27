@@ -21,9 +21,6 @@ function Landing() {
                 <DepartmentLink to={"/Design"} activeclassname={"active"}>
                     디자인과
                 </DepartmentLink>
-                <DepartmentLink to={"/MediaArts"} activeclassname={"active"}>
-                    영상매체예술
-                </DepartmentLink>
             </LinkList>
         </>
     )
