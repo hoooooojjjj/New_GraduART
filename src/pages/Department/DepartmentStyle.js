@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const DepartmentTitle = styled('h1')`
-    color: black;
+    color: var(--purple);
     text-decoration: none;
     margin: 30px;
     font-family: 'godorounded', sans-serif;
