@@ -7,16 +7,16 @@ export const Head = styled.header`
   height: 72px;
   justify-content: space-between;
   position: relative;
-  width: 100dvw;
+  width: 100%;
 `;
 
 export const Logo = styled.div`
-  align-items: baseline;
-  display: flex;
-  gap: 10px;
-  justify-content: center;
+    align-items: baseline;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
     margin-left: 30px;
-  padding: 10px 10px 20px 10px;
+    padding: 10px 10px 20px 0;
 `;
 export const TextWrapper = styled.span`
   color: var(--purple);
@@ -25,6 +25,10 @@ export const TextWrapper = styled.span`
     font-weight: 400;
 `;
 
+export const BackBtn = styled.div`
+    padding: 10px;
+`
+
 export const Span = styled.span`
   color: #8f8f8f;
   font-family: "godo", sans-serif;
@@ -32,48 +36,45 @@ export const Span = styled.span`
   line-height: 20px;
 `;
 
-export const Circle = styled.div`
+export const Circles = styled.div`
   align-items: center;
   display: flex;
   gap: 10px;
   height: 72px;
   justify-content: center;
-  position: relative;
-  width: 172px;
-`;
-
-export const Group = styled.div`
-  height: 25px;
-  position: relative;
-  width: 97px;
+  margin-right: 30px;
 `;
 
 export const Ellipse = styled.div`
   background-color: var(--purple);
-  border-radius: 12.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  border-radius: 50px;
   height: 25px;
   left: 0;
-  position: absolute;
   top: 0;
   width: 25px;
 `;
 
 export const Ellipse2 = styled.div`
-  background-color: #8f8f8f;
-  border-radius: 13.5px / 12.5px;
+  background-color: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  border-radius: 50px;
   height: 25px;
-  left: 35px;
-  position: absolute;
   top: 0;
-  width: 27px;
+  width: 25px;
 `;
 
 export const Ellipse3 = styled.div`
   background-color: var(--purple);
-  border-radius: 12.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  border-radius: 50px;
   height: 25px;
-  left: 72px;
-  position: absolute;
   top: 0;
   width: 25px;
 `;
