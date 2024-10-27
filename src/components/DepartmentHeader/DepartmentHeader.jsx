@@ -13,19 +13,19 @@ import {useNavigate} from "react-router-dom"; // Adjust the path as necessary
 
 export const DepartmentHeader = () => {
     const navigate = useNavigate();
-
+    //뒤로가기 버튼 눌렀을때
     const handleBack = () => {
         navigate(-1); // Go back to the previous page
     };
-
+    //검색 버튼 눌렀을때
     const handleSearch = () => {
 
     };
-
+    //장바구니 버튼 눌렀을때
     const handleCart = () => {
         navigate('/cart');
     };
-
+    //마이페이지 버튼 눌렀을때
     const handleMypage = () => {
         navigate('/my')
     };
@@ -35,7 +35,7 @@ export const DepartmentHeader = () => {
             <Logo>
                 <BackBtn onClick={handleBack}>
                     <svg width="25" height="18" viewBox="0 0 25 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                        <path id="Vector (Stroke)" fillRule="evenodd" clipRule="evenodd"
                               d="M10.4039 0.329505C9.97791 -0.109835 9.28718 -0.109835 8.86116 0.329505L1.22479 8.2045C0.798767 8.64384 0.798767 9.35616 1.22479 9.7955L8.86116 17.6705C9.28718 18.1098 9.97791 18.1098 10.4039 17.6705C10.83 17.2312 10.83 16.5188 10.4039 16.0795L4.62987 10.125H23.8144C24.4169 10.125 24.9053 9.62132 24.9053 9C24.9053 8.37868 24.4169 7.875 23.8144 7.875H4.62987L10.4039 1.9205C10.83 1.48116 10.83 0.768845 10.4039 0.329505Z"
                               fill="white"/>
                     </svg>
@@ -49,7 +49,7 @@ export const DepartmentHeader = () => {
                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M15 15.5L11.4563 11.9563M11.4563 11.9563C12.0251 11.3876 12.4763 10.7123 12.7841 9.96918C13.0919 9.22604 13.2504 8.42955 13.2504 7.62518C13.2504 6.82081 13.0919 6.02431 12.7841 5.28117C12.4763 4.53803 12.0251 3.8628 11.4563 3.29402C10.8876 2.72525 10.2123 2.27407 9.46918 1.96625C8.72604 1.65843 7.92955 1.5 7.12518 1.5C6.32081 1.5 5.52431 1.65843 4.78117 1.96625C4.03803 2.27407 3.3628 2.72525 2.79402 3.29402C1.64533 4.44272 1 6.00068 1 7.62518C1 9.24967 1.64533 10.8076 2.79402 11.9563C3.94272 13.105 5.50068 13.7504 7.12518 13.7504C8.74967 13.7504 10.3076 13.105 11.4563 11.9563Z"
-                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                 </Ellipse>
                 <Ellipse2 onClick={handleCart}>
@@ -63,10 +63,10 @@ export const DepartmentHeader = () => {
                     <svg width="15" height="19" viewBox="0 0 15 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M7.5 10.3889C9.74366 10.3889 11.5625 8.39904 11.5625 5.94444C11.5625 3.48985 9.74366 1.5 7.5 1.5C5.25634 1.5 3.4375 3.48985 3.4375 5.94444C3.4375 8.39904 5.25634 10.3889 7.5 10.3889Z"
-                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <path
                             d="M14 17.5017C14 15.6158 13.3152 13.807 12.0962 12.4734C10.8772 11.1398 9.22391 10.3906 7.5 10.3906C5.77609 10.3906 4.12279 11.1398 2.90381 12.4734C1.68482 13.807 1 15.6158 1 17.5017"
-                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                 </Ellipse3>
             </Circles>
