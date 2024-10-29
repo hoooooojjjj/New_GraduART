@@ -21,6 +21,9 @@ function Landing() {
                 <DepartmentLink to={"/Design"} activeclassname={"active"}>
                     디자인과
                 </DepartmentLink>
+                <DepartmentLink to="/refund" activeclassname="active">
+                    환불 페이지
+                </DepartmentLink>
             </LinkList>
         </>
     )

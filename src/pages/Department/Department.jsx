@@ -4,6 +4,7 @@ import departmentInfos from "./Department.json";
 import {DepartmentTitle, Wrap} from "./DepartmentStyle";
 import {DepartmentHeader} from "../../components/DepartmentHeader/DepartmentHeader";
 
+
 function Department() {
     // 현재 라우트에 해당하는 과
     const { department } = useParams();
@@ -16,6 +17,7 @@ function Department() {
             (info) => info.Department === department
         );
         setDepartmentInfo(curDepartment[0]);
+
     }, [department]);
 
     return (
