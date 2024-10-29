@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import {Link} from "react-router-dom";
 
-
 export const Title = styled('h1')`
     color: black;
     text-decoration: none;
@@ -34,3 +33,4 @@ export const DepartmentLink = styled(Link)`
     transform: scale(1.1); // 호버 시 약간 크게 만드는 효과
   }
 `;
+

@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import departmentInfos from "./Department.json";
-import {DepartmentTitle} from "./DepartmentStyle";
+import {DepartmentTitle, Wrap} from "./DepartmentStyle";
+import {DepartmentHeader} from "../../components/DepartmentHeader/DepartmentHeader";
 
 function Department() {
     // 현재 라우트에 해당하는 과
@@ -18,9 +19,10 @@ function Department() {
     }, [department]);
 
     return (
-        <>
+        <Wrap>
+            <DepartmentHeader></DepartmentHeader>
             <DepartmentTitle>{department}페이지</DepartmentTitle>
-        </>
+        </Wrap>
     )
 }
 
