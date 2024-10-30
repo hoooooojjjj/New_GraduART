@@ -8,8 +8,6 @@ export const Container = styled.div({
   overflowY: "auto", // 스크롤 가능하도록 설정
 });
 
-export const Header = styled.header({});
-
 export const Main = styled.main({
   paddingLeft: 76,
   paddingRight: 76,

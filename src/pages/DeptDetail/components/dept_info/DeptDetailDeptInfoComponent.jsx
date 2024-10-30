@@ -6,7 +6,7 @@ import {
   DeptInfoLeft,
   DeptInfoRight,
 } from "./DeptDetailDeptInfoComponentStyles";
-import { curDepartmentObjContext } from "../DeptDetail";
+import { curDepartmentObjContext } from "../../DeptDetail";
 
 // DeptInfoComponentImgs: 과 정보 컴포넌트에 들어갈 이미지들
 const DeptInfoComponentImgs = [

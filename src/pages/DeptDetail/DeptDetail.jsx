@@ -2,11 +2,11 @@ import React, { createContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
 import dept_info from "../Department/Department.json";
-import { Container, Header, Main } from "./DeptDetailStyles";
-import DeptDetailHeaderComponent from "./components/DeptDetailHeader";
-import DeptDetailDeptInfoComponent from "./components/DeptDetailDeptInfoComponent";
-import DeptDetailExhibitionComponent from "./components/DeptDetailExhibitionComponent";
+import { Container, Main } from "./DeptDetailStyles";
+import DeptDetailDeptInfoComponent from "./components/dept_info/DeptDetailDeptInfoComponent";
+import DeptDetailExhibitionComponent from "./components/exhibition/DeptDetailExhibitionComponent";
 import Footer from "../../components/footer/Footer";
+import DeptDetailHeaderComponent from "./components/dept_header/DeptDetailHeader";
 
 // 현재 라우트에 해당하는 과 정보를 담는 context
 export const curDepartmentObjContext = createContext({});
@@ -29,9 +29,9 @@ function DeptDetail() {
   return (
     <curDepartmentObjContext.Provider value={curDepartmentObj}>
       <Container>
-        <Header>
+        <header>
           <DepartmentHeader />
-        </Header>
+        </header>
         <Main>
           <DeptDetailHeaderComponent />
           <DeptDetailDeptInfoComponent />

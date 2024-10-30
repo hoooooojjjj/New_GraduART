@@ -11,8 +11,8 @@ import {
   DeptDetailHeadernavinfo,
   DeptDetailHeadernavinfotext,
 } from "./DeptDetailHeaderStyles";
-import dept_info from "../../Department/Department.json";
-import { curDepartmentObjContext } from "../DeptDetail";
+import dept_info from "../../../Department/Department.json";
+import { curDepartmentObjContext } from "../../DeptDetail";
 
 function DeptDetailHeaderComponent() {
   // 현재 라우트에 해당하는 과 정보를 담는 context

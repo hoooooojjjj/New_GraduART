@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   ArtWorkGridWrap,
   ArtWorkImg,
@@ -392,7 +392,7 @@ function ExhibitionTitle() {
 
 function ExhibitionGrid() {
   // 한 페이지에서 보일 작품 수
-  const itemsPerPage = 10;
+  const itemsPerPage = 8;
 
   // 현재 페이지
   const [currentPage, setCurrentPage] = useState(1);
@@ -415,12 +415,23 @@ function ExhibitionGrid() {
     }
   };
 
+  const [minHeight, setMinHeight] = useState(0);
+
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    // 이미지 높이 (너비와 동일, 즉 셀의 너비와 같음) + 각 요소 사이의 gap 높이 * 2
+    const columnHeight = imgRef.current.clientWidth;
+    const computedMinHeight = columnHeight * 2; // 2행 + gap
+    setMinHeight(computedMinHeight);
+  }, [artWorks]);
+
   return (
     <>
-      <ArtWorkGridWrap>
+      <ArtWorkGridWrap minHeight={minHeight}>
         {currentItems.map((artWork) => (
           <ArtWorkWrap key={artWork.id}>
-            <ArtWorkImg src={artWork.img} alt={artWork.title} />
+            <ArtWorkImg ref={imgRef} src={artWork.img} alt={artWork.title} />
             <ArtWorkInfoWrap>
               <ArtWorkTitle>{artWork.title}</ArtWorkTitle>
               <ArtWorkSubTitle>

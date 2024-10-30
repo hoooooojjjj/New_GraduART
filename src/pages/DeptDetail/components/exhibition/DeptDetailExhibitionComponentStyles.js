@@ -91,31 +91,28 @@ export const SearchIcon = styled.img({
   cursor: "pointer",
 });
 
-export const ArtWorkGridWrap = styled.article({
-  display: "flex",
-  margin: "0 auto",
-  width: "100%",
-  minHeight: 770,
-  alignItems: "flex-start",
-  alignContent: "flex-start",
-  gap: "24px 54px",
-  flexShrink: 0,
-  flexWrap: "wrap",
-});
+export const ArtWorkGridWrap = styled.article`
+  display: grid;
+  width: 100%;
+  min-height: ${(props) => props.minHeight}px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 54px;
+  align-items: flex-start;
+  justify-items: center;
+`;
 
 export const ArtWorkWrap = styled.div({
   display: "flex",
-  width: "300px",
-  height: "370px",
   flexDirection: "column",
   alignItems: "flex-start",
   gap: "6px",
-  flexShrink: 0,
+  width: "100%", // 전체 셀 너비를 채우도록 설정
+  boxSizing: "border-box", // 패딩 포함하여 너비 계산
 });
 
 export const ArtWorkImg = styled.img({
-  height: "300px",
-  alignSelf: "stretch",
+  width: "100%",
+  aspectRatio: "1", // 너비와 높이를 동일하게 설정
   borderRadius: "20px",
   backdropFilter: "blur(50px)",
 });
