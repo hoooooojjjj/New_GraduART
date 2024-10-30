@@ -9,7 +9,7 @@ export const DeptDetailDeptInfo = styled.section({
 
 export const DeptInfoLeft = styled.div({
   display: "flex",
-  width: "37%",
+  width: "40%",
   height: "100%",
   alignItems: "center",
   gap: 15,
@@ -31,11 +31,11 @@ export const DeptInfoImgActive = styled.img({
 });
 
 export const DeptInfoRight = styled.div({
-  width: "63%",
+  width: "60%",
   height: "100%",
   color: "#FFF",
   fontFamily: "KoddiUDOnGothic",
-  fontSize: "24px",
+  fontSize: "clamp(10px, 1.59vw, 25px)",
   fontStyle: "normal",
   fontWeight: 400,
   lineHeight: "35px" /* 145.833% */,
