@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
 import dept_info from "../Department/Department.json";
-import { Footer, Header, Main } from "./DeptDetailStyles";
+import { Container, Footer, Header, Main } from "./DeptDetailStyles";
 import DeptDetailHeaderComponent from "./components/DeptDetailHeader";
 import DeptDetailDeptInfoComponent from "./components/DeptDetailDeptInfoComponent";
 import DeptDetailExhibitionComponent from "./components/DeptDetailExhibitionComponent";
@@ -27,17 +27,19 @@ function DeptDetail() {
 
   return (
     <curDepartmentObjContext.Provider value={curDepartmentObj}>
-      <Header>
-        <DepartmentHeader />
-      </Header>
-      <Main>
-        <DeptDetailHeaderComponent />
-        <DeptDetailDeptInfoComponent />
-        <DeptDetailExhibitionComponent />
-        <section></section>
-        <section></section>
-      </Main>
-      <Footer></Footer>
+      <Container>
+        <Header>
+          <DepartmentHeader />
+        </Header>
+        <Main>
+          <DeptDetailHeaderComponent />
+          <DeptDetailDeptInfoComponent />
+          <DeptDetailExhibitionComponent />
+          <section></section>
+          <section></section>
+        </Main>
+        <Footer></Footer>
+      </Container>
     </curDepartmentObjContext.Provider>
   );
 }

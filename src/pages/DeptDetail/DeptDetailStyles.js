@@ -1,5 +1,13 @@
 import styled from "@emotion/styled";
 
+export const Container = styled.div({
+  display: "flex",
+  width: "100%",
+  height: "100vh",
+  flexDirection: "column",
+  overflowY: "auto", // 스크롤 가능하도록 설정
+});
+
 export const Header = styled.header({});
 
 export const Main = styled.main({
@@ -8,7 +16,6 @@ export const Main = styled.main({
   paddingTop: 70,
   paddingBottom: 40,
   background: "#000",
-  minHeight: "100vh",
 });
 
 export const Footer = styled.footer({});
