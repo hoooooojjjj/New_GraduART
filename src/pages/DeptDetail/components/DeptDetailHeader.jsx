@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   DeptDetailHeader,
   DeptDetailHeaderleft,
@@ -12,26 +12,39 @@ import {
   DeptDetailHeadernavinfotext,
 } from "./DeptDetailHeaderStyles";
 import dept_info from "../../Department/Department.json";
+import { curDepartmentObjContext } from "../DeptDetail";
 
 function DeptDetailHeaderComponent() {
-  const [isNavHover, setIsNavHover] = useState(dept_info.map((dept) => false));
+  // 현재 라우트에 해당하는 과 정보를 담는 context
+  const curDepartmentObj = useContext(curDepartmentObjContext);
+
+  // 동그라미 hover 상태를 저장하는 state
+  const [isNavHover, setIsNavHover] = useState(dept_info.map(() => false));
+
   return (
     <DeptDetailHeader>
       <DeptDetailHeaderleft>
-        <DeptDetailHeadertitle>oriental painting</DeptDetailHeadertitle>
+        <DeptDetailHeadertitle>
+          {curDepartmentObj.Department}
+        </DeptDetailHeadertitle>
         <DeptDetailHeadersubTitle>
-          서울대학교 <strong>동양화과</strong>
+          서울대학교{" "}
+          <strong>
+            {curDepartmentObj && curDepartmentObj.departmentName?.slice(6)}
+          </strong>
         </DeptDetailHeadersubTitle>
       </DeptDetailHeaderleft>
       <DeptDetailHeaderright>
         {dept_info.map((dept, i) => (
           <DeptDetailHeadernavwrap key={dept.Department}>
             <DeptDetailHeadercircle
+              // 동그라미 hover 시, 우측에 안내 문구를 보여줌
               onMouseEnter={() => {
                 const updatedIsNavHover = [...isNavHover];
                 updatedIsNavHover[i] = true;
                 setIsNavHover(updatedIsNavHover);
               }}
+              // 동그라미 hover 떠나면, 우측에 안내 문구를 가림
               onMouseLeave={() => {
                 const updatedIsNavHover = [...isNavHover];
                 updatedIsNavHover[i] = false;

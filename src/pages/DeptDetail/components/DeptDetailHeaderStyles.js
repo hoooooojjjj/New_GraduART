@@ -2,8 +2,9 @@ import styled from "@emotion/styled";
 
 export const DeptDetailHeader = styled.section({
   display: "flex",
-  width: "100dvw",
+  width: "100%",
   height: 155,
+  marginBottom: 40,
 });
 
 export const DeptDetailHeaderleft = styled.div({
