@@ -17,5 +17,3 @@ export const Main = styled.main({
   paddingBottom: 40,
   background: "#000",
 });
-
-export const Footer = styled.footer({});
