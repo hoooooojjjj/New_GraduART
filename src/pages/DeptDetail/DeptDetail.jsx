@@ -5,6 +5,7 @@ import dept_info from "../Department/Department.json";
 import { Footer, Header, Main } from "./DeptDetailStyles";
 import DeptDetailHeaderComponent from "./components/DeptDetailHeader";
 import DeptDetailDeptInfoComponent from "./components/DeptDetailDeptInfoComponent";
+import DeptDetailExhibitionComponent from "./components/DeptDetailExhibitionComponent";
 
 // 현재 라우트에 해당하는 과 정보를 담는 context
 export const curDepartmentObjContext = createContext({});
@@ -32,7 +33,7 @@ function DeptDetail() {
       <Main>
         <DeptDetailHeaderComponent />
         <DeptDetailDeptInfoComponent />
-        <section></section>
+        <DeptDetailExhibitionComponent />
         <section></section>
         <section></section>
       </Main>

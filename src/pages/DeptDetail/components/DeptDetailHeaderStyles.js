@@ -9,7 +9,7 @@ export const DeptDetailHeader = styled.section({
 
 export const DeptDetailHeaderleft = styled.div({
   display: "flex",
-  width: "40%",
+  width: "37%",
   height: "100%",
   flexDirection: "column",
   alignItems: "flex-start",
@@ -38,7 +38,7 @@ export const DeptDetailHeadersubTitle = styled.div({
 
 export const DeptDetailHeaderright = styled.div({
   display: "flex",
-  width: "60%",
+  width: "63%",
   height: "100%",
   alignItems: "center",
   gap: 20,

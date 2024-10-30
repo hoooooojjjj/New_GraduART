@@ -4,11 +4,12 @@ export const DeptDetailDeptInfo = styled.section({
   display: "flex",
   width: "100%",
   height: 307,
+  marginBottom: 40,
 });
 
 export const DeptInfoLeft = styled.div({
   display: "flex",
-  width: "40%",
+  width: "37%",
   height: "100%",
   alignItems: "center",
   gap: 15,
@@ -30,7 +31,7 @@ export const DeptInfoImgActive = styled.img({
 });
 
 export const DeptInfoRight = styled.div({
-  width: "60%",
+  width: "63%",
   height: "100%",
   color: "#FFF",
   fontFamily: "KoddiUDOnGothic",

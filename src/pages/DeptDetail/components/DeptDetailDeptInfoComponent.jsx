@@ -34,6 +34,12 @@ const DeptInfoComponentImgs = [
     src: "/assets/DeptInfoComponentImgs3.jpg",
     alt: "painting",
   },
+  {
+    id: 4,
+    departmentName: "oriental_painting",
+    src: "/assets/DeptInfoComponentImgs3.jpg",
+    alt: "painting",
+  },
 ];
 
 function DeptDetailDeptInfoComponent() {
