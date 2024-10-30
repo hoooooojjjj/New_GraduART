@@ -6,6 +6,7 @@ export const Container = styled.div({
   height: "100vh",
   flexDirection: "column",
   overflowY: "auto", // 스크롤 가능하도록 설정
+  overflowX: "hidden",
 });
 
 export const Main = styled.main({

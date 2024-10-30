@@ -6,7 +6,6 @@ export const DeptDetailExhibition = styled.section({
   gap: 50,
   width: "100%",
   height: "auto",
-  overflowY: "auto", // 스크롤 허용
 });
 
 // ExhibitionTitle
@@ -107,8 +106,20 @@ export const ArtWorkWrap = styled.div({
   alignItems: "flex-start",
   gap: "6px",
   width: "100%", // 전체 셀 너비를 채우도록 설정
-  boxSizing: "border-box", // 패딩 포함하여 너비 계산
+  boxSizing: "border-box",
+  position: "relative",
 });
+
+export const ArtWorkCircle = styled.div`
+  border-radius: 50%; // 완전한 원 모양
+  background: rgba(163, 72, 246, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-43%, -52%);
+  pointer-events: none;
+  z-index: 0;
+`;
 
 export const ArtWorkImg = styled.img({
   width: "100%",
@@ -122,6 +133,7 @@ export const ArtWorkInfoWrap = styled.div({
   flexDirection: "column",
   gap: 10,
   marginTop: 16,
+  zIndex: 1,
 });
 
 export const ArtWorkTitle = styled.div({

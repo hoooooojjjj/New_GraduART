@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
+  ArtWorkCircle,
   ArtWorkGridWrap,
   ArtWorkImg,
   ArtWorkInfoWrap,
@@ -417,7 +418,10 @@ function ExhibitionGrid() {
 
   const [minHeight, setMinHeight] = useState(0);
 
-  const imgRef = useRef(null);
+  const imgRef = useRef(0);
+
+  // 작품 hover 상태를 저장하는 state
+  const [isHover, setIsHover] = useState(artWorks.map(() => false));
 
   useEffect(() => {
     // 이미지 높이 (너비와 동일, 즉 셀의 너비와 같음) + 각 요소 사이의 gap 높이 * 2
@@ -429,8 +433,29 @@ function ExhibitionGrid() {
   return (
     <>
       <ArtWorkGridWrap minHeight={minHeight}>
-        {currentItems.map((artWork) => (
-          <ArtWorkWrap key={artWork.id}>
+        {currentItems.map((artWork, i) => (
+          <ArtWorkWrap
+            key={artWork.id} // 작품 hover 시, 동그라미 배경을 보여줌
+            onMouseEnter={() => {
+              const updatedIsHover = [...isHover];
+              updatedIsHover.fill(false);
+              updatedIsHover[i] = true;
+              setIsHover(updatedIsHover);
+            }}
+            // 작품 hover 떠나면, 동그라미 배경을 가림
+            onMouseLeave={() => {
+              const updatedIsHover = [...isHover];
+              updatedIsHover[i] = false;
+              setIsHover(updatedIsHover);
+            }}
+          >
+            <ArtWorkCircle
+              style={{
+                display: isHover[i] ? "block" : "none",
+                width: imgRef ? imgRef.current.clientWidth * 1.4 : 0,
+                height: imgRef ? imgRef.current.clientWidth * 1.4 : 0,
+              }}
+            />
             <ArtWorkImg ref={imgRef} src={artWork.img} alt={artWork.title} />
             <ArtWorkInfoWrap>
               <ArtWorkTitle>{artWork.title}</ArtWorkTitle>
