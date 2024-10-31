@@ -19,14 +19,14 @@ export const ExhibitionTitleWrap = styled.div({
 export const ExhibitionTitleTextWrap = styled.div({
   display: "flex",
   alignItems: "center",
-  height: 115,
+  height: "14vh",
   gap: 20,
 });
 
 export const TitleText = styled.div({
   color: "#FFF",
   fontFamily: "godorounded",
-  fontSize: "100px",
+  fontSize: "clamp(40px, 6.6vw, 200px)",
   fontStyle: "normal",
   fontWeight: 400,
   lineHeight: "normal",
@@ -40,9 +40,9 @@ export const TitleYear = styled.div({
   background: "#A348F6",
   boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
   backdropFilter: "blur(50px)",
-  padding: "10px 20px",
+  padding: "0.977vh 1.32vw",
   color: "white",
-  fontSize: 24,
+  fontSize: "clamp(16px, 1.584vw, 40px)",
   fontFamily: "KoddiUDOnGothic",
   fontWeight: "400",
   wordWrap: "break-word",
@@ -53,8 +53,8 @@ export const ExhibitionTitleSearchContainer = styled.form({
   position: "relative",
   display: "flex",
   alignItems: "center",
-  width: "625px",
-  height: "80px",
+  width: "38vw",
+  height: "8vh",
 });
 
 export const ExhibitionTitleSearchWrap = styled.input({
@@ -63,19 +63,19 @@ export const ExhibitionTitleSearchWrap = styled.input({
   borderRadius: "40px",
   background: "rgba(217, 217, 217, 0.30)",
   backdropFilter: "blur(50px)",
-  width: "625px",
-  height: "80px",
-  padding: "0px 65px 0px 39px",
+  width: "38vw",
+  height: "8vh",
+  padding: "0px 4.29vw 0px 2.574vw",
   color: "#FFF",
   fontFamily: "KoddiUDOnGothic",
-  fontSize: "24px",
+  fontSize: "clamp(16px, 1.584vw, 40px)",
   fontStyle: "normal",
   fontWeight: "400",
   lineHeight: "normal",
   "::placeholder": {
     color: "#909090",
     fontFamily: "KoddiUDOnGothic",
-    fontSize: "24px",
+    fontSize: "clamp(16px, 1.584vw, 40px)",
     fontStyle: "normal",
     fontWeight: "400",
     lineHeight: "normal",
@@ -83,10 +83,10 @@ export const ExhibitionTitleSearchWrap = styled.input({
 });
 
 export const SearchIcon = styled.img({
-  width: 29,
-  height: 29,
+  width: "1.98vw",
+  height: "1.98vw",
   position: "absolute",
-  right: "35px",
+  right: "2.31vw",
   cursor: "pointer",
 });
 
@@ -139,7 +139,7 @@ export const ArtWorkInfoWrap = styled.div({
 export const ArtWorkTitle = styled.div({
   color: "#FFF",
   fontFamily: "KoddiUDOnGothic",
-  fontSize: "20px",
+  fontSize: "clamp(10px, 1.32vw, 40px)",
   fontStyle: "normal",
   fontWeight: "700",
   lineHeight: "100%" /* 20px */,
@@ -148,7 +148,7 @@ export const ArtWorkTitle = styled.div({
 export const ArtWorkSubTitle = styled.div({
   color: "#909090",
   fontFamily: "KoddiUD OnGothic",
-  fontSize: "14px",
+  fontSize: "clamp(8px, 0.924vw, 25px)",
   fontStyle: "normal",
   fontWeight: "400",
   lineHeight: "100%" /* 14px */,
