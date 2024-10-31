@@ -10,9 +10,9 @@ export const Container = styled.div({
 });
 
 export const Main = styled.main({
-  paddingLeft: 76,
-  paddingRight: 76,
-  paddingTop: 70,
-  paddingBottom: 40,
+  paddingLeft: "5vw",
+  paddingRight: "5vw",
+  paddingTop: "6.839vh",
+  paddingBottom: "3.908vh",
   background: "#000",
 });

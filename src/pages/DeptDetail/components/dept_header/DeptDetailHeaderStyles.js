@@ -4,7 +4,7 @@ export const DeptDetailHeader = styled.section({
   display: "flex",
   width: "100%",
   height: "15vh",
-  marginBottom: "4vh",
+  marginBottom: "40px",
   alignItems: "center",
 });
 
@@ -22,7 +22,7 @@ export const DeptDetailHeadertitle = styled.div({
   alignSelf: "stretch",
   color: "#FFF",
   fontFamily: "godorounded",
-  fontSize: "clamp(40px, 6.6vw, 100px)",
+  fontSize: "clamp(40px, 6.6vw, 200px)",
   fontStyle: "normal",
   fontWeight: 400,
   lineHeight: "normal",
@@ -33,7 +33,7 @@ export const DeptDetailHeadersubTitle = styled.div({
   alignSelf: "stretch",
   color: "#FFF",
   fontFamily: "KoddiUDOnGothic",
-  fontSize: "clamp(16px, 1.98vw, 30px)",
+  fontSize: "clamp(16px, 1.98vw, 40px)",
   fontStyle: "normal",
   fontWeight: 400,
   lineHeight: "normal",
@@ -89,7 +89,7 @@ export const DeptDetailHeadernavinfo = styled.div({
 export const DeptDetailHeadernavinfotext = styled.div({
   color: "#FFF",
   fontFamily: "KoddiUDOnGothic",
-  fontSize: "clamp(10px, 1.65vw, 25px)",
+  fontSize: "clamp(10px, 1.65vw, 50px)",
   fontStyle: "normal",
   fontWeight: 400,
   lineHeight: "100%",

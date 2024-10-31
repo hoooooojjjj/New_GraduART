@@ -3,8 +3,8 @@ import styled from "@emotion/styled";
 export const DeptDetailDeptInfo = styled.section({
   display: "flex",
   width: "100%",
-  height: 307,
-  marginBottom: 40,
+  height: "30vh",
+  marginBottom: "40px",
 });
 
 export const DeptInfoLeft = styled.div({
@@ -12,11 +12,11 @@ export const DeptInfoLeft = styled.div({
   width: "40%",
   height: "100%",
   alignItems: "center",
-  gap: 15,
+  gap: "1vw",
 });
 
 export const DeptInfoImgPassive = styled.div({
-  width: "30px",
+  width: "1.98vw",
   flexShrink: 0,
   borderRadius: "20px",
   background: "rgba(217, 217, 217, 0.30)",
@@ -24,7 +24,7 @@ export const DeptInfoImgPassive = styled.div({
 });
 
 export const DeptInfoImgActive = styled.img({
-  width: "396px",
+  width: "22vw",
   height: "100%",
   flexShrink: 0,
   borderRadius: "20px",
@@ -35,10 +35,10 @@ export const DeptInfoRight = styled.div({
   height: "100%",
   color: "#FFF",
   fontFamily: "KoddiUDOnGothic",
-  fontSize: "clamp(10px, 1.59vw, 25px)",
+  fontSize: "clamp(10px, 1.3vw, 40px)",
   fontStyle: "normal",
   fontWeight: 400,
-  lineHeight: "35px" /* 145.833% */,
+  lineHeight: "2.31vw" /* 145.833% */,
   whiteSpace: "pre-wrap",
   overflowWrap: "break-word",
 });
