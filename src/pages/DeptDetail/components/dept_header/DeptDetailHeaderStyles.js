@@ -3,8 +3,9 @@ import styled from "@emotion/styled";
 export const DeptDetailHeader = styled.section({
   display: "flex",
   width: "100%",
-  height: 155,
-  marginBottom: 40,
+  height: "15vh",
+  marginBottom: "4vh",
+  alignItems: "center",
 });
 
 export const DeptDetailHeaderleft = styled.div({
@@ -12,25 +13,27 @@ export const DeptDetailHeaderleft = styled.div({
   width: "40%",
   height: "100%",
   flexDirection: "column",
-  alignItems: "flex-start",
+  justifyContent: "center",
   flexShrink: 0,
 });
 
 export const DeptDetailHeadertitle = styled.div({
+  boxSizing: "border-box",
   alignSelf: "stretch",
   color: "#FFF",
   fontFamily: "godorounded",
-  fontSize: "100px",
+  fontSize: "clamp(40px, 6.6vw, 100px)",
   fontStyle: "normal",
   fontWeight: 400,
   lineHeight: "normal",
+  alignContent: "center",
 });
 
 export const DeptDetailHeadersubTitle = styled.div({
   alignSelf: "stretch",
   color: "#FFF",
   fontFamily: "KoddiUDOnGothic",
-  fontSize: "30px",
+  fontSize: "clamp(16px, 1.98vw, 30px)",
   fontStyle: "normal",
   fontWeight: 400,
   lineHeight: "normal",
@@ -52,8 +55,8 @@ export const DeptDetailHeadernavwrap = styled.div({
 });
 
 export const DeptDetailHeadercircle = styled.div({
-  width: "50px",
-  height: "50px",
+  width: "3.3vw",
+  height: "3.3vw",
   flexShrink: 0,
   background: "rgba(217, 217, 217, 0.30)",
   borderRadius: "50%",
@@ -64,8 +67,8 @@ export const DeptDetailHeadercircle = styled.div({
 
 export const DeptDetailHeadernavinfowrapper = styled.div((props) => ({
   position: "relative",
-  width: "347px",
-  height: "59px",
+  width: "23.1vw",
+  height: "5.982vh",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -86,7 +89,7 @@ export const DeptDetailHeadernavinfo = styled.div({
 export const DeptDetailHeadernavinfotext = styled.div({
   color: "#FFF",
   fontFamily: "KoddiUDOnGothic",
-  fontSize: "25px",
+  fontSize: "clamp(10px, 1.65vw, 25px)",
   fontStyle: "normal",
   fontWeight: 400,
   lineHeight: "100%",
