@@ -15,4 +15,8 @@ export const Main = styled.main({
   paddingTop: "6.839vh",
   paddingBottom: "3.908vh",
   background: "#000",
+  "@media (max-width: 768px)": {
+    paddingLeft: "5.12vw",
+    paddingRight: "5.12vw",
+  },
 });

@@ -6,6 +6,11 @@ export const DeptDetailHeader = styled.section({
   height: "15vh",
   marginBottom: "40px",
   alignItems: "center",
+  "@media (max-width: 768px)": {
+    height: 66,
+    marginBottom: "20px",
+    alignItems: "flex-end",
+  },
 });
 
 export const DeptDetailHeaderleft = styled.div({
@@ -15,6 +20,9 @@ export const DeptDetailHeaderleft = styled.div({
   flexDirection: "column",
   justifyContent: "center",
   flexShrink: 0,
+  "@media (max-width: 768px)": {
+    width: "50%",
+  },
 });
 
 export const DeptDetailHeadertitle = styled.div({
@@ -27,6 +35,10 @@ export const DeptDetailHeadertitle = styled.div({
   fontWeight: 400,
   lineHeight: "normal",
   alignContent: "center",
+  "@media (max-width: 768px)": {
+    fontSize: "40px",
+    whiteSpace: "nowrap",
+  },
 });
 
 export const DeptDetailHeadersubTitle = styled.div({
@@ -37,6 +49,10 @@ export const DeptDetailHeadersubTitle = styled.div({
   fontStyle: "normal",
   fontWeight: 400,
   lineHeight: "normal",
+  "@media (max-width: 768px)": {
+    fontSize: "16px",
+    whiteSpace: "nowrap",
+  },
 });
 
 export const DeptDetailHeaderright = styled.div({
@@ -47,6 +63,11 @@ export const DeptDetailHeaderright = styled.div({
   gap: 20,
   flexShrink: 0,
   marginLeft: 10,
+  "@media (max-width: 768px)": {
+    width: "50%",
+    gap: 5,
+    alignItems: "flex-end",
+  },
 });
 
 export const DeptDetailHeadernavwrap = styled.div({
@@ -64,6 +85,10 @@ export const DeptDetailHeadercircle = styled.div({
   ":hover": {
     background: "#A348F6",
   },
+  "@media (max-width: 768px)": {
+    width: "4.096vw",
+    height: "4.096vw",
+  },
 });
 
 export const DeptDetailHeadernavinfowrapper = styled.div((props) => ({
@@ -74,6 +99,9 @@ export const DeptDetailHeadernavinfowrapper = styled.div((props) => ({
   alignItems: "center",
   justifyContent: "center",
   display: props.isNavHover ? "flex" : "none",
+  "@media (max-width: 768px)": {
+    display: "none",
+  },
 }));
 
 export const DeptDetailHeadernavinfo = styled.div({
@@ -85,6 +113,9 @@ export const DeptDetailHeadernavinfo = styled.div({
   backdropFilter: "blur(50px)",
   zIndex: 0,
   position: "absolute",
+  "@media (max-width: 768px)": {
+    display: "none",
+  },
 });
 
 export const DeptDetailHeadernavinfotext = styled.div({
@@ -95,4 +126,7 @@ export const DeptDetailHeadernavinfotext = styled.div({
   fontWeight: 400,
   lineHeight: "100%",
   zIndex: 1,
+  "@media (max-width: 768px)": {
+    display: "none",
+  },
 });
