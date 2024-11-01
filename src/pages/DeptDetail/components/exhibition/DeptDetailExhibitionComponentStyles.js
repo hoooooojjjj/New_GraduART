@@ -6,6 +6,9 @@ export const DeptDetailExhibition = styled.section({
   gap: 50,
   width: "100%",
   height: "auto",
+  "@media (max-width: 768px)": {
+    gap: 30,
+  },
 });
 
 // ExhibitionTitle
@@ -21,6 +24,10 @@ export const ExhibitionTitleTextWrap = styled.div({
   alignItems: "center",
   height: "14vh",
   gap: 20,
+  "@media (max-width: 768px)": {
+    gap: 10,
+    height: 46,
+  },
 });
 
 export const TitleText = styled.div({
@@ -33,6 +40,9 @@ export const TitleText = styled.div({
   alignContent: "center",
   alignSelf: "center",
   height: "100%",
+  "@media (max-width: 768px)": {
+    fontSize: 40,
+  },
 });
 
 export const TitleYear = styled.div({
@@ -47,6 +57,10 @@ export const TitleYear = styled.div({
   fontWeight: "400",
   wordWrap: "break-word",
   marginTop: 10,
+  "@media (max-width: 768px)": {
+    fontSize: 8,
+    padding: "5px 10px",
+  },
 });
 
 export const ExhibitionTitleSearchContainer = styled.form({
@@ -55,6 +69,10 @@ export const ExhibitionTitleSearchContainer = styled.form({
   alignItems: "center",
   width: "38vw",
   height: "8vh",
+  "@media (max-width: 768px)": {
+    width: "74.496vw",
+    height: "30px",
+  },
 });
 
 export const ExhibitionTitleSearchWrap = styled.input({
@@ -80,6 +98,16 @@ export const ExhibitionTitleSearchWrap = styled.input({
     fontWeight: "400",
     lineHeight: "normal",
   },
+  "@media (max-width: 768px)": {
+    width: "74.496vw",
+    height: "30px",
+    borderRadius: "30px",
+    padding: "0px 14px 0px 14px",
+    fontSize: "10px",
+    "::placeholder": {
+      fontSize: "10px",
+    },
+  },
 });
 
 export const SearchIcon = styled.img({
@@ -88,9 +116,14 @@ export const SearchIcon = styled.img({
   position: "absolute",
   right: "2.31vw",
   cursor: "pointer",
+  "@media (max-width: 768px)": {
+    width: "3.84vw",
+    height: "3.84vw",
+    right: "13px",
+  },
 });
 
-export const ArtWorkGridWrap = styled.article`
+export const ArtWorkGridWrap = styled.article(`
   display: grid;
   width: 100%;
   min-height: ${(props) => props.minHeight}px;
@@ -98,7 +131,12 @@ export const ArtWorkGridWrap = styled.article`
   gap: 54px;
   align-items: flex-start;
   justify-items: center;
-`;
+  @media (max-width: 768px) {
+    min-height: ${(props) => props.minHeight * 4}px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+`);
 
 export const ArtWorkWrap = styled.div({
   display: "flex",
@@ -108,6 +146,9 @@ export const ArtWorkWrap = styled.div({
   width: "100%", // 전체 셀 너비를 채우도록 설정
   boxSizing: "border-box",
   position: "relative",
+  "@media (max-width: 768px)": {
+    gap: 0,
+  },
 });
 
 export const ArtWorkCircle = styled.div`
@@ -126,6 +167,9 @@ export const ArtWorkImg = styled.img({
   aspectRatio: "1", // 너비와 높이를 동일하게 설정
   borderRadius: "20px",
   backdropFilter: "blur(50px)",
+  "@media (max-width: 768px)": {
+    borderRadius: "10px",
+  },
 });
 
 export const ArtWorkInfoWrap = styled.div({
@@ -134,6 +178,10 @@ export const ArtWorkInfoWrap = styled.div({
   gap: 10,
   marginTop: 16,
   zIndex: 1,
+  "@media (max-width: 768px)": {
+    gap: 5,
+    marginTop: 10,
+  },
 });
 
 export const ArtWorkTitle = styled.div({
@@ -143,15 +191,21 @@ export const ArtWorkTitle = styled.div({
   fontStyle: "normal",
   fontWeight: "700",
   lineHeight: "100%" /* 20px */,
+  "@media (max-width: 768px)": {
+    fontSize: 12,
+  },
 });
 
 export const ArtWorkSubTitle = styled.div({
   color: "#909090",
-  fontFamily: "KoddiUD OnGothic",
+  fontFamily: "KoddiUDOnGothic",
   fontSize: "clamp(8px, 0.924vw, 25px)",
   fontStyle: "normal",
   fontWeight: "400",
   lineHeight: "100%" /* 14px */,
+  "@media (max-width: 768px)": {
+    fontSize: 10,
+  },
 });
 
 export const PaginationWrap = styled.div({
@@ -160,6 +214,9 @@ export const PaginationWrap = styled.div({
   alignItems: "center",
   justifyContent: "center",
   marginTop: "20px",
+  "@media (max-width: 768px)": {
+    marginTop: 0,
+  },
 });
 
 export const PrevButton = styled.button({
@@ -167,10 +224,15 @@ export const PrevButton = styled.button({
   borderRadius: "40px",
   background: "rgba(217, 217, 217, 0.30)",
   backdropFilter: "blur(50px)",
+  fontFamily: "KoddiUDOnGothic",
   color: "white",
   border: "none",
   cursor: "pointer",
   marginRight: "10px",
+  "@media (max-width: 768px)": {
+    padding: "10px 15px",
+    fontSize: "10px",
+  },
 });
 
 export const CurrentPage = styled.div({
@@ -189,6 +251,11 @@ export const CurrentPage = styled.div({
   fontStyle: "normal",
   fontWeight: 400,
   lineHeight: "100%" /* 16px */,
+  "@media (max-width: 768px)": {
+    width: "5.888vw",
+    height: "5.888vw",
+    fontSize: "10px",
+  },
 });
 
 export const NextButton = styled.button({
@@ -200,4 +267,9 @@ export const NextButton = styled.button({
   border: "none",
   cursor: "pointer",
   marginLeft: "10px",
+  fontFamily: "KoddiUDOnGothic",
+  "@media (max-width: 768px)": {
+    padding: "10px 15px",
+    fontSize: "10px",
+  },
 });
