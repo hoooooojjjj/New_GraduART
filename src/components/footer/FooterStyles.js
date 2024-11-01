@@ -9,6 +9,10 @@ export const FooterContainer = styled.div({
   backdropFilter: "blur(50px)",
   paddingLeft: "5vw",
   paddingRight: "5vw",
+  "@media (max-width: 768px)": {
+    paddingLeft: "5.12vw",
+    paddingRight: "5.12vw",
+  },
 });
 
 export const FooterHeader = styled.div({
@@ -20,6 +24,11 @@ export const FooterHeader = styled.div({
   borderBottom: "1px solid #A348F6",
   paddingTop: "3.908vh",
   paddingBottom: "3.908vh",
+  "@media (max-width: 768px)": {
+    fontSize: 22,
+    paddingTop: 17,
+    paddingBottom: 17,
+  },
 });
 
 export const FooterMain = styled.div({
@@ -29,6 +38,18 @@ export const FooterMain = styled.div({
   width: "100%",
   display: "flex",
   justifyContent: "space-between",
+  "@media (max-width: 768px)": {
+    paddingTop: 17,
+    paddingBottom: 17,
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr", // 세 개의 열로 구성
+    gridTemplateRows: "auto auto", // 두 개의 행으로 구성
+    gap: "1vw",
+    gridTemplateAreas: `
+      "about payment register"
+      "madeBy madeBy madeBy"
+    `,
+  },
 });
 
 export const FooterMainElementWrap = styled.div({
@@ -37,6 +58,13 @@ export const FooterMainElementWrap = styled.div({
   alignItems: "flex-start",
   gap: "1vw",
   flex: "1 0 0",
+  "@media (max-width: 768px)": {
+    "&[data-area='about']": { gridArea: "about" },
+    "&[data-area='payment']": { gridArea: "payment" },
+    "&[data-area='register']": { gridArea: "register" },
+    "&[data-area='madeBy']": { gridArea: "madeBy" },
+    gap: 5,
+  },
 });
 
 export const FooterMainElementTitle = styled.div({
@@ -48,6 +76,9 @@ export const FooterMainElementTitle = styled.div({
   lineHeight: "110%" /* 19.8px */,
   marginBottom: 10,
   marginTop: 10,
+  "@media (max-width: 768px)": {
+    fontSize: 10,
+  },
 });
 
 export const FooterMainElementText = styled.div({
@@ -57,11 +88,18 @@ export const FooterMainElementText = styled.div({
   fontStyle: "normal",
   fontWeight: 400,
   lineHeight: "100%" /* 16px */,
+  "@media (max-width: 768px)": {
+    fontSize: 8,
+  },
 });
 
 export const FooterMainElementImg = styled.img({
   width: "90%",
   height: 50,
+  "@media (max-width: 768px)": {
+    width: 150,
+    height: 30,
+  },
 });
 
 export const FooterFooter = styled.div({
@@ -73,4 +111,9 @@ export const FooterFooter = styled.div({
   lineHeight: "140%" /* 18.87px */,
   paddingTop: "3.908vh",
   paddingBottom: "3.908vh",
+  "@media (max-width: 768px)": {
+    paddingTop: 17,
+    paddingBottom: 17,
+    fontSize: 6,
+  },
 });
