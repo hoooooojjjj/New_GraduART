@@ -38,7 +38,8 @@ export const DeptInfoRight = styled.div({
   fontSize: "clamp(10px, 1.3vw, 40px)",
   fontStyle: "normal",
   fontWeight: 400,
-  lineHeight: "2.31vw" /* 145.833% */,
+  lineHeight: "2.2vw" /* 145.833% */,
   whiteSpace: "pre-wrap",
   overflowWrap: "break-word",
+  marginLeft: "10px",
 });

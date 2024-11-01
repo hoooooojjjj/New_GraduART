@@ -22,7 +22,7 @@ export const DeptDetailHeadertitle = styled.div({
   alignSelf: "stretch",
   color: "#FFF",
   fontFamily: "godorounded",
-  fontSize: "clamp(40px, 6.6vw, 200px)",
+  fontSize: "clamp(40px, 6vw, 200px)",
   fontStyle: "normal",
   fontWeight: 400,
   lineHeight: "normal",
@@ -46,6 +46,7 @@ export const DeptDetailHeaderright = styled.div({
   alignItems: "center",
   gap: 20,
   flexShrink: 0,
+  marginLeft: 10,
 });
 
 export const DeptDetailHeadernavwrap = styled.div({

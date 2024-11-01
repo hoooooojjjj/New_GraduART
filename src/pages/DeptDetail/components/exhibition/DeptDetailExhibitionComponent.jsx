@@ -452,8 +452,12 @@ function ExhibitionGrid() {
             <ArtWorkCircle
               style={{
                 display: isHover[i] ? "block" : "none",
-                width: imgRef ? imgRef.current.clientWidth * 1.4 : 0,
-                height: imgRef ? imgRef.current.clientWidth * 1.4 : 0,
+                width: imgRef.current.clientWidth
+                  ? imgRef.current.clientWidth * 1.4
+                  : 0,
+                height: imgRef.current.clientWidth
+                  ? imgRef.current.clientWidth * 1.4
+                  : 0,
               }}
             />
             <ArtWorkImg ref={imgRef} src={artWork.img} alt={artWork.title} />
