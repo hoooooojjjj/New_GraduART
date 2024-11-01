@@ -15,7 +15,9 @@ import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHe
 function PaymentSuccess() {
   return (
     <PaymentSuccessContainer>
-      <header>{/* <DepartmentHeader /> */}</header>
+      <header>
+        <DepartmentHeader />
+      </header>
       <main>
         <BackgroundCircle></BackgroundCircle>
         <InfoWrap>
