@@ -16,6 +16,12 @@ export const BackgroundCircle = styled.div({
   flexShrink: 0,
   borderRadius: "500px",
   background: "#A348F6",
+  "@media (max-width: 768px)": {
+    width: "350px",
+    height: "350px",
+    top: "25%",
+    left: "-30%",
+  },
 });
 
 export const InfoWrap = styled.div({
@@ -26,6 +32,18 @@ export const InfoWrap = styled.div({
   display: "flex",
   flexDirection: "column",
   gap: "32px",
+  "@media (max-width: 768px)": {
+    height: "100dvh",
+    position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    top: "0%",
+    left: "0%",
+    gap: "6px",
+    transform: "translate(0%, 15%)",
+  },
 });
 
 export const InfoText = styled.div({
@@ -36,6 +54,10 @@ export const InfoText = styled.div({
   fontWeight: "700",
   lineHeight: "normal",
   textAlign: "right",
+  "@media (max-width: 768px)": {
+    fontSize: "25px",
+    textAlign: "center",
+  },
 });
 
 export const InfoBtnWrap = styled.div({
@@ -44,6 +66,12 @@ export const InfoBtnWrap = styled.div({
   width: `${275 + 275}px`,
   height: `${69 + 69}px`,
   position: "relative",
+  "@media (max-width: 768px)": {
+    fontSize: "25px",
+    textAlign: "center",
+    width: `100%`,
+    height: `${37 + 37}px`,
+  },
 });
 
 export const InfoBtnGoMainWrap = styled.div({
@@ -60,6 +88,12 @@ export const InfoBtnGoMainWrap = styled.div({
   justifyContent: "center",
   alignItems: "center",
   gap: "10px",
+  "@media (max-width: 768px)": {
+    top: "45px",
+    left: "40%",
+    width: "150px",
+    height: "37px",
+  },
 });
 
 export const InfoBtnGoMain = styled.div({
@@ -70,6 +104,9 @@ export const InfoBtnGoMain = styled.div({
   fontStyle: "normal",
   fontWeight: "400",
   lineHeight: "100%" /* 24px */,
+  "@media (max-width: 768px)": {
+    fontSize: "12px",
+  },
 });
 
 export const InfoBtnGoPayWrap = styled.div({
@@ -86,6 +123,11 @@ export const InfoBtnGoPayWrap = styled.div({
   justifyContent: "center",
   alignItems: "center",
   gap: "10px",
+  "@media (max-width: 768px)": {
+    left: "50%",
+    width: "150px",
+    height: "37px",
+  },
 });
 
 export const InfoBtnGoPay = styled.div({
@@ -96,4 +138,7 @@ export const InfoBtnGoPay = styled.div({
   fontStyle: "normal",
   fontWeight: "400",
   lineHeight: "100%" /* 24px */,
+  "@media (max-width: 768px)": {
+    fontSize: "12px",
+  },
 });
