@@ -21,7 +21,7 @@ export const DeptDetailHeaderleft = styled.div({
   justifyContent: "center",
   flexShrink: 0,
   "@media (max-width: 768px)": {
-    width: "50%",
+    width: "45%",
   },
 });
 
@@ -64,7 +64,7 @@ export const DeptDetailHeaderright = styled.div({
   flexShrink: 0,
   marginLeft: 10,
   "@media (max-width: 768px)": {
-    width: "50%",
+    width: "55%",
     gap: 5,
     alignItems: "flex-end",
   },

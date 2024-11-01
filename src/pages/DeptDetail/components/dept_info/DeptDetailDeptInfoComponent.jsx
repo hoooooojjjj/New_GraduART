@@ -76,7 +76,16 @@ function DeptDetailDeptInfoComponent() {
           )
         )}
       </DeptInfoLeft>
-      <DeptInfoRight>{curDepartmentObj.departmentDescription}</DeptInfoRight>
+      {window.innerWidth > 768 ? (
+        <DeptInfoRight>{curDepartmentObj?.departmentDescription}</DeptInfoRight>
+      ) : (
+        <DeptInfoRight>
+          {curDepartmentObj?.departmentDescription?.slice(
+            0,
+            curDepartmentObj?.departmentDescription?.length / 2
+          )}
+        </DeptInfoRight>
+      )}
     </DeptDetailDeptInfo>
   );
 }
