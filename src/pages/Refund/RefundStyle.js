@@ -10,6 +10,7 @@ export const Wrap = styled("div")`
   background-color: var(--black);
   box-sizing: border-box;
   overflow-y: auto;
+  align-items: center;
 
   @media (max-width: 768px) and (min-width: 320px) {
     align-items: center;
@@ -44,13 +45,16 @@ export const MainFrame = styled.div`
   background-color: #d6d6d64c;
   border-radius: 20px;
   padding: 25px 40px;
-  margin-right: 20dvw;
-  margin-left: 20dvw;
+  width: 55%;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 20px;
   margin-top: 100px;
+  @media (min-width: 768px) {
+    min-width: 750px;
+  }
+
   @media (max-width: 768px) and (min-width: 320px) {
     margin-left: 18px;
     margin-right: 18px;
