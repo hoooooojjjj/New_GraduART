@@ -1,12 +1,39 @@
 import {DepartmentHeader} from "../../components/DepartmentHeader/DepartmentHeader";
 import Footer from "../../components/footer/Footer";
 import {
-    BacktoDepartment, DeptName,
-    Container, Main, Title, Top, Placeholder, Middle, ImagesWrap, DetailWrap
+    BacktoDepartment,
+    DeptName,
+    Container,
+    Main,
+    Title,
+    Top,
+    Placeholder,
+    Middle,
+    ImagesWrap,
+    DetailWrap,
+    Image,
+    DetailComponent,
+    Artist,
+    Description, PricingComponent, Price, SellStatus, PriceWrap
 } from "./ArtworkStyle.js";
 import React, { createContext, useEffect, useState } from "react";
 import art from "./Artwork.json"
 import {useNavigate, useParams} from "react-router-dom";
+
+const Images = ({ imageLinks }) => {
+
+    return (
+        <ImagesWrap>
+                {imageLinks.map((image, index) => (
+                    <Image
+                        key={index}
+                        src={image}
+                    />
+                ))}
+        </ImagesWrap>
+    );
+};
+
 
 function Artwork () {
     //url에서 artwork_id 받아옴, 이걸로 DB에 GET 요청 날려서 setTargetArt에 넣어주면 됨
@@ -31,10 +58,20 @@ function Artwork () {
                         <Placeholder></Placeholder>
                     </Top>
                     <Middle>
-                        <ImagesWrap>
-
-                        </ImagesWrap>
+                        <Images imageLinks={targetArt.imagePath}></Images>
                         <DetailWrap>
+                            <DetailComponent>
+                                <Artist>{targetArt.artist}, {Date(targetArt.madeAt).getFullYear}</Artist>
+                                <Description>{targetArt.descriptions}</Description>
+                            </DetailComponent>
+                            <PricingComponent>
+                                <SellStatus>{targetArt.onSale === "True" ? `` : '판매가 완료된 작품입니다'}</SellStatus>
+                                <PriceWrap>
+                                    <Price color={'var(--purple)'}>판매 가격</Price> <Price color={'var(--white)'}>{targetArt.price}</Price>
+
+                                </PriceWrap>
+
+                            </PricingComponent>
 
                         </DetailWrap>
                     </Middle>

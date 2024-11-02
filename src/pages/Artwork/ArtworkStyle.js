@@ -24,7 +24,8 @@ export const Top = styled.div({
    display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    width: "100%"
+    width: "100%",
+    marginBottom: "2%"
 });
 
 export const Title = styled.h1`
@@ -65,26 +66,94 @@ export const Placeholder = styled.div`
 export const Middle = styled.div`
     width: 100%;
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    align-items: flex-start;
+    flex-direction: row;
     justify-content: space-between;
 `
 
 export const ImagesWrap = styled.div`
     display: flex;
     align-items: flex-start;
-    flex-direction: row;
+    flex-direction: column;
     gap: 30px;
+    width: fit-content;
 `
 
-export const Image = styled.img((props) => ({
-    backgroundImage: props.src,
-    maxWidth: `100%`
-}));
+export const Image = styled.img({
+    width: "100%",
+    borderRadius: "20px",
+    backdropFilter: "blur(50px)",
+    "@media (max-width: 768px)": {
+        borderRadius: "10px",
+    },
+});
 
 export const DetailWrap = styled.div`
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    width: 278px;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 40%;
+    margin-left: 2%;
 `
+
+export const DetailComponent = styled.div({
+    height: 'fit-content',
+    padding: '20px 20px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    backgroundColor: `#A348F699`,
+    borderRadius: '20px',
+    gap: `10px`,
+    "@media (max-width: 768px)": {
+    borderRadius: "10px",
+    }
+})
+
+export const Artist = styled.div`
+    color: var(--white);
+    font-family: KoddiUDOnGothic,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+`
+
+export const Description = styled.div`
+    color: var(--white);
+    font-family: KoddiUDOnGothic, sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+`
+
+export const PricingComponent = styled.div({
+    height: 'fit-content',
+    marginTop: '20px',
+    padding: '20px 20px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    backgroundColor: `#90909099`,
+    borderRadius: '20px',
+    gap: `10px`,
+    "@media (max-width: 768px)": {
+        borderRadius: "10px",
+    }
+})
+
+export const SellStatus = styled.div`
+    color: var(--white);
+    font-family: KoddiUDOnGothic,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+`
+
+export const PriceWrap = styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    font-family: KoddiUDOnGothic, sans-serif;
+    font-size: 13px;
+`
+
+export const Price = styled.div(props => ({
+    color: props.color
+}));
