@@ -29,7 +29,9 @@ function DeptDetail() {
   return (
     <curDepartmentObjContext.Provider value={curDepartmentObj}>
       <Container>
-        <header>{/* <DepartmentHeader /> */}</header>
+        <header>
+          <DepartmentHeader />
+        </header>
         <Main>
           <DeptDetailHeaderComponent />
           <DeptDetailDeptInfoComponent />
