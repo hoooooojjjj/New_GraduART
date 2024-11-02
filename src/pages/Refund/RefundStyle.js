@@ -10,6 +10,10 @@ export const Wrap = styled("div")`
   background-color: var(--black);
   box-sizing: border-box;
   overflow-y: auto;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    align-items: center;
+  }
 `;
 
 export const PageText = styled.div`
@@ -22,6 +26,11 @@ export const PageText = styled.div`
   margin-bottom: 20px;
   margin-top: 30px;
   font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 25px;
+    color: white;
+  }
 `;
 
 export const Line = styled.div`
@@ -42,6 +51,20 @@ export const MainFrame = styled.div`
   align-items: center;
   gap: 20px;
   margin-top: 100px;
+  @media (max-width: 768px) and (min-width: 320px) {
+    margin-left: 18px;
+    margin-right: 18px;
+    width: calc(100% - 76px);
+    margin-top: 20px;
+    padding: 25px 20px;
+    flex-direction: column;
+  }
+`;
+
+export const MobileWrap = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 8px;
 `;
 
 // 이미지 스타일
@@ -51,6 +74,11 @@ export const RectangleImage = styled.div`
   border-radius: 20px;
   background: rgba(217, 217, 217, 0.3);
   backdrop-filter: blur(50px);
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 export const TextWrapper = styled.div`
@@ -60,6 +88,9 @@ export const TextWrapper = styled.div`
   height: 20dvw;
   flex-grow: 1;
   width: auto;
+  @media (max-width: 768px) and (min-width: 320px) {
+    height: 100px;
+  }
 `;
 
 export const OrderInformation = styled.span`
@@ -69,6 +100,10 @@ export const OrderInformation = styled.span`
   font-weight: 700;
   line-height: 100%;
   font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
 `;
 
 export const PurpleText = styled.span`
@@ -78,6 +113,10 @@ export const PurpleText = styled.span`
   font-weight: 700;
   line-height: 100%; /* 25px */
   min-width: 30px;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
 `;
 
 // 주문 정보 컴포넌트 스타일
@@ -95,6 +134,10 @@ export const OrderDescription = styled.p`
   font-weight: 400;
   line-height: 20px;
   font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
 `;
 
 export const MiddleWrapper = styled.div`
@@ -102,6 +145,10 @@ export const MiddleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  @media (max-width: 768px) and (min-width: 320px) {
+    width: 100%;
+    margin-left: 5px;
+  }
 `;
 
 export const LabelValueWrapper = styled.div`
@@ -123,6 +170,10 @@ export const AmountValue = styled.span`
   line-height: 25px;
   white-space: nowrap;
   font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
 `;
 
 // 원화 표시 스타일
@@ -133,6 +184,10 @@ export const Currency = styled.span`
   font-weight: 700;
   line-height: 100%;
   font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
 `;
 
 // 결제수단 텍스트 스타일
@@ -143,6 +198,10 @@ export const PaymentText = styled.div`
   line-height: 25px;
   white-space: nowrap;
   font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
 `;
 
 // 결제 승인 시각 텍스트 스타일
@@ -153,6 +212,10 @@ export const ApprovalTimeText = styled.div`
   line-height: 25px;
   white-space: nowrap;
   font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -171,7 +234,15 @@ export const RefundButton = styled.button`
   font-style: normal;
   font-weight: 400;
   line-height: 100%; /* 24px */
-  padding: 23px;
+  padding: 20px;
   margin-top: 70px;
   font-family: KoddiUDOnGothic, sans-serif;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+    padding: 10px;
+    margin-top: 40px;
+  }
 `;
