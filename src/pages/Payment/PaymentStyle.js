@@ -23,6 +23,10 @@ export const PaymentText = styled.div`
   line-height: 100%; /* 50px */
   margin-bottom: 50px;
   margin-top: 25px;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 25px;
+  }
 `;
 
 export const MiddleWrapper = styled.div`
@@ -32,6 +36,10 @@ export const MiddleWrapper = styled.div`
   gap: 20px;
   width: 100%;
   align-items: flex-start;
+  @media (max-width: 768px) and (min-width: 320px) {
+    flex-direction: column;
+    width: 100dvw;
+  }
 `;
 
 export const OrderInformationWrap = styled.div`
@@ -39,6 +47,12 @@ export const OrderInformationWrap = styled.div`
   border-radius: 20px;
   background: rgba(163, 72, 246, 0.8);
   padding: 30px 29px 20px 29px;
+  @media (max-width: 768px) and (min-width: 320px) {
+    width: calc(100% - 108px);
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 17px 29px 13px 17px;
+  }
 `;
 
 export const OrderInformationText = styled.div`
@@ -46,18 +60,30 @@ export const OrderInformationText = styled.div`
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
 `;
 
 export const OrdererWrap = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    width: 100%;
+  }
 `;
 
 export const DeliveryAddressWrap = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    width: 100%;
+  }
 `;
 
 export const MiddleText = styled.div`
@@ -69,6 +95,12 @@ export const MiddleText = styled.div`
   margin-left: 10px;
   margin-bottom: 13px;
   margin-top: 15px;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
 `;
 
 export const TwoTextWrapper = styled.div`
@@ -90,11 +122,17 @@ export const TextWrapper = styled.input`
   line-height: 100%;
   margin-bottom: 12px;
   height: 43px;
+  border: none;
+  outline: none;
   &::placeholder {
     color: #d7d7d7;
   }
-  border: none;
-  outline: none;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 8px;
+    height: 25px;
+    margin-bottom: 8px;
+  }
 `;
 
 export const OrderDetailWrap = styled.div`
@@ -104,6 +142,12 @@ export const OrderDetailWrap = styled.div`
   background: rgba(215, 215, 215, 0.3);
   display: block;
   box-sizing: border-box;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    width: calc(100% - 50px);
+    margin-left: 25px;
+    margin-right: 25px;
+  }
 `;
 
 export const OrderText = styled.div`
@@ -114,23 +158,42 @@ export const OrderText = styled.div`
   margin-left: 28px;
   margin-top: 34px;
   margin-bottom: 10px;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+    color: white;
+    margin-top: 17px;
+  }
 `;
 
 export const Line = styled.div`
   background: #a348f6;
   margin: 18px 28px;
   height: 2px;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    margin: 10px 16px;
+  }
 `;
 
 export const OrderMidWrap = styled.div`
   display: flex;
-  margin-left: 55px;
+  margin-left: 28px;
   margin-right: 60px;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    margin-right: 18px;
+    margin-left: 18px;
+  }
 `;
 
 export const LeftWrapper = styled.div`
   display: flex;
   gap: 20px;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    gap: 5px;
+  }
 `;
 
 export const ArtImage = styled.img`
@@ -139,6 +202,11 @@ export const ArtImage = styled.img`
   border-radius: 20px;
   background: rgba(217, 217, 217, 0.3);
   backdrop-filter: blur(50px);
+  @media (max-width: 768px) and (min-width: 320px) {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+  }
 `;
 
 export const ArtTextWrap = styled.div`
@@ -154,6 +222,10 @@ export const ArtText = styled.span`
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 10px;
+  }
 `;
 export const ArtInfo = styled.span`
   color: #fff;
@@ -161,6 +233,10 @@ export const ArtInfo = styled.span`
   font-style: normal;
   font-weight: 400;
   line-height: 100%;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 8px;
+  }
 `;
 
 export const ArtPrice = styled.div`
@@ -176,6 +252,10 @@ export const PurpleText = styled.span`
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 10px;
+  }
 `;
 
 export const WhiteText = styled.span`
@@ -184,23 +264,31 @@ export const WhiteText = styled.span`
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 10px;
+  }
 `;
 
 export const TotalWrap = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-right: 102px;
+  margin-right: 60px;
   gap: 5px;
   margin-bottom: 39px;
   margin-top: 4px;
+  @media (max-width: 768px) and (min-width: 320px) {
+    margin-right: 26px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
 `;
 
 export const PaymentButton = styled.button`
-  border-radius: 15px;
+  border-radius: 20px;
   border: 5px solid #fae100;
   display: flex;
   width: auto;
-  height: 60px;
   padding: 17px 52px;
   justify-content: center;
   align-items: center;
@@ -213,4 +301,9 @@ export const PaymentButton = styled.button`
   background-color: ${({ isComplete }) =>
     isComplete ? "#fae100" : "var(--black)"};
   margin-top: 50px;
+  margin-bottom: 50px;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 10px;
+  }
 `;

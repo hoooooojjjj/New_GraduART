@@ -70,7 +70,6 @@ function Payment() {
   return (
     <Wrap>
       <DepartmentHeader></DepartmentHeader>
-
       <PaymentText>결제하기</PaymentText>
       <MiddleWrapper>
         <OrderInformationWrap>
