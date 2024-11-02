@@ -21,6 +21,7 @@ import {
   RefundButton,
 } from "./RefundStyle";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
+import rightArrow from "../../assests/right-arrow.svg";
 
 function Refund() {
   return (
@@ -61,7 +62,14 @@ function Refund() {
         </TextWrapper>
       </MainFrame>
       <ButtonWrapper>
-        <RefundButton>취소/환불 신청하기</RefundButton>
+        <RefundButton>
+          취소/환불 신청하기{" "}
+          <img
+            src={rightArrow}
+            alt="Right arrow"
+            style={{ marginLeft: "8px" }}
+          />
+        </RefundButton>
       </ButtonWrapper>
     </Wrap>
   );

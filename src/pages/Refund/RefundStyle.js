@@ -12,13 +12,16 @@ export const Wrap = styled("div")`
   overflow-y: auto;
 `;
 
-export const PageText = styled.p`
+export const PageText = styled.div`
   color: #a348f6;
   font-size: 50px;
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
   margin-left: 5dvw;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-family: KoddiUDOnGothic, sans-serif;
 `;
 
 export const Line = styled.div`
@@ -31,7 +34,7 @@ export const Line = styled.div`
 export const MainFrame = styled.div`
   background-color: #d6d6d64c;
   border-radius: 20px;
-  padding: 2dvh 3dvw;
+  padding: 25px 40px;
   margin-right: 20dvw;
   margin-left: 20dvw;
   display: flex;
@@ -43,8 +46,8 @@ export const MainFrame = styled.div`
 
 // 이미지 스타일
 export const RectangleImage = styled.div`
-  height: 20dvw;
-  width: 20dvw;
+  height: 300px;
+  width: 300px;
   border-radius: 20px;
   background: rgba(217, 217, 217, 0.3);
   backdrop-filter: blur(50px);
@@ -65,6 +68,7 @@ export const OrderInformation = styled.span`
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
+  font-family: KoddiUDOnGothic, sans-serif;
 `;
 
 export const PurpleText = styled.span`
@@ -90,6 +94,7 @@ export const OrderDescription = styled.p`
   font-size: 20px;
   font-weight: 400;
   line-height: 20px;
+  font-family: KoddiUDOnGothic, sans-serif;
 `;
 
 export const MiddleWrapper = styled.div`
@@ -117,6 +122,7 @@ export const AmountValue = styled.span`
   font-weight: 700;
   line-height: 25px;
   white-space: nowrap;
+  font-family: KoddiUDOnGothic, sans-serif;
 `;
 
 // 원화 표시 스타일
@@ -126,6 +132,7 @@ export const Currency = styled.span`
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
+  font-family: KoddiUDOnGothic, sans-serif;
 `;
 
 // 결제수단 텍스트 스타일
@@ -135,6 +142,7 @@ export const PaymentText = styled.div`
   font-weight: 400;
   line-height: 25px;
   white-space: nowrap;
+  font-family: KoddiUDOnGothic, sans-serif;
 `;
 
 // 결제 승인 시각 텍스트 스타일
@@ -144,6 +152,7 @@ export const ApprovalTimeText = styled.div`
   font-weight: 400;
   line-height: 25px;
   white-space: nowrap;
+  font-family: KoddiUDOnGothic, sans-serif;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -164,4 +173,5 @@ export const RefundButton = styled.button`
   line-height: 100%; /* 24px */
   padding: 23px;
   margin-top: 70px;
+  font-family: KoddiUDOnGothic, sans-serif;
 `;
