@@ -16,7 +16,7 @@ export const Wrap = styled("div")`
 
 export const PaymentText = styled.div`
   color: #fff;
-  font-family: "KoddiUD OnGothic";
+  font-family: KoddiUDOnGothic, sans-serif;
   font-size: 50px;
   font-style: normal;
   font-weight: 700;
@@ -60,6 +60,7 @@ export const OrderInformationText = styled.div`
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
+  font-family: KoddiUDOnGothic, sans-serif;
 
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 12px;
@@ -90,6 +91,7 @@ export const MiddleText = styled.div`
   color: #dadada;
   font-size: 20px;
   font-style: normal;
+  font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 700;
   line-height: 100%; /* 20px */
   margin-left: 10px;
@@ -118,6 +120,7 @@ export const TextWrapper = styled.input`
   color: #d7d7d7;
   font-size: 13px;
   font-style: normal;
+  font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 400;
   line-height: 100%;
   margin-bottom: 12px;
@@ -154,6 +157,7 @@ export const OrderText = styled.div`
   color: #a348f6;
   font-size: 24px;
   font-style: normal;
+  font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 700;
   margin-left: 28px;
   margin-top: 34px;
@@ -220,6 +224,7 @@ export const ArtText = styled.span`
   color: #ddd;
   font-size: 16px;
   font-style: normal;
+  font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 700;
   line-height: 100%;
 
@@ -231,6 +236,7 @@ export const ArtInfo = styled.span`
   color: #fff;
   font-size: 12px;
   font-style: normal;
+  font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 400;
   line-height: 100%;
 
@@ -252,6 +258,7 @@ export const PurpleText = styled.span`
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
+  font-family: KoddiUDOnGothic, sans-serif;
 
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 10px;
@@ -262,6 +269,7 @@ export const WhiteText = styled.span`
   color: #fff;
   font-size: 20px;
   font-style: normal;
+  font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 700;
   line-height: 100%;
 
@@ -297,6 +305,7 @@ export const PaymentButton = styled.button`
   color: ${({ isComplete }) => (isComplete ? "black" : "white")};
   font-size: 25px;
   font-style: normal;
+  font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 700;
   background-color: ${({ isComplete }) =>
     isComplete ? "#fae100" : "var(--black)"};
