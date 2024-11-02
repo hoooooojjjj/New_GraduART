@@ -14,25 +14,36 @@ import {
     Image,
     DetailComponent,
     Artist,
-    Description, PricingComponent, Price, SellStatus, PriceWrap
+    Description, PricingComponent, Price, SellStatus, PriceWrap, ButtonsWrap, PurchaseButton, ImageDescriptions
 } from "./ArtworkStyle.js";
 import React, { createContext, useEffect, useState } from "react";
 import art from "./Artwork.json"
 import {useNavigate, useParams} from "react-router-dom";
 
-const Images = ({ imageLinks }) => {
+const Images = ({ imageLinks, imageDescriptions }) => {
 
     return (
         <ImagesWrap>
                 {imageLinks.map((image, index) => (
+                    <>
                     <Image
                         key={index}
                         src={image}
                     />
+                    <ImageDescriptions>{imageDescriptions[index]}</ImageDescriptions>
+                    </>
                 ))}
         </ImagesWrap>
     );
 };
+
+const handleCart = () => {
+    console.log("장바구니에 담기");
+}
+
+const handlePurchase = () => {
+    console.log("구매하기");
+}
 
 
 function Artwork () {
@@ -43,6 +54,7 @@ function Artwork () {
     const handleBacktoDepartment = () => {
         navigate(`/dept_detail/${targetArt.department}`)
     };
+    const artworkYear = new Date(targetArt.madeAt).getFullYear();
 
     return(
         <>
@@ -58,18 +70,24 @@ function Artwork () {
                         <Placeholder></Placeholder>
                     </Top>
                     <Middle>
-                        <Images imageLinks={targetArt.imagePath}></Images>
+                        <Images imageLinks={targetArt.imagePath} imageDescriptions={targetArt.imageDescriptions}></Images>
                         <DetailWrap>
                             <DetailComponent>
-                                <Artist>{targetArt.artist}, {Date(targetArt.madeAt).getFullYear}</Artist>
+                                <Artist>{targetArt.artist}, {artworkYear}</Artist>
                                 <Description>{targetArt.descriptions}</Description>
                             </DetailComponent>
                             <PricingComponent>
                                 <SellStatus>{targetArt.onSale === "True" ? `` : '판매가 완료된 작품입니다'}</SellStatus>
                                 <PriceWrap>
                                     <Price color={'var(--purple)'}>판매 가격</Price> <Price color={'var(--white)'}>{targetArt.price}</Price>
-
                                 </PriceWrap>
+                                <PriceWrap>
+                                    <Price color={'var(--purple)'}>수령 방법</Price> <Price color={'var(--white)'}>택배</Price>
+                                </PriceWrap>
+                                <ButtonsWrap>
+                                    <PurchaseButton color={'var(--white)'} bgColor={`transparent`} onClick={handleCart}>장바구니에 담기</PurchaseButton>
+                                    <PurchaseButton color={'var(--white)'} bgColor={`var(--purple)`} onClick={handlePurchase}>구매하기</PurchaseButton>
+                                </ButtonsWrap>
 
                             </PricingComponent>
 

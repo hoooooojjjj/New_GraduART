@@ -11,7 +11,7 @@ export const Container = styled.div({
 export const Main = styled.main({
     paddingLeft: "5vw",
     paddingRight: "5vw",
-    paddingTop: "6.839vh",
+    paddingTop: "3.908vh",
     paddingBottom: "3.908vh",
     background: "#000",
     "@media (max-width: 768px)": {
@@ -31,16 +31,13 @@ export const Top = styled.div({
 export const Title = styled.h1`
     font-family: KoddiUDOnGothic, sans-serif;
     font-weight: 700;
-    font-size: 50px;  
+    font-size: 40px;  
     color: var(--purple);
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     text-align: center;
 `
 
 export const BacktoDepartment = styled.div`
-    height: 60px;
+    height: 40px;
     padding: 5px 20px 10px 20px;
     display: flex;
     align-items: center;
@@ -53,12 +50,12 @@ export const DeptName = styled.span`
     color: var(--white);
     padding-left: 15px;
     font-family: godorounded,sans-serif;
-    font-size: 36px;
+    font-size: 26px;
     font-weight: 400;
 `
 export const Placeholder = styled.div`
     height: 60px;
-    width: 120px;
+    width: 200px;
     background-color: transparent;
     flex: 0 1 auto;
 `
@@ -87,6 +84,13 @@ export const Image = styled.img({
         borderRadius: "10px",
     },
 });
+
+export const ImageDescriptions = styled.div`
+    font-family: KoddiUDOnGothic,sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+`
 
 export const DetailWrap = styled.div`
     display: flex;
@@ -156,4 +160,26 @@ export const PriceWrap = styled.div`
 
 export const Price = styled.div(props => ({
     color: props.color
+}));
+
+export const ButtonsWrap = styled.div`
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+`
+
+export const PurchaseButton = styled.div(props => ({
+    color: props.color,
+    border: '2px solid #A348F6',
+    borderRadius:'10px',
+    width: '100%',
+    textAlign: `center`,
+    padding: `10px 0`,
+    fontFamily: 'KoddiUDOnGothic',
+    fontSize: '13px',
+    fontWeight: '700',
+    backgroundColor: props.bgColor
 }));
