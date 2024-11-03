@@ -7,6 +7,7 @@ import {
   MainFrame,
   TextFrame,
   ImageFrame,
+  BackgroundCircle,
 } from "./SignInStyle";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
 
@@ -23,7 +24,8 @@ function SignIn() {
           <ImageFrame src="/google-signin-icon.png" />
         </MainFrame>
       </MainWrapper>
-    </Wrap>
+      <BackgroundCircle />
+    </ Wrap>
   );
 }
 
