@@ -186,7 +186,7 @@ function Cart() {
         </MainFrame>
         <Bar>
           <TotalTextFrame>
-            <TotalPrice>총 <PurpleText>2</PurpleText> 건 주문금액</TotalPrice>
+            <TotalPrice>총<PurpleText>2</PurpleText> 건 주문금액</TotalPrice>
             <TotalPrice><PurpleText>780,000</PurpleText> 원</TotalPrice>
           </TotalTextFrame>
           <PurchaseButton>구매하기</PurchaseButton>
