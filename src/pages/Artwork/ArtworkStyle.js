@@ -25,7 +25,10 @@ export const Top = styled.div({
     alignItems: "center",
     justifyContent: "space-between",
     width: "100%",
-    marginBottom: "2%"
+    marginBottom: "2%",
+    "@media (max-width: 768px)": {
+        flexDirection:'column'
+    }
 });
 
 export const Title = styled.h1`
@@ -36,16 +39,29 @@ export const Title = styled.h1`
     text-align: center;
 `
 
-export const BacktoDepartment = styled.div`
-    height: 40px;
-    padding: 5px 20px 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50px;
-    background-color: var(--dark-gray);
-    flex: 0 1 auto;
-`
+export const BacktoDepartmentWrap =styled.div({
+   width: "fit-content",
+    "@media (max-width: 768px)": {
+       display: "flex",
+       width: '100%',
+        alignItems: "flex-start"
+    }
+});
+
+export const BacktoDepartment = styled.div({
+    height: '40px',
+    padding: '5px 20px 10px 20px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: '50px',
+    backgroundColor: 'var(--dark-gray)',
+    flex: '0 1 auto',
+    '@media (max-width: 768px)': {
+        width: 'fit-content',
+        fontSize: '14px'
+    }
+});
 export const DeptName = styled.span`
     color: var(--white);
     padding-left: 15px;
@@ -53,12 +69,15 @@ export const DeptName = styled.span`
     font-size: 26px;
     font-weight: 400;
 `
-export const Placeholder = styled.div`
-    height: 60px;
-    width: 200px;
-    background-color: transparent;
-    flex: 0 1 auto;
-`
+export const Placeholder = styled.div({
+    height: '60px',
+    width: '200px',
+    backgroundColor: 'transparent',
+    flex: '0 1 auto',
+    "@media (max-width: 768px)": {
+        display: 'none'
+    }
+});
 
 export const Middle = styled.div`
     width: 100%;
@@ -92,13 +111,18 @@ export const ImageDescriptions = styled.div`
     color: white;
 `
 
-export const DetailWrap = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 40%;
-    margin-left: 2%;
-`
+export const DetailWrap = styled.div({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    width: '40%',
+    marginLeft: '2%',
+    "@media (max-width: 768px)": {
+        borderRadius: "10px",
+        display: 'none'
+    }
+})
+
 
 export const DetailComponent = styled.div({
     height: 'fit-content',
@@ -134,7 +158,6 @@ export const PricingComponent = styled.div({
     padding: '20px 20px',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-start',
     backgroundColor: `#90909099`,
     borderRadius: '20px',
     gap: `10px`,
