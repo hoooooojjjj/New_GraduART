@@ -18,6 +18,15 @@ export const Frame = styled.div`
 `
 export const MainFrame = styled.div`
   margin: 75px 77px;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 76px);
+    margin-top: 20px;
+    padding: 25px 20px;
+    flex-direction: column;    
+  }
 `
 
 export const PageText = styled.div`
@@ -29,12 +38,23 @@ export const PageText = styled.div`
   line-height: 100%;
   padding-bottom: 50px;
   width: 100%;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 25px;
+    padding-bottom: 40px;
+    color: #FFF;
+    text-align: center;
+  }
 `
 
 export const RectangleImage = styled.div`
   border-radius: 20px;
   background: rgba(215, 215, 215, 0.30);
   padding: 35px 52px;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    padding: 19px 16px;
+  }
 `
 
 export const SubText = styled.div`
@@ -45,6 +65,11 @@ export const SubText = styled.div`
   font-weight: 700;
   line-height: 100%;
   padding-bottom: 31px;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+    padding-bottom: 13px;
+  }
 `
 
 export const Line = styled.div`
@@ -65,7 +90,12 @@ export const Product1 = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 20px 0px;
-  border-bottom: 1px solid #A348F6
+  border-bottom: 1px solid #A348F6;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    padding: 10px 0px;
+    border-bottom: 0px;
+  }
 `
 
 export const Left = styled.div`
@@ -73,6 +103,10 @@ export const Left = styled.div`
   flex-direction: row;
   gap: 25px;
   align-items: center;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    gap: 5px;
+  }
 `
 
 export const ProductImage = styled.div`
@@ -82,6 +116,12 @@ export const ProductImage = styled.div`
   border-radius: 20px;
   background: rgba(217, 217, 217, 0.30);
   backdrop-filter: blur(50px);
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+  }
 `
 
 
@@ -98,6 +138,10 @@ export const Title = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 10px;
+  }
 `
 
 export const DetailDescription = styled.div`
@@ -110,10 +154,19 @@ export const DetailDescription = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 8px;
+    gap: 5px;
+  }
 `
 
 export const SmallLine = styled.div`
   border: 2px solid #FFF;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    border: 0.5px solid #FFF;
+  }
 `
 
 export const Right = styled.div`
@@ -132,14 +185,22 @@ export const ProductPrice = styled.div`
   line-height: 100%;
   display: flex;
 
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 10px;
+  }
 `
-
+export const Bottom = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border-bottom: 1px solid #A348F6;
+  gap: 5px;
+`
 export const DeliveryTrackingButton = styled.div`
   display: flex;
   padding: 14px 34px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   flex-shrink: 0;
   border-radius: 20px;
   background: #A348F6;
@@ -149,6 +210,12 @@ export const DeliveryTrackingButton = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 100%; /* 15px */
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    padding: 10px 23px;
+    font-size: 10px;    
+    margin-bottom: 10px;
+  }
 `
 
 export const RefundButton = styled.div`
@@ -166,6 +233,12 @@ export const RefundButton = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 100%; /* 15px */
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    padding: 8px 13px;
+    font-size: 10px;    
+    margin-bottom: 10px;
+  }
 `
 
 export const TotalProducts = styled.div`
@@ -179,11 +252,30 @@ export const TotalProducts = styled.div`
   justify-content: flex-end;
   padding-top: 20px;
   gap: 5px;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
+
+  
 `
 
 export const WhiteText = styled.div`
   color: #FFF;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 10px;
+  }
 `
 export const PurpleText = styled.div`
   color: #A348F6;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 15px;
+  }
 `
+export const MobileWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
