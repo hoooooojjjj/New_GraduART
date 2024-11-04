@@ -6,6 +6,7 @@ import Landing from "../pages/Landing/Landing.jsx";
 import DeptDetail from "../pages/DeptDetail/DeptDetail.jsx";
 import PaymentSuccess from "../pages/PaymentSuccess/PaymentSuccess.jsx";
 import SignIn from '../pages/SignIn/SignIn.jsx';
+import My from "../pages/My/My.jsx";
 function Router() {
   return (
     <BrowserRouter>
@@ -16,6 +17,7 @@ function Router() {
         <Route path="/payment-success" element={<PaymentSuccess />}></Route>
         <Route exact path="/*" element={<NotFound />}></Route>
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/my" element={<My />} />
       </Routes>
     </BrowserRouter>
   );
