@@ -7,6 +7,7 @@ import DeptDetail from "../pages/DeptDetail/DeptDetail.jsx";
 import PaymentSuccess from "../pages/PaymentSuccess/PaymentSuccess.jsx";
 import SignIn from '../pages/SignIn/SignIn.jsx';
 import My from "../pages/My/My.jsx";
+import Cart from "../pages/Cart/Cart.jsx";
 function Router() {
   return (
     <BrowserRouter>
@@ -18,6 +19,7 @@ function Router() {
         <Route exact path="/*" element={<NotFound />}></Route>
         <Route path="/signin" element={<SignIn />} />
         <Route path="/my" element={<My />} />
+        <Route exact path="/cart" element={<Cart />}></Route>
       </Routes>
     </BrowserRouter>
   );
