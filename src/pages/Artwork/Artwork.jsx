@@ -22,7 +22,7 @@ import {
     ButtonsWrap,
     PurchaseButton,
     ImageDescriptions,
-    BacktoDepartmentWrap
+    BacktoDepartmentWrap, Overlay, FloatingWrapper, Tooltip
 } from "./ArtworkStyle.js";
 import React, { createContext, useEffect, useState } from "react";
 import art from "./Artwork.json"
@@ -33,17 +33,63 @@ const Images = ({ imageLinks, imageDescriptions }) => {
     return (
         <ImagesWrap>
                 {imageLinks.map((image, index) => (
-                    <>
-                    <Image
-                        key={index}
-                        src={image}
-                    />
-                    <ImageDescriptions key={`desc_${index}`}>{imageDescriptions[index]}</ImageDescriptions>
-                    </>
+                    <React.Fragment key={index}>
+                        <Image
+                            src={image}
+                        />
+                        <ImageDescriptions key={`desc_${index}`}>{imageDescriptions[index]}</ImageDescriptions>
+                    </React.Fragment>
                 ))}
         </ImagesWrap>
     );
 };
+
+const SideFloatingModals = ({targetArt, artworkYear}) => {
+    // State for each modal
+    const [isModal1Open, setModal1Open] = useState(false);
+    const [isModal2Open, setModal2Open] = useState(false);
+
+    // Toggle functions for each modal
+    const toggleModal1 = () => setModal1Open(!isModal1Open);
+    const toggleModal2 = () => setModal2Open(!isModal2Open);
+
+    return (
+        <>
+            <Overlay isVisible={isModal1Open || isModal2Open} onClick={() => {
+                setModal1Open(false);
+                setModal2Open(false);
+            }}/>
+
+
+            <FloatingWrapper className={isModal1Open ? 'active' : ''} onClick={toggleModal1} color={'var(--purple)'} top={'40%'}>
+                <Tooltip isActive={isModal1Open}>
+                    탭해서 작품 캡션 보기
+                </Tooltip>
+                <DetailComponent>
+                    <Artist>{targetArt.artist}, {artworkYear}</Artist>
+                    <Description>{targetArt.descriptions}</Description>
+                </DetailComponent>
+            </FloatingWrapper>
+
+
+            <FloatingWrapper className={isModal2Open ? 'active' : ''} onClick={toggleModal2} color={'var(--light-gray)'} top={"calc(40% + 200px)"}>
+                <SellStatus>{targetArt.onSale === "True" ? `` : '판매가 완료된 작품입니다'}</SellStatus>
+                <PriceWrap>
+                    <Price color={'var(--purple)'}>판매 가격</Price> <Price color={'var(--white)'}>{targetArt.price}</Price>
+                </PriceWrap>
+                <PriceWrap>
+                    <Price color={'var(--purple)'}>수령 방법</Price> <Price color={'var(--white)'}>택배</Price>
+                </PriceWrap>
+                <ButtonsWrap>
+                    <PurchaseButton color={'var(--white)'} bgColor={`transparent`} onClick={handleCart}>장바구니에 담기</PurchaseButton>
+                    <PurchaseButton color={'var(--white)'} bgColor={`var(--purple)`} onClick={handlePurchase}>구매하기</PurchaseButton>
+                </ButtonsWrap>
+            </FloatingWrapper>
+        </>
+    );
+
+};
+
 
 const handleCart = () => {
     console.log("장바구니에 담기");
@@ -66,6 +112,7 @@ function Artwork () {
 
     return(
         <>
+            <SideFloatingModals targetArt={targetArt} artworkYear={artworkYear}>이렇게 하면 보이나요?</SideFloatingModals>
             <Container>
                 <DepartmentHeader></DepartmentHeader>
                 <Main>

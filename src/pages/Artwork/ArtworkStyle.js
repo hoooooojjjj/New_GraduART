@@ -59,7 +59,8 @@ export const BacktoDepartment = styled.div({
     flex: '0 1 auto',
     '@media (max-width: 768px)': {
         width: 'fit-content',
-        fontSize: '14px'
+        fontSize: '14px',
+        padding: '2px 10px 5px 10px'
     }
 });
 export const DeptName = styled.span`
@@ -205,4 +206,67 @@ export const PurchaseButton = styled.div(props => ({
     fontSize: '13px',
     fontWeight: '700',
     backgroundColor: props.bgColor
+}));
+
+/*-----------------모바일 관련 컴포넌트들----------------*/
+
+export const FloatingWrapper = styled.div((props) => ({
+    position: 'fixed',
+    top: props.top || '50%', // Dynamic top position from props
+    right: '-260px', // Start off-screen to the right, peeking slightly
+    transform: 'translateY(-50%)', // Center vertically without affecting horizontal position
+    width: '250px',
+    height: 'fit-content',
+    backgroundColor: props.color, // Adjust color based on props
+    borderRadius: '15px',
+    padding: '20px',
+    color: 'white',
+    display: 'none',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
+    transition: 'right 0.3s ease-in-out', // Smooth transition for sliding effect
+    cursor: 'pointer',
+    zIndex: 20,
+
+    '&.active': {
+        right: '50%', // Move to the center horizontally when active
+        transform: 'translate(50%, -50%)', // Center horizontally and vertically
+    },
+
+    "@media (max-width: 768px)": {
+        display: 'flex'
+    }
+}));
+
+export const Overlay = styled.div(props => ({
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100vw',
+    height: '100vh',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    opacity: props.isVisible ? 1 : 0, // Opacity transition
+    transition: 'opacity 0.3s ease', // Fade-in/out transition
+    visibility: props.isVisible ? 'visible' : 'hidden', // Prevents interaction when invisible
+    zIndex: 10
+}));
+
+export const Tooltip = styled.div((props) => ({
+    position: 'absolute', // Position absolutely within the container
+    top: props.top || '50%',
+    right: '-270px', // Start off-screen to the right, peeking slightly
+    transform: 'translateY(-50%)',
+    backgroundColor: 'rgba(128, 128, 128, 0.6)', // Semi-transparent background
+    color: 'white',
+    padding: '8px 12px',
+    borderRadius: '8px',
+    fontSize: '14px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+    opacity: props.isActive ? 0 : 1, // Fade out when modal is active
+    visibility: props.isActive ? 'hidden' : 'visible', // Hide tooltip when modal is active
+    transition: 'opacity 0.3s ease, visibility 0.3s ease', // Smooth transition for fading effect
+    zIndex: 15, // Ensure it’s behind the modal
+    backdropFilter: 'blur(5px)', // Apply blur effect to the background
 }));
