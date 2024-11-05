@@ -6,7 +6,6 @@ function Landing() {
     <>
       <Title>메인페이지</Title>
       <LinkList>
-
         <DepartmentLink
           to={"/dept_detail/Oriental Painting"}
           activeclassname={"active"}
@@ -31,14 +30,12 @@ function Landing() {
         <DepartmentLink to={"/dept_detail/Design"} activeclassname={"active"}>
           디자인과
         </DepartmentLink>
-    </DepartmentLink>
         <DepartmentLink to="/refund" activeclassname="active">
           환불 페이지
         </DepartmentLink>
         <DepartmentLink to="/payment" activeclassname="active">
           결제 페이지
         </DepartmentLink>
-
       </LinkList>
     </>
   );
