@@ -8,7 +8,6 @@ export const Wrap = styled('div')`
     height: 100dvh;
     margin: 0;
     padding: 0;
-    background-color: var(--black);
     box-sizing: border-box;
 `
 export const DepartmentTitle = styled('h1')`
@@ -18,4 +17,5 @@ export const DepartmentTitle = styled('h1')`
     font-family: 'godorounded', sans-serif;
     font-weight: bold;
     font-size: large;
+    background-color: var(--black);
 `
