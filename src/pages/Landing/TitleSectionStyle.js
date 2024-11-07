@@ -16,15 +16,15 @@ export const TitleContent = styled.div((props) => ({
   position: "relative",
   transform:
     props.hovered === "g" || props.hovered === "d"
-      ? "translateX(248px)" // Right shift for left-side hover
+      ? "translateX(248px)" // Right shift for left hover
       : props.hovered === "a" || props.hovered === "u"
-      ? "translateX(-248px)" // Left shift for right-side hover
+      ? "translateX(-248px)" // Left shift for right hover
       : "translateX(0)",
   transition: "transform 1.2s ease-in-out",
   "@media (max-width: 768px)": {
     transform:
       props.hovered === "g" || props.hovered === "d"
-        ? "translateX(240px)" // 모바일에서 반응형 이동량 조정
+        ? "translateX(240px)"
         : props.hovered === "a" || props.hovered === "u"
         ? "translateX(-240px)"
         : "translateX(0)",
@@ -89,13 +89,13 @@ export const PurpleCircleLeft = styled.div({
   borderRadius: "9999px",
   position: "absolute",
   top: "-40%",
-  left: "74%", // 기존 위치 유지
+  left: "74%",
   zIndex: -1,
   transition: "left 1.2s ease-in-out",
   "@media (max-width: 768px)": {
     width: "235px",
     height: "235px",
-    left: "60%", // 모바일 환경에서 더 적절한 위치로 이동
+    left: "60%",
   },
 });
 
@@ -106,17 +106,17 @@ export const PurpleCircleRight = styled.div({
   borderRadius: "9999px",
   position: "absolute",
   top: "-40%",
-  right: "74%", // 오른쪽 전환 시 좀 더 중앙에 가까워지도록 조정
+  right: "74%",
   zIndex: -1,
   transition: "right 1.2s ease-in-out, transform 1.2s ease-in-out",
   "@media (max-width: 768px)": {
     width: "235px",
     height: "235px",
-    right: "60%", // 모바일 환경에서 더 적절한 위치로 이동
+    right: "60%",
   },
 });
 
-// Left side hover content
+// Left hover
 export const HoverContentLeft = styled.div((props) => ({
   position: "absolute",
   top: `calc(${props.rowPosition - 1} * 270px)`,
@@ -135,22 +135,22 @@ export const HoverContentLeft = styled.div((props) => ({
   },
 }));
 
-// Right side hover content
+// Right hover
 export const HoverContentRight = styled.div((props) => ({
   position: "absolute",
   top: `calc(${props.rowPosition - 1} * 270px)`,
-  right: "380px", // 기본 중앙 기준
+  right: "380px",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   gap: "10px",
   zIndex: 10,
-  transform: props.isCraft ? "translateX(-70px)" : "translateX(130px)", // craft를 더 왼쪽으로 이동
+  transform: props.isCraft ? "translateX(-70px)" : "translateX(130px)",
   transition: "right 1.2s ease-in-out, transform 1.2s ease-in-out",
   "@media (max-width: 768px)": {
     right: "150px",
     top: `calc(${props.rowPosition - 1} * 150px)`,
-    transform: props.isCraft ? "translateX(170px)" : "translateX(200px)",
+    transform: props.isCraft ? "translateX(150px)" : "translateX(200px)",
   },
 }));
 
@@ -175,16 +175,16 @@ export const DesignText = styled(PaintingText)({
 });
 
 export const SculptureText = styled(PaintingText)({
-  transform: "translateX(-50px)", // sculpture 텍스트를 왼쪽으로 20px 이동
+  transform: "translateX(-50px)",
   "@media (max-width: 768px)": {
-    transform: "translateX(-20px)",
+    transform: "translateX(-70px)",
   },
 });
 
 export const CraftText = styled(PaintingText)({
-  transform: "translateX(-190px)", // 텍스트를 더 왼쪽으로 당김
+  transform: "translateX(-190px)",
   "@media (max-width: 768px)": {
-    transform: "translateX(-150px)",
+    transform: "translateX(-160px)",
   },
 });
 
@@ -204,35 +204,43 @@ export const HoverButton = styled(Link)({
     height: "100%",
     background: "rgba(217, 217, 217, 0.3)",
     borderRadius: "100px",
-    filter: "blur(2px)",
+    filter: "blur(1px)",
   },
   ".hover-text": {
     position: "absolute",
     left: "50%",
     top: "50%",
     transform: "translate(-50%, -50%)",
+
     textAlign: "center",
     fontFamily: "KoddiUD OnGothic",
+    gap: "5px",
     whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
     "@media (max-width: 768px)": {
       fontSize: "15px",
+      display: "flex",
+      gap: "3px",
     },
     ".dept-name": {
       color: "#A348F6",
       fontSize: "30px",
       fontWeight: 700,
+      marginLeft: "7px",
       "@media (max-width: 768px)": {
         fontSize: "15px",
+        marginLeft: "2px",
       },
     },
     ".cta": {
       color: "white",
       fontSize: "30px",
       fontWeight: 400,
+      marginRignt: "7px",
       "@media (max-width: 768px)": {
         fontSize: "15px",
+        marginRight: "2px",
       },
     },
   },
