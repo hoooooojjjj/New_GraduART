@@ -48,8 +48,8 @@ export const DeptCircle = styled.div((props) => ({
 
 export const DeptTitle = styled.div((props) => ({
   color: props.isSelected ? "var(--purple)" : "var(--white)",
-  fontSize: "55px",
-  fontFamily: "'godoRounded R'",
+  fontSize: "80px",
+  fontFamily: "godorounded, sans-serif",
   fontWeight: 400,
   lineHeight: "1",
   wordWrap: "break-word",
