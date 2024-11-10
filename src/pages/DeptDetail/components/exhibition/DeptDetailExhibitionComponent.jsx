@@ -20,6 +20,7 @@ import {
   TitleText,
   TitleYear,
 } from "./DeptDetailExhibitionComponentStyles";
+import { useNavigate } from "react-router-dom";
 
 const artWorks = [
   {
@@ -403,6 +404,7 @@ function ExhibitionGrid() {
   const currentItems = artWorks.slice(startIndex, endIndex);
 
   const totalPages = Math.ceil(artWorks.length / itemsPerPage);
+  const navigate = useNavigate();
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -436,6 +438,7 @@ function ExhibitionGrid() {
         {currentItems.map((artWork, i) => (
           <ArtWorkWrap
             key={artWork.id} // 작품 hover 시, 동그라미 배경을 보여줌
+            onClick={() => navigate(`/artwork/${artWork.id}`)}
             onMouseEnter={() => {
               const updatedIsHover = [...isHover];
               updatedIsHover.fill(false);
