@@ -173,7 +173,7 @@ export const Right = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 34px;
+  gap: 25px;
 `
 
 export const ProductPrice = styled.div`
@@ -205,7 +205,7 @@ export const DeliveryTrackingButton = styled.div`
   border-radius: 20px;
   background: #A348F6;
   color: #FFF;
-  font-family: "KoddiUD OnGothic";
+  font-family: "KoddiUD OnGothic",sans-serif;
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
@@ -278,4 +278,3 @@ export const MobileWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
-
