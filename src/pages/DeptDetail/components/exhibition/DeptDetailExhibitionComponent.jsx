@@ -118,7 +118,7 @@ function ExhibitionGrid() {
         {currentItems.map((artWork, i) => (
           <ArtWorkWrap
             key={artWork.id || `artWork-${i}`} // 작품 hover 시, 동그라미 배경을 보여줌
-            onClick={() => navigate(`/artwork/${artWork.id}`)}
+            onClick={() => navigate(`/artwork/${artWork.item_id}`)}
             onMouseEnter={() => {
               const updatedIsHover = [...isHover];
               updatedIsHover.fill(false);
