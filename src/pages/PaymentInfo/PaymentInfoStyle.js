@@ -137,3 +137,117 @@ export const TextWrapper = styled.input`
     margin-bottom: 8px;
   }
 `;
+
+/////////Payment Detail Section///////////
+export const RectangleImage = styled.div`
+  height: 300px;
+  width: 300px;
+  border-radius: 20px;
+  background: rgba(217, 217, 217, 0.3);
+  backdrop-filter: blur(50px);
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    width: 100px;
+    height: 100px;
+  }
+`;
+
+export const OrderInformation = styled.span`
+  color: #fff;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
+`;
+
+export const PurpleText = styled.span`
+  color: #a348f6;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%; /* 25px */
+  min-width: 30px;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
+`;
+
+// 주문 정보 컴포넌트 스타일
+export const OrderInfoWrapper = styled.div`
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+`;
+
+// 주문 설명 텍스트 스타일
+export const OrderDescription = styled.p`
+  align-self: stretch;
+  color: #d6d6d6;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
+`;
+
+export const LabelValueWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const ValueWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+`;
+
+// 금액 텍스트 스타일
+export const AmountValue = styled.span`
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 25px;
+  white-space: nowrap;
+  font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
+`;
+
+// 원화 표시 스타일
+export const Currency = styled.span`
+  color: #a348f6;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
+`;
+
+// 결제 승인 시각 텍스트 스타일
+export const ApprovalTimeText = styled.div`
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 25px;
+  white-space: nowrap;
+  font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
+`;

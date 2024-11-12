@@ -6,8 +6,17 @@ import {
     OrdererWrap,
     OrderInformationText,
     OrderInformationWrap,
-    PaymentText, TextWrapper, TwoTextWrapper,
-    MiddleWrapper, Wrap
+    PaymentText,
+    TextWrapper,
+    TwoTextWrapper,
+    MiddleWrapper,
+    Wrap,
+    RectangleImage,
+    OrderInformation,
+    OrderDescription,
+    OrderInfoWrapper,
+    LabelValueWrapper,
+    PurpleText, ValueWrapper, AmountValue, Currency, ApprovalTimeText
 } from "./PaymentInfoStyle";
 import paymentData from './PaymentInfo.json'
 
