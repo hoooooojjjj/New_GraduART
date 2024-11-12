@@ -14,11 +14,13 @@ import PaymentSuccess from "../pages/PaymentSuccess/PaymentSuccess.jsx";
 import SignIn from "../pages/SignIn/SignIn.jsx";
 import My from "../pages/My/My.jsx";
 import Cart from "../pages/Cart/Cart.jsx";
+import SearchPage from "../pages/Serach";
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
+        {/*<Route path="/search" element={<SearchPage />}></Route>*/}
         <Route path="/" element={<Landing />}></Route>
         <Route path="/artwork/:artwork_id" element={<Artwork />}></Route>
         <Route path="/:department" element={<Department />}></Route>
