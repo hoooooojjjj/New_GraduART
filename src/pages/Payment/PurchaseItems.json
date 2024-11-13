@@ -1,0 +1,28 @@
+[
+  {
+    "title": "기가 맥힌 그림",
+    "department": "Oriental Painting",
+    "artist": "김대유",
+    "descriptions": "기가 막히게 아름다운 그림입니다. 얼마나 아름답냐면 당신이 감히 상상하지조차 못할 만큼 아름다워요 깔깔깔 근데 보이긴 하나요? 루렘입숨으로 30줄정도 채우고싶은데 한국말 로렘입숨 플러그인 어딧더라",
+    "imagePath": ["https://images.unsplash.com/photo-1730248202596-fbdef5624120?q=80&w=2800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","https://images.unsplash.com/photo-1729366791122-5334a68b6b61?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+    "imageDescriptions": ["첫번째 이미지는 이런 그림이고요","두번째 이미지는 이런 그림입니다"],
+    "price": "35000",
+    "quantity": "1",
+    "onSale": "true",
+    "madeAt": "2021-05-12 14:33:56+00",
+    "item_id": "3ba5a0f9-84fa-4cf8-914a-3d4e17a4c98f"
+  },
+  {
+    "title": "기가 별로 안맥힌 그림",
+    "department": "Western Painting",
+    "artist": "유호준",
+    "descriptions": "이야 뭐 이딴 그림이 다있냐 죽여준다 죽여줘",
+    "imagePath": ["https://plus.unsplash.com/premium_photo-1731021470631-255095ce4045?q=80&w=3487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","https://images.unsplash.com/photo-1729366791122-5334a68b6b61?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+    "imageDescriptions": ["첫번째 이미지는 이런 그림이고요","두번째 이미지는 이런 그림입니다"],
+    "price": "12000",
+    "quantity": "1",
+    "onSale": "true",
+    "madeAt": "2021-06-20 14:33:56+00",
+    "item_id": "56fcde46-0e4b-421e-ad88-5441753715bd"
+  }
+]
