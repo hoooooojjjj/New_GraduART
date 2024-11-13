@@ -26,29 +26,57 @@ import api from "../../../../utils/axios";
 import ErrorMessage from "../../../../components/common/ErrorMessage";
 import Loading from "../../../../components/common/Loading";
 
-function ExhibitionTitle() {
+function ExhibitionTitle({items, setItems}) {
   const curDepartmentObj = useContext(curDepartmentObjContext);
+  const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태
+  //const [searchResults, setSearchResults] = useState([]); // 검색 결과 상태
+
+  // 검색 API 호출 함수
+  const search = async (term) => {
+    try {
+      const response = await api.get(
+        `/items/search/?query=${term}&department=${curDepartmentObj.Department}`
+      );
+      setItems(response.data); // 검색 결과 저장
+    } catch (error) {
+      console.error("검색 중 오류 발생:", error);
+    }
+  };
+
+  // 검색어 입력 변화 처리
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  // 검색어 제출 시 검색 함수 호출
+  const handleSearchSubmit = (event) => {
+    event.preventDefault(); // 폼 제출 시 페이지 리로딩 방지
+    if (searchTerm.trim()) {
+      search(searchTerm);
+    }
+  };
+
   return (
     <ExhibitionTitleWrap>
       <ExhibitionTitleTextWrap>
         <TitleText>{curDepartmentObj.Department} exhibition</TitleText>
         <TitleYear>2024</TitleYear>
       </ExhibitionTitleTextWrap>
-      <ExhibitionTitleSearchContainer>
-        <ExhibitionTitleSearchWrap placeholder="작품명, 작가명 검색하기" />
+      <ExhibitionTitleSearchContainer onSubmit={handleSearchSubmit}>
+        <ExhibitionTitleSearchWrap value={searchTerm} onChange={handleSearchChange} placeholder="작품명, 작가명 검색하기" />
         <SearchIcon src="/assets/searchIcon.svg" alt="search" />
       </ExhibitionTitleSearchContainer>
     </ExhibitionTitleWrap>
   );
 }
 
-function ExhibitionGrid() {
+function ExhibitionGrid({items, setItems}) {
   // 한 페이지에서 보일 작품 수
   const itemsPerPage = 8;
 
   // 현재 페이지
   const [currentPage, setCurrentPage] = useState(1);
-  const [items, setItems] = useState([]);
+  //const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -173,11 +201,11 @@ function ExhibitionGrid() {
   );
 }
 
-function DeptDetailExhibitionComponent() {
+function DeptDetailExhibitionComponent({items, setItems}) {
   return (
     <DeptDetailExhibition>
-      <ExhibitionTitle />
-      <ExhibitionGrid />
+      <ExhibitionTitle items={items} setItems={setItems}/>
+      <ExhibitionGrid items={items} setItems={setItems}/>
     </DeptDetailExhibition>
   );
 }

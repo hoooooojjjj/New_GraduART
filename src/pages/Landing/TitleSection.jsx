@@ -33,15 +33,15 @@ const TitleSection = () => {
       <TitleContent hovered={hoveredLetter}>
         <Row>
           <LetterBlock
-            onMouseEnter={() => handleHover("g")}
-            onTouchEnd={() => handleHover("g")}
+            // onMouseEnter={() => handleHover("g")}
+            // onTouchEnd={() => handleHover("g")}
           >
             g
           </LetterBlock>
           <LetterBlock>r</LetterBlock>
           <LetterBlock
-            onMouseEnter={() => handleHover("a")}
-            onTouchEnd={() => handleHover("a")}
+            // onMouseEnter={() => handleHover("a")}
+            // onTouchEnd={() => handleHover("a")}
           >
             a
           </LetterBlock>
@@ -78,7 +78,7 @@ const TitleSection = () => {
         >
           <PurpleCircleLeft />
           <PaintingText>painting</PaintingText>
-          <HoverButton to={"/dept_detail/Western Painting"}>
+          <HoverButton to={"/dept_detail/Ceramic"}>
             <div className="hover-bg" />
             <div className="hover-text">
               <svg
@@ -95,7 +95,7 @@ const TitleSection = () => {
                   fill="#A348F6"
                 />
               </svg>
-              <span className="dept-name">서양화과</span>
+              <span className="dept-name">도예전공</span>
               <span className="cta"> 작품 보러가기</span>
             </div>
           </HoverButton>
@@ -109,8 +109,8 @@ const TitleSection = () => {
           rowPosition={2}
         >
           <PurpleCircleLeft />
-          <DesignText>design</DesignText>
-          <HoverButton to={"/dept_detail/Design"}>
+          <DesignText>Metal</DesignText>
+          <HoverButton to={"/dept_detail/Metal"}>
             <div className="hover-bg" />
 
             <div className="hover-text">
@@ -128,7 +128,7 @@ const TitleSection = () => {
                   fill="#A348F6"
                 />
               </svg>
-              <span className="dept-name">디자인과</span>
+              <span className="dept-name">금속공예전공</span>
               <span className="cta"> 작품 보러가기</span>
             </div>
           </HoverButton>
@@ -176,11 +176,11 @@ const TitleSection = () => {
           isCraft={true}
         >
           <PurpleCircleRight />
-          <CraftText>craft</CraftText>
-          <HoverButton to={"/dept_detail/Craft"}>
+          <CraftText>Ceramic</CraftText>
+          <HoverButton to={"/dept_detail/Ceramic"}>
             <div className="hover-bg" />
             <div className="hover-text">
-              <span className="dept-name">공예과</span>
+              <span className="dept-name">도예전공</span>
               <span className="cta"> 작품 보러가기</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
