@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ArtworkListContainer,
   Column,
@@ -19,11 +19,28 @@ import {
   Ellipse3,
 } from "./SerachOverlayStyle";
 import { Ellipse2 } from "../DepartmentHeader/DepartmentHeaderStyle";
+import ItemSearch from "./ItemSearch";
 
 const SearchOverlay = ({ artworks, handleSearch }) => {
+  const [filteredArtworks, setFilteredArtworks] = useState([]);
+
+  const handleItemSearch = (query) => {
+    if (!query.trim()) {
+      // 빈 검색어일 경우 원래 작품 목록을 보여줍니다.
+      setFilteredArtworks(artworks);
+    } else {
+      // 검색어가 있을 경우 작품 목록을 필터링합니다.
+      const filtered = artworks.filter(
+        (artwork) =>
+          artwork.title.includes(query) || artwork.artist.includes(query),
+      );
+      setFilteredArtworks(filtered);
+    }
+  };
+
   // 두 개의 컬럼으로 작품을 나누기 위해 나머지 연산을 사용
-  const leftColumn = artworks.filter((_, index) => index % 2 === 0);
-  const rightColumn = artworks.filter((_, index) => index % 2 !== 0);
+  const leftColumn = filteredArtworks.filter((_, index) => index % 2 === 0);
+  const rightColumn = filteredArtworks.filter((_, index) => index % 2 !== 0);
 
   return (
     <Container>
@@ -43,6 +60,7 @@ const SearchOverlay = ({ artworks, handleSearch }) => {
           )}
         </Logo>
         <Circles>
+          <ItemSearch onSearch={handleItemSearch} />
           <Ellipse onClick={handleSearch}>
             <svg
               width="16"

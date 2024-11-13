@@ -101,6 +101,7 @@ export const ArtworkListContainer = styled.div`
   margin-bottom: 60px;
   max-height: 350px;
   overflow-y: scroll;
+  overflow: hidden;
 `;
 
 // 각 컬럼을 나누는 컨테이너
@@ -110,6 +111,7 @@ export const Column = styled.div`
   width: 300px;
   gap: 20px;
   flex: 1;
+  min-width: 300px;
 
   @media (min-width: 1024px) {
     width: 50%;
