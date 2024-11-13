@@ -11,7 +11,7 @@ import {
   BackBtn,
 } from "./DepartmentHeaderStyle";
 import { useLocation, useNavigate } from "react-router-dom"; // Adjust the path as necessary
-
+import { useState } from "react";
 export const DepartmentHeader = () => {
   const navigate = useNavigate();
   const location = useLocation();
