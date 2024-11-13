@@ -42,7 +42,6 @@ const SearchOverlay = ({ artworks, handleSearch }) => {
             <Span>| 서울대학교 졸업전시 작품 전시 ・ 판매</Span>
           )}
         </Logo>
-
         <Circles>
           <Ellipse onClick={handleSearch}>
             <svg
