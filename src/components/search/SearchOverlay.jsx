@@ -1,104 +1,49 @@
 import React, { useState } from "react";
 import {
+  ArtworkListContainer,
+  Column,
+  ArtworkCard,
+  ArtworkInfo,
+  ArtworkTitle,
+  ArtworkDetails,
+  Container,
+  ArtworkImage,
+  Line,
   Head,
   Logo,
+  BackBtn,
   TextWrapper,
   Span,
   Circles,
   Ellipse,
-  Ellipse2,
   Ellipse3,
-  BackBtn,
-} from "./DepartmentHeaderStyle";
-import { useNavigate } from "react-router-dom";
-import SearchOverlay from "../search/SearchOverlay"; // Adjust the path as necessary
+} from "./SerachOverlayStyle";
+import { Ellipse2 } from "../DepartmentHeader/DepartmentHeaderStyle";
+import ItemSearch from "./ItemSearch";
 
-const mockArtworks = [
-  {
-    id: 1,
-    title: "고양이 나무에서 떨어지다",
-    artist: "홍길동",
-    material: "캔버스에 유채",
-    size: "200x300",
-  },
-  {
-    id: 2,
-    title: "파란 하늘",
-    artist: "이몽룡",
-    material: "종이에 수채",
-    size: "100x150",
-  },
-  {
-    id: 3,
-    title: "해바라기",
-    artist: "성춘향",
-    material: "캔버스에 유채",
-    size: "250x350",
-  },
-  {
-    id: 4,
-    title: "바닷가 풍경",
-    artist: "변사또",
-    material: "캔버스에 아크릴",
-    size: "300x400",
-  },
-  {
-    id: 5,
-    title: "겨울 산",
-    artist: "김삿갓",
-    material: "캔버스에 유채",
-    size: "150x200",
-  },
-  {
-    id: 6,
-    title: "붉은 장미",
-    artist: "춘향이",
-    material: "종이에 수채",
-    size: "80x120",
-  },
-  // 필요한 만큼 추가...
-];
+const SearchOverlay = ({ artworks, handleSearch }) => {
+  const [filteredArtworks, setFilteredArtworks] = useState([]);
 
-export const DepartmentHeader = () => {
-  const navigate = useNavigate();
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
-
-  // 뒤로가기 버튼을 눌렀을 때
-  const handleBack = () => {
-    if (window.location.pathname.startsWith("/dept_detail")) {
-      navigate("/"); // DeptDetail 페이지에서는 Landing 페이지로 이동
+  const handleItemSearch = (query) => {
+    if (!query.trim()) {
+      // 빈 검색어일 경우 원래 작품 목록을 보여줍니다.
+      setFilteredArtworks(artworks);
     } else {
-      navigate(-1); // 그 외의 경우에는 이전 페이지로 이동
+      // 검색어가 있을 경우 작품 목록을 필터링합니다.
+      const filtered = artworks.filter(
+        (artwork) =>
+          artwork.title.includes(query) || artwork.artist.includes(query),
+      );
+      setFilteredArtworks(filtered);
     }
   };
 
-  // 검색 버튼을 눌렀을 때
-  const handleSearch = () => {
-    setIsSearchVisible(!isSearchVisible);
-  };
-
-  // 검색 오버레이 바깥을 눌렀을 때
-  const handleOverlayClick = () => {
-    setIsSearchVisible(false); // 검색창 닫기
-  };
-
-  // 검색 오버레이 내부를 눌렀을 때 클릭 이벤트 전파 방지
-  const handleSearchOverlayClick = (e) => {
-    e.stopPropagation(); // 클릭 이벤트가 부모로 전파되는 것을 막음
-  };
-
-  //장바구니 버튼 눌렀을때
-  const handleCart = () => {
-    navigate("/cart");
-  };
-
-  //마이페이지 버튼 눌렀을때
-  const handleMypage = () => {
-    navigate("/my");
-  };
+  // 두 개의 컬럼으로 작품을 나누기 위해 나머지 연산을 사용
+  const leftColumn = filteredArtworks.filter((_, index) => index % 2 === 0);
+  const rightColumn = filteredArtworks.filter((_, index) => index % 2 !== 0);
 
   return (
-    <>
+    <Container>
       <Head
         style={{
           position: "fixed",
@@ -109,30 +54,13 @@ export const DepartmentHeader = () => {
         }}
       >
         <Logo>
-          <BackBtn onClick={handleBack}>
-            <svg
-              width={window.innerWidth > 768 ? 25 : 17}
-              height={window.innerWidth > 768 ? 18 : 13}
-              viewBox="0 0 25 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                id="Vector (Stroke)"
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M10.4039 0.329505C9.97791 -0.109835 9.28718 -0.109835 8.86116 0.329505L1.22479 8.2045C0.798767 8.64384 0.798767 9.35616 1.22479 9.7955L8.86116 17.6705C9.28718 18.1098 9.97791 18.1098 10.4039 17.6705C10.83 17.2312 10.83 16.5188 10.4039 16.0795L4.62987 10.125H23.8144C24.4169 10.125 24.9053 9.62132 24.9053 9C24.9053 8.37868 24.4169 7.875 23.8144 7.875H4.62987L10.4039 1.9205C10.83 1.48116 10.83 0.768845 10.4039 0.329505Z"
-                fill="white"
-              />
-            </svg>
-          </BackBtn>
           <TextWrapper>snu graduart </TextWrapper>
           {window.innerWidth > 768 && (
             <Span>| 서울대학교 졸업전시 작품 전시 ・ 판매</Span>
           )}
         </Logo>
-
         <Circles>
+          <ItemSearch onSearch={handleItemSearch} />
           <Ellipse onClick={handleSearch}>
             <svg
               width="16"
@@ -150,7 +78,7 @@ export const DepartmentHeader = () => {
               />
             </svg>{" "}
           </Ellipse>
-          <Ellipse2 onClick={handleCart}>
+          <Ellipse2>
             <svg
               width="15"
               height="20"
@@ -165,7 +93,7 @@ export const DepartmentHeader = () => {
               />
             </svg>
           </Ellipse2>
-          <Ellipse3 onClick={handleMypage}>
+          <Ellipse3>
             <svg
               width="15"
               height="19"
@@ -191,34 +119,37 @@ export const DepartmentHeader = () => {
           </Ellipse3>
         </Circles>
       </Head>
-
-      {isSearchVisible && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.8)", // 약간 투명한 배경
-            zIndex: 1002,
-          }}
-          onClick={handleOverlayClick}
-        >
-          <div
-            onClick={handleSearchOverlayClick}
-            style={{
-              zIndex: 1003,
-            }}
-          >
-            {/* 내부 클릭 시 닫히지 않게 */}
-            <SearchOverlay
-              artworks={mockArtworks}
-              handleSearch={handleSearch}
-            />
-          </div>
-        </div>
-      )}
-    </>
+      <ArtworkListContainer>
+        <Column>
+          {leftColumn.map((artwork) => (
+            <ArtworkCard key={artwork.id}>
+              <ArtworkImage></ArtworkImage>
+              <ArtworkInfo>
+                <ArtworkTitle>{artwork.title}</ArtworkTitle>
+                <ArtworkDetails>
+                  {artwork.artist} | {artwork.material} | {artwork.size}
+                </ArtworkDetails>
+              </ArtworkInfo>
+            </ArtworkCard>
+          ))}
+        </Column>
+        <Line></Line>
+        <Column>
+          {rightColumn.map((artwork) => (
+            <ArtworkCard key={artwork.id}>
+              <ArtworkImage></ArtworkImage>
+              <ArtworkInfo>
+                <ArtworkTitle>{artwork.title}</ArtworkTitle>
+                <ArtworkDetails>
+                  {artwork.artist} | {artwork.material} | {artwork.size}
+                </ArtworkDetails>
+              </ArtworkInfo>
+            </ArtworkCard>
+          ))}
+        </Column>
+      </ArtworkListContainer>
+    </Container>
   );
 };
+
+export default SearchOverlay;

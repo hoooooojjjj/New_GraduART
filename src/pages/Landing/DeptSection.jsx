@@ -8,6 +8,9 @@ import {
   ProductListContainer,
   ProductCard,
 } from "./DeptSectionStyle";
+import Loading from "../../components/common/Loading";
+import ErrorMessage from "../../components/common/ErrorMessage";
+import api from "../../utils/axios";
 
 const departments = [
   { title: "Ceramic", subtitle: "도예전공" },
@@ -16,13 +19,38 @@ const departments = [
 
 const DeptSection = () => {
   const [selectedDepts, setSelectedDepts] = useState([]);
+  const [selectedItems, setSelectedItems] = useState({}); // 학과별로 선택된 작품을 저장하는 상태
 
   const toggleDept = (deptTitle) => {
-    setSelectedDepts((prev) =>
-      prev.includes(deptTitle)
-        ? prev.filter((title) => title !== deptTitle)
-        : [...prev, deptTitle]
-    );
+    if (selectedDepts.includes(deptTitle)) {
+      setSelectedDepts((prev) => prev.filter((title) => title !== deptTitle));
+      setSelectedItems((prev) => {
+        const newItems = { ...prev };
+        delete newItems[deptTitle];
+        return newItems;
+      });
+    } else {
+      setSelectedDepts((prev) => [...prev, deptTitle]);
+      fetchItems(deptTitle);
+    }
+  };
+
+  const fetchItems = async (deptTitle) => {
+    try {
+      // 작품 불러오기
+      const response = await api.get(`/items/?department=${deptTitle}`);
+      const allItems = response.data;
+
+      // 랜덤하게 5개의 아이템 선택하기
+      const shuffledItems = allItems.sort(() => 0.6 - Math.random());
+      const selectedItems = shuffledItems.slice(0, 6);
+
+      setSelectedItems((prev) => ({ ...prev, [deptTitle]: selectedItems }));
+    } catch (err) {
+      console.error(
+        err.response?.data?.error || "작품을 불러오는데 실패했습니다.",
+      );
+    }
   };
 
   return (
@@ -41,8 +69,10 @@ const DeptSection = () => {
 
           {selectedDepts.includes(dept.title) && (
             <ProductListContainer>
-              {[...Array(5)].map((_, i) => (
-                <ProductCard key={i} />
+              {selectedItems[dept.title]?.map((item) => (
+                <ProductCard key={item.item_id}>
+                  <img src={item.image_original} alt={item.title} />
+                </ProductCard>
               ))}
             </ProductListContainer>
           )}

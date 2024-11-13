@@ -18,16 +18,16 @@ export const TitleContent = styled.div((props) => ({
     props.hovered === "g" || props.hovered === "d"
       ? "translateX(248px)" // Right shift for left hover
       : props.hovered === "a" || props.hovered === "u"
-      ? "translateX(-248px)" // Left shift for right hover
-      : "translateX(0)",
+        ? "translateX(-248px)" // Left shift for right hover
+        : "translateX(0)",
   transition: "transform 1.2s ease-in-out",
   "@media (max-width: 768px)": {
     transform:
       props.hovered === "g" || props.hovered === "d"
         ? "translateX(240px)"
         : props.hovered === "a" || props.hovered === "u"
-        ? "translateX(-240px)"
-        : "translateX(0)",
+          ? "translateX(-240px)"
+          : "translateX(0)",
   },
 }));
 

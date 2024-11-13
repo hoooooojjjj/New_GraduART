@@ -80,13 +80,22 @@ export const DeptSubtitle = styled.span({
 });
 
 export const ProductListContainer = styled.div({
-  width: "100%",
+  maxWidth: "85dvw",
   padding: "0 50px",
-  display: "grid",
-  gridTemplateColumns: "repeat(5, 1fr)",
+  display: "flex",
   gap: "20px",
-  justifyContent: "center",
-  overflow: "hidden",
+  overflowX: "auto", // 가로 스크롤 허용
+  scrollBehavior: "smooth",
+  "&::-webkit-scrollbar": {
+    height: "1px", // 스크롤바 높이 조절
+  },
+  "&::-webkit-scrollbar-thumb": {
+    backgroundColor: "var(--purple)", // 스크롤바 색상
+    borderRadius: "10px",
+  },
+  "&::-webkit-scrollbar-track": {
+    backgroundColor: "var(--light-gray)", // 스크롤 트랙 색상
+  },
   "@media (max-width: 768px)": {
     gap: "10px",
     padding: "0 20px",
@@ -94,6 +103,7 @@ export const ProductListContainer = styled.div({
 });
 
 export const ProductCard = styled.div({
+  flex: "0 0 auto",
   width: "273px",
   height: "167px",
   borderRadius: "20px",
@@ -104,5 +114,13 @@ export const ProductCard = styled.div({
     width: "50px",
     height: "50px",
     borderRadius: "10px",
+  },
+  img: {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    width: "100%",
+    height: "100%",
+    objectFit: "cover", // 이미지가 카드 크기에 꽉 차도록 설정
   },
 });
