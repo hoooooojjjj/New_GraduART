@@ -7,6 +7,7 @@ import Landing from "../pages/Landing/Landing.jsx";
 import Refund from "../pages/Refund/Refund";
 import Payment from "../pages/Payment/Payment.jsx";
 import PaymentApproval from "../pages/PaymentApproval/PaymentApproval.jsx";
+import {PaymentInfo} from "../pages/PaymentInfo/PaymentInfo.jsx";
 
 import DeptDetail from "../pages/DeptDetail/DeptDetail.jsx";
 import Artwork from "../pages/Artwork/Artwork.jsx";
@@ -15,6 +16,7 @@ import SignIn from "../pages/SignIn/SignIn.jsx";
 import My from "../pages/My/My.jsx";
 import Cart from "../pages/Cart/Cart.jsx";
 import SearchPage from "../pages/Serach";
+
 
 function Router() {
   return (
@@ -34,6 +36,7 @@ function Router() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/my" element={<My />} />
         <Route exact path="/cart" element={<Cart />}></Route>
+        <Route exact path="/payment-info" element={<PaymentInfo />}></Route>
       </Routes>
     </BrowserRouter>
   );

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
+
 
 export const Wrap = styled("div")`
   display: flex;
@@ -138,195 +138,116 @@ export const TextWrapper = styled.input`
   }
 `;
 
-export const OrderDetailWrap = styled.div`
-  width: 43%;
-  height: auto;
-  border-radius: 20px;
-  background: rgba(215, 215, 215, 0.3);
-  display: block;
-  box-sizing: border-box;
-
-  @media (max-width: 768px) and (min-width: 320px) {
-    width: calc(100% - 50px);
-    margin-left: 25px;
-    margin-right: 25px;
-  }
-`;
-
-export const OrderText = styled.div`
-  color: #a348f6;
-  font-size: 24px;
-  font-style: normal;
-  font-family: KoddiUDOnGothic, sans-serif;
-  font-weight: 700;
-  margin-left: 28px;
-  margin-top: 34px;
-  margin-bottom: 10px;
-
-  @media (max-width: 768px) and (min-width: 320px) {
-    font-size: 12px;
-    color: white;
-    margin-top: 17px;
-  }
-`;
-
-export const Line = styled.div`
-  background: #a348f6;
-  margin: 18px 28px;
-  height: 2px;
-
-  @media (max-width: 768px) and (min-width: 320px) {
-    margin: 10px 16px;
-  }
-`;
-
-export const OrderMidWrap = styled.div`
-  display: flex;
-  margin-left: 28px;
-  margin-right: 60px;
-
-  @media (max-width: 768px) and (min-width: 320px) {
-    margin-right: 18px;
-    margin-left: 18px;
-  }
-`;
-
-export const LeftWrapper = styled.div`
-  display: flex;
-  gap: 20px;
-
-  @media (max-width: 768px) and (min-width: 320px) {
-    gap: 5px;
-  }
-`;
-
-export const ArtImage = styled.img`
-  height: 75px;
-  width: 75px;
+/////////Payment Detail Section///////////
+export const RectangleImage = styled.div`
+  height: 300px;
+  width: 300px;
   border-radius: 20px;
   background: rgba(217, 217, 217, 0.3);
   backdrop-filter: blur(50px);
+
   @media (max-width: 768px) and (min-width: 320px) {
-    height: 50px;
-    width: 50px;
-    border-radius: 10px;
+    width: 100px;
+    height: 100px;
   }
 `;
 
-export const ArtTextWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  justify-content: center;
-`;
-
-export const ArtText = styled.span`
-  color: #ddd;
-  font-size: 16px;
+export const OrderInformation = styled.span`
+  color: #fff;
+  font-size: 30px;
   font-style: normal;
-  font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 700;
   line-height: 100%;
-
-  @media (max-width: 768px) and (min-width: 320px) {
-    font-size: 10px;
-  }
-`;
-export const ArtInfo = styled.span`
-  color: #fff;
-  font-size: 12px;
-  font-style: normal;
   font-family: KoddiUDOnGothic, sans-serif;
-  font-weight: 400;
-  line-height: 100%;
 
   @media (max-width: 768px) and (min-width: 320px) {
-    font-size: 8px;
+    font-size: 12px;
   }
-`;
-
-export const ArtPrice = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  gap: 3px;
 `;
 
 export const PurpleText = styled.span`
   color: #a348f6;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 100%;
-  font-family: KoddiUDOnGothic, sans-serif;
-
-  @media (max-width: 768px) and (min-width: 320px) {
-    font-size: 10px;
-  }
-`;
-
-export const WhiteText = styled.span`
-  color: #fff;
-  font-size: 20px;
-  font-style: normal;
-  font-family: KoddiUDOnGothic, sans-serif;
-  font-weight: 700;
-  line-height: 100%;
-
-  @media (max-width: 768px) and (min-width: 320px) {
-    font-size: 10px;
-  }
-`;
-
-export const TotalWrap = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 60px;
-  gap: 5px;
-  margin-bottom: 39px;
-  margin-top: 4px;
-  @media (max-width: 768px) and (min-width: 320px) {
-    margin-right: 26px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-  }
-`;
-
-export const PaymentButton = styled.button`
-  border-radius: 20px;
-  border: 5px solid #fae100;
-  display: flex;
-  width: auto;
-  padding: 17px 52px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  color: ${({ isComplete }) => (isComplete ? "black" : "white")};
   font-size: 25px;
   font-style: normal;
-  font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 700;
-  background-color: ${({ isComplete }) =>
-    isComplete ? "#fae100" : "var(--black)"};
-  margin-top: 50px;
-  margin-bottom: 50px;
+  line-height: 100%; /* 25px */
+  min-width: 30px;
 
   @media (max-width: 768px) and (min-width: 320px) {
-    font-size: 10px;
+    font-size: 12px;
   }
 `;
 
-export const Modal = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-  z-index: 1000;
-    display: flex;
-    flex-direction: column;
+// 주문 정보 컴포넌트 스타일
+export const OrderInfoWrapper = styled.div`
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+`;
+
+// 주문 설명 텍스트 스타일
+export const OrderDescription = styled.p`
+  align-self: stretch;
+  color: #d6d6d6;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
+`;
+
+export const LabelValueWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const ValueWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+`;
+
+// 금액 텍스트 스타일
+export const AmountValue = styled.span`
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 25px;
+  white-space: nowrap;
+  font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
+`;
+
+// 원화 표시 스타일
+export const Currency = styled.span`
+  color: #a348f6;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
+`;
+
+// 결제 승인 시각 텍스트 스타일
+export const ApprovalTimeText = styled.div`
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 25px;
+  white-space: nowrap;
+  font-family: KoddiUDOnGothic, sans-serif;
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 12px;
+  }
 `;

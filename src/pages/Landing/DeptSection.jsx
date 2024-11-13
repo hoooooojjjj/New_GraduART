@@ -13,11 +13,8 @@ import ErrorMessage from "../../components/common/ErrorMessage";
 import api from "../../utils/axios";
 
 const departments = [
-  { title: "oriental painting", subtitle: "동양화과" },
-  { title: "Western painting", subtitle: "서양화과" },
-  { title: "sculpture", subtitle: "조소과" },
-  { title: "craft", subtitle: "공예과" },
-  { title: "design", subtitle: "디자인과" },
+  { title: "Ceramic", subtitle: "도예전공" },
+  { title: "Metal", subtitle: "금속공예전공" },
 ];
 
 const DeptSection = () => {

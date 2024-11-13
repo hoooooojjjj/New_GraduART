@@ -28,9 +28,16 @@ import {
 
 } from "./MyStyle";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
+import {useNavigate} from "react-router-dom";
 
 function My() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
+
+  const navigate = useNavigate();
+  const handlePaymentInfo = () => {
+    navigate("/PaymentInfo")
+  }
+
   return (
     <Wrap>
       <DepartmentHeader />
@@ -87,7 +94,8 @@ function My() {
                     <ProductPrice>360,000
                       <WhiteText>원</WhiteText>
                     </ProductPrice>
-                    <DeliveryTrackingButton>배송조회</DeliveryTrackingButton>
+                    <RefundButton onClick={handlePaymentInfo}>결제 정보</RefundButton>
+                    <DeliveryTrackingButton>배송 조회</DeliveryTrackingButton>
                     <RefundButton>취소|환불신청</RefundButton>
                   </Right>
                 </Product1>

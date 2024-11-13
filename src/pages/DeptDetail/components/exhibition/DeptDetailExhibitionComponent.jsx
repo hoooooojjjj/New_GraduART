@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import {
   ArtWorkCircle,
   ArtWorkGridWrap,
@@ -21,390 +21,72 @@ import {
   TitleYear,
 } from "./DeptDetailExhibitionComponentStyles";
 import { useNavigate } from "react-router-dom";
+import { curDepartmentObjContext } from "../../DeptDetail";
+import api from "../../../../utils/axios";
+import ErrorMessage from "../../../../components/common/ErrorMessage";
+import Loading from "../../../../components/common/Loading";
 
-const artWorks = [
-  {
-    id: 0,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 1,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 2,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 3,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 4,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 5,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 6,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 7,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 8,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 9,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 10,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 11,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 12,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 13,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 14,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "등 좀 펴(Keep your back ・・・ ",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 15,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "anywhere",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 16,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "자연 연구",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 17,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "떨어지는 시간",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 18,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "아름다운 날",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 19,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "내일의 빛",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 20,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "저녁의 이야기",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 21,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "깊은 숲 속",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 22,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "빛의 무게",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 23,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "돌아온 길",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 24,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "아침의 꽃",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 25,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "바다와 하늘",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 26,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "기억 속으로",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 27,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "꿈꾸는 별",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 28,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "느낌의 흐름",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 29,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "순간의 감각",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 30,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "마음의 소리",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 31,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "행복의 온도",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 32,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "별빛 아래",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 33,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "새벽의 꿈",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 34,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "그리움의 파도",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 35,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "끝없는 모험",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 36,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "한겨울의 빛",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 37,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "봄의 기억",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 38,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "여름의 노래",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 39,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "가을의 향기",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 40,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "겨울의 숨결",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 41,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "빛나는 기억",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 42,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "희망의 새벽",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-  {
-    id: 43,
-    img: "/assets/DeptInfoComponentImgs1.jpg",
-    title: "미래의 빛",
-    artist: "홍길동",
-    tool: "캔버스에 유화",
-    size: "200*200",
-  },
-];
+function ExhibitionTitle({items, setItems}) {
+  const curDepartmentObj = useContext(curDepartmentObjContext);
+  const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태
+  //const [searchResults, setSearchResults] = useState([]); // 검색 결과 상태
 
-function ExhibitionTitle() {
+  // 검색 API 호출 함수
+  const search = async (term) => {
+    try {
+      const response = await api.get(
+        `/items/search/?query=${term}&department=${curDepartmentObj.Department}`
+      );
+      setItems(response.data); // 검색 결과 저장
+    } catch (error) {
+      console.error("검색 중 오류 발생:", error);
+    }
+  };
+
+  // 검색어 입력 변화 처리
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  // 검색어 제출 시 검색 함수 호출
+  const handleSearchSubmit = (event) => {
+    event.preventDefault(); // 폼 제출 시 페이지 리로딩 방지
+    if (searchTerm.trim()) {
+      search(searchTerm);
+    }
+  };
+
   return (
     <ExhibitionTitleWrap>
       <ExhibitionTitleTextWrap>
-        <TitleText>exhibition</TitleText>
+        <TitleText>{curDepartmentObj.Department} exhibition</TitleText>
         <TitleYear>2024</TitleYear>
       </ExhibitionTitleTextWrap>
-      <ExhibitionTitleSearchContainer>
-        <ExhibitionTitleSearchWrap placeholder="작품명, 작가명 검색하기" />
+      <ExhibitionTitleSearchContainer onSubmit={handleSearchSubmit}>
+        <ExhibitionTitleSearchWrap value={searchTerm} onChange={handleSearchChange} placeholder="작품명, 작가명 검색하기" />
         <SearchIcon src="/assets/searchIcon.svg" alt="search" />
       </ExhibitionTitleSearchContainer>
     </ExhibitionTitleWrap>
   );
 }
 
-function ExhibitionGrid() {
+function ExhibitionGrid({items, setItems}) {
   // 한 페이지에서 보일 작품 수
   const itemsPerPage = 8;
 
   // 현재 페이지
   const [currentPage, setCurrentPage] = useState(1);
+  //const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const curDepartmentObj = useContext(curDepartmentObjContext);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentItems = artWorks.slice(startIndex, endIndex);
+  const currentItems = items.slice(startIndex, endIndex);
 
-  const totalPages = Math.ceil(artWorks.length / itemsPerPage);
-  const navigate = useNavigate();
+  const totalPages = Math.ceil(items.length / itemsPerPage);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -423,22 +105,48 @@ function ExhibitionGrid() {
   const imgRef = useRef(0);
 
   // 작품 hover 상태를 저장하는 state
-  const [isHover, setIsHover] = useState(artWorks.map(() => false));
+  const [isHover, setIsHover] = useState(items.map(() => false));
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        setLoading(true);
+        if (curDepartmentObj.Department) {
+          const response = await api.get(
+            `/items/?department=${curDepartmentObj.Department}`,
+          );
+          setItems(response.data);
+        }
+      } catch (err) {
+        setError(
+          err.response?.data?.error || "작품을 불러오는데 실패했습니다.",
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchItems();
+  }, [curDepartmentObj.Department]);
 
   useEffect(() => {
     // 이미지 높이 (너비와 동일, 즉 셀의 너비와 같음) + 각 요소 사이의 gap 높이 * 2
-    const columnHeight = imgRef.current.clientWidth;
-    const computedMinHeight = columnHeight * 2; // 2행 + gap
-    setMinHeight(computedMinHeight);
-  }, [artWorks]);
+    if (imgRef.current) {
+      const columnHeight = imgRef.current.clientWidth;
+      const computedMinHeight = columnHeight * 2; // 2행 + gap
+      setMinHeight(computedMinHeight);
+    }
+  }, [items]);
+
+  if (loading) return <Loading />;
+  if (error) return <ErrorMessage message={error} />;
 
   return (
     <>
       <ArtWorkGridWrap minHeight={minHeight}>
         {currentItems.map((artWork, i) => (
           <ArtWorkWrap
-            key={artWork.id} // 작품 hover 시, 동그라미 배경을 보여줌
-            onClick={() => navigate(`/artwork/${artWork.id}`)}
+            key={artWork.id || `artWork-${i}`} // 작품 hover 시, 동그라미 배경을 보여줌
+            onClick={() => navigate(`/artwork/${artWork.item_id}`)}
             onMouseEnter={() => {
               const updatedIsHover = [...isHover];
               updatedIsHover.fill(false);
@@ -463,7 +171,11 @@ function ExhibitionGrid() {
                   : 0,
               }}
             />
-            <ArtWorkImg ref={imgRef} src={artWork.img} alt={artWork.title} />
+            <ArtWorkImg
+              ref={i === 0 ? imgRef : null}
+              src={artWork.image_original}
+              alt={artWork.title}
+            />
             <ArtWorkInfoWrap>
               <ArtWorkTitle>{artWork.title}</ArtWorkTitle>
               <ArtWorkSubTitle>
@@ -489,11 +201,11 @@ function ExhibitionGrid() {
   );
 }
 
-function DeptDetailExhibitionComponent() {
+function DeptDetailExhibitionComponent({items, setItems}) {
   return (
     <DeptDetailExhibition>
-      <ExhibitionTitle />
-      <ExhibitionGrid />
+      <ExhibitionTitle items={items} setItems={setItems}/>
+      <ExhibitionGrid items={items} setItems={setItems}/>
     </DeptDetailExhibition>
   );
 }

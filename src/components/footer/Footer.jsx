@@ -59,18 +59,16 @@ function FooterMainElement({ title, content }) {
   return (
     <FooterMainElementWrap>
       <FooterMainElementTitle>{title}</FooterMainElementTitle>
-      {content.map((text) =>
+      {content.map((text, index) =>
         text.includes("/asset") ? (
-          <div key={text}>
+          <div key={index}>
             <FooterMainElementImg src={text}></FooterMainElementImg>
             {window.innerWidth > 768 ? svgIcon1 : null}
             {window.innerWidth > 768 ? svgIcon2 : null}
           </div>
         ) : (
-          <>
-            <FooterMainElementText key={text}>{text}</FooterMainElementText>
-          </>
-        )
+          <FooterMainElementText key={index}>{text}</FooterMainElementText>
+        ),
       )}
     </FooterMainElementWrap>
   );
