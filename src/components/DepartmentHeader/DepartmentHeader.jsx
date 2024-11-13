@@ -10,15 +10,20 @@ import {
   Ellipse3,
   BackBtn,
 } from "./DepartmentHeaderStyle";
-import { useNavigate } from "react-router-dom"; // Adjust the path as necessary
+import { useLocation, useNavigate } from "react-router-dom"; // Adjust the path as necessary
 
 export const DepartmentHeader = () => {
   const navigate = useNavigate();
-  //뒤로가기 버튼 눌렀을때
+  const location = useLocation();
+
+  // 뒤로가기 버튼 눌렀을때
   const handleBack = () => {
-    navigate(-1); // Go back to the previous page
+    if (location.pathname.startsWith("/dept_detail")) {
+      navigate("/"); // DeptDetail 페이지에서는 Landing 페이지로 이동
+    } else {
+      navigate(-1); // 그 외의 경우에는 이전 페이지로 이동
+    }
   };
-  //검색 버튼 눌렀을때
   const handleSearch = () => {};
   //장바구니 버튼 눌렀을때
   const handleCart = () => {
