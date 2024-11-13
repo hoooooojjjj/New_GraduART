@@ -11,10 +11,22 @@ import {
   BackBtn,
 } from "./DepartmentHeaderStyle";
 import { useLocation, useNavigate } from "react-router-dom"; // Adjust the path as necessary
-
+import { useState } from "react";
 export const DepartmentHeader = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [signedIn, setSignedIn] = useState("");
+  //싸인인 되어 있는지 확인
+  // const checkSignInState = async () => {
+  //   try {
+  //     const response = await api.get(
+  //       `/auth/user/`
+  //     );
+  //     setSignedIn(); // 검색 결과 저장
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   // 뒤로가기 버튼 눌렀을때
   const handleBack = () => {

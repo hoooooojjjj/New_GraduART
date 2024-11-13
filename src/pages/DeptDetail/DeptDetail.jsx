@@ -17,6 +17,7 @@ function DeptDetail() {
 
   // 현재 라우트에 해당하는 과 관련 정보
   const [curDepartmentObj, setCurDepartment] = useState({});
+  const [items, setItems] = useState([]);
 
   // 현재 라우트에 해당하는 과 정보를 가져옴
   useEffect(() => {
@@ -36,7 +37,7 @@ function DeptDetail() {
         <Main>
           <DeptDetailHeaderComponent />
           <DeptDetailDeptInfoComponent />
-          <DeptDetailExhibitionComponent />
+          <DeptDetailExhibitionComponent items={items} setItems={setItems}/>
         </Main>
         <footer>
           <Footer />
