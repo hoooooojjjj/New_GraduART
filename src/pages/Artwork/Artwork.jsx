@@ -171,13 +171,31 @@ function Artwork() {
     };
     fetchArtwork();
   }, [artwork_id]);
+
   const handleBacktoDepartment = () => {
     navigate(`/dept_detail/${targetArt.department}`);
+  };
+
+  // 로그인 상태는 true로 설정 (로그인 기능 구현 전 )
+  const isLoggedIn = true;
+  const handleCart = async () => {
+    if (!isLoggedIn) {
+      navigate("/login");
+      return;
+    }
+
+    try {
+      await api.post("/cart/insert/", { item_id: artwork_id });
+      alert("장바구니에 추가되었습니다.");
+    } catch (err) {
+      alert(err.response?.data?.error || "장바구니 추가 실패");
+    }
   };
 
   if (loading) return <Loading />;
   if (error) return <ErrorMessage message={error} />;
   if (!targetArt) return null; // targetArt가 아직 없으면 아무것도 렌더링하지 않습니다.
+
   const artworkYear = targetArt?.made_at
     ? new Date(targetArt.made_at).getFullYear()
     : "";
