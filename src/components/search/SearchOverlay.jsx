@@ -20,23 +20,43 @@ import {
 } from "./SerachOverlayStyle";
 import { Ellipse2 } from "../DepartmentHeader/DepartmentHeaderStyle";
 import ItemSearch from "./ItemSearch";
+import api from "../../utils/axios";
+import { useNavigate } from "react-router-dom";
+import Loading from "../common/Loading";
+import ErrorMessage from "../common/ErrorMessage";
 
 const SearchOverlay = ({ artworks, handleSearch }) => {
   const [filteredArtworks, setFilteredArtworks] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const [isSearchAttempted, setIsSearchAttempted] = useState(false);
 
-  const handleItemSearch = (query) => {
-    if (!query.trim()) {
-      // 빈 검색어일 경우 원래 작품 목록을 보여줍니다.
-      setFilteredArtworks(artworks);
-    } else {
-      // 검색어가 있을 경우 작품 목록을 필터링합니다.
-      const filtered = artworks.filter(
-        (artwork) =>
-          artwork.title.includes(query) || artwork.artist.includes(query),
+  const handleItemSearch = async (query) => {
+    try {
+      setLoading(true);
+      setError(null);
+      setIsSearchAttempted(true);
+      // 빈 검색어일 경우 작품 목록을 비웁니다.
+      if (!query.trim()) {
+        setFilteredArtworks([]);
+        setLoading(false);
+        return;
+      }
+      // 검색어가 있을 경우 검색 결과 불러오기
+      const response = await api.get(
+        `/items/search/?query=${encodeURIComponent(query)}`,
       );
-      setFilteredArtworks(filtered);
+      setFilteredArtworks(response.data);
+    } catch (err) {
+      setError(err.response?.data?.error || "검색에 실패했습니다.");
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (loading) return <Loading />;
+  if (error) return <ErrorMessage message={error} />;
 
   // 두 개의 컬럼으로 작품을 나누기 위해 나머지 연산을 사용
   const leftColumn = filteredArtworks.filter((_, index) => index % 2 === 0);
@@ -61,23 +81,7 @@ const SearchOverlay = ({ artworks, handleSearch }) => {
         </Logo>
         <Circles>
           <ItemSearch onSearch={handleItemSearch} />
-          <Ellipse onClick={handleSearch}>
-            <svg
-              width="16"
-              height="17"
-              viewBox="0 0 16 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15 15.5L11.4563 11.9563M11.4563 11.9563C12.0251 11.3876 12.4763 10.7123 12.7841 9.96918C13.0919 9.22604 13.2504 8.42955 13.2504 7.62518C13.2504 6.82081 13.0919 6.02431 12.7841 5.28117C12.4763 4.53803 12.0251 3.8628 11.4563 3.29402C10.8876 2.72525 10.2123 2.27407 9.46918 1.96625C8.72604 1.65843 7.92955 1.5 7.12518 1.5C6.32081 1.5 5.52431 1.65843 4.78117 1.96625C4.03803 2.27407 3.3628 2.72525 2.79402 3.29402C1.64533 4.44272 1 6.00068 1 7.62518C1 9.24967 1.64533 10.8076 2.79402 11.9563C3.94272 13.105 5.50068 13.7504 7.12518 13.7504C8.74967 13.7504 10.3076 13.105 11.4563 11.9563Z"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>{" "}
-          </Ellipse>
+
           <Ellipse2>
             <svg
               width="15"
@@ -120,33 +124,65 @@ const SearchOverlay = ({ artworks, handleSearch }) => {
         </Circles>
       </Head>
       <ArtworkListContainer>
-        <Column>
-          {leftColumn.map((artwork) => (
-            <ArtworkCard key={artwork.id}>
-              <ArtworkImage></ArtworkImage>
-              <ArtworkInfo>
-                <ArtworkTitle>{artwork.title}</ArtworkTitle>
-                <ArtworkDetails>
-                  {artwork.artist} | {artwork.material} | {artwork.size}
-                </ArtworkDetails>
-              </ArtworkInfo>
-            </ArtworkCard>
-          ))}
-        </Column>
-        <Line></Line>
-        <Column>
-          {rightColumn.map((artwork) => (
-            <ArtworkCard key={artwork.id}>
-              <ArtworkImage></ArtworkImage>
-              <ArtworkInfo>
-                <ArtworkTitle>{artwork.title}</ArtworkTitle>
-                <ArtworkDetails>
-                  {artwork.artist} | {artwork.material} | {artwork.size}
-                </ArtworkDetails>
-              </ArtworkInfo>
-            </ArtworkCard>
-          ))}
-        </Column>
+        {isSearchAttempted && filteredArtworks.length === 0 ? (
+          <div
+            style={{
+              textAlign: "center",
+              marginTop: "20px",
+              color: "#8f8f8f",
+              fontFamily: `"godo", "sans-serif"`,
+              fontSize: "20px",
+            }}
+          >
+            검색 결과가 없습니다.
+          </div>
+        ) : (
+          <>
+            <Column>
+              {leftColumn.map((artwork) => (
+                <ArtworkCard
+                  key={artwork.id}
+                  onClick={() => navigate(`/artwork/${artwork.item_id}`)}
+                >
+                  <ArtworkImage
+                    style={{
+                      backgroundImage: `url(${artwork.image_original})`,
+                      backgroundSize: "cover",
+                    }}
+                  ></ArtworkImage>
+                  <ArtworkInfo>
+                    <ArtworkTitle>{artwork.title}</ArtworkTitle>
+                    <ArtworkDetails>
+                      {artwork.artist} | {artwork.material} | {artwork.size}
+                    </ArtworkDetails>
+                  </ArtworkInfo>
+                </ArtworkCard>
+              ))}
+            </Column>
+            <Line></Line>
+            <Column>
+              {rightColumn.map((artwork) => (
+                <ArtworkCard
+                  key={artwork.id}
+                  onClick={() => navigate(`/artwork/${artwork.item_id}`)}
+                >
+                  <ArtworkImage
+                    style={{
+                      backgroundImage: `url(${artwork.image_original})`,
+                      backgroundSize: "cover",
+                    }}
+                  ></ArtworkImage>
+                  <ArtworkInfo>
+                    <ArtworkTitle>{artwork.title}</ArtworkTitle>
+                    <ArtworkDetails>
+                      {artwork.artist} | {artwork.material} | {artwork.size}
+                    </ArtworkDetails>
+                  </ArtworkInfo>
+                </ArtworkCard>
+              ))}
+            </Column>
+          </>
+        )}
       </ArtworkListContainer>
     </Container>
   );
