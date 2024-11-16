@@ -181,7 +181,7 @@ function ExhibitionGrid({items, setItems, curDepartmentObj}) {
             <ArtWorkInfoWrap>
               <ArtWorkTitle>{artWork.title}</ArtWorkTitle>
               <ArtWorkSubTitle>
-                {artWork.artist} | {artWork.tool} | {artWork.size}
+                {artWork.name} | {artWork.material} | {artWork.size}
               </ArtWorkSubTitle>
             </ArtWorkInfoWrap>
           </ArtWorkWrap>
