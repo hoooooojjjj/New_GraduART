@@ -66,7 +66,12 @@ const Images = ({ targetArt }) => {
   );
 };
 
-const SideFloatingModals = ({ targetArt, artworkYear }) => {
+const SideFloatingModals = ({
+  targetArt,
+  artworkYear,
+  handleCart,
+  handlePurchase,
+}) => {
   // State for each modal
   const [isModal1Open, setModal1Open] = useState(false);
   const [isModal2Open, setModal2Open] = useState(false);
@@ -138,14 +143,6 @@ const SideFloatingModals = ({ targetArt, artworkYear }) => {
   );
 };
 
-const handleCart = () => {
-  console.log("장바구니에 담기");
-};
-
-const handlePurchase = () => {
-  console.log("구매하기");
-};
-
 function Artwork() {
   //url에서 artwork_id 받아옴, 이걸로 DB에 GET 요청 날려서 setTargetArt에 넣어주면 됨
   const { artwork_id } = useParams();
@@ -192,6 +189,38 @@ function Artwork() {
     }
   };
 
+  //구매하기 버튼
+  const handlePurchase = async () => {
+    if (!isLoggedIn) {
+      navigate("/login");
+      return;
+    }
+
+    try {
+      // 장바구니에 담겨있지 않은 경우에만 장바구니에 추가
+      const cartResponse = await api.get("/cart/items/");
+      const isInCart = cartResponse.data.some(
+        (item) => item.item_id === artwork_id,
+      );
+
+      if (!isInCart) {
+        await api.post("/cart/insert/", { item_id: artwork_id });
+      }
+    } catch (err) {
+      if (err.response?.status !== 409) {
+        // 409 에러가 아닌 경우만 알림 표시
+        alert(err.response?.data?.error || "구매 처리 실패");
+        return;
+      }
+    }
+    // 결제 페이지로 이동하면서 작품 정보 전달
+    navigate("/payment", {
+      state: {
+        purchaseItems: [targetArt], // 작품 정보를 배열 형태로 전달
+      },
+    });
+  };
+
   if (loading) return <Loading />;
   if (error) return <ErrorMessage message={error} />;
   if (!targetArt) return null; // targetArt가 아직 없으면 아무것도 렌더링하지 않습니다.
@@ -201,9 +230,12 @@ function Artwork() {
     : "";
   return (
     <>
-      <SideFloatingModals targetArt={targetArt} artworkYear={artworkYear}>
-        이렇게 하면 보이나요?
-      </SideFloatingModals>
+      <SideFloatingModals
+        targetArt={targetArt}
+        artworkYear={artworkYear}
+        handleCart={handleCart}
+        handlePurchase={handlePurchase}
+      ></SideFloatingModals>
       <Container>
         <DepartmentHeader></DepartmentHeader>
         <Main>
