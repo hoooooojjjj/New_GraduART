@@ -34,6 +34,18 @@ import { CartItem } from '../../types/cart';
 
 function Payment() {
   const [purchaseItems, setPurchaseItems] = useState([]);
+  const location = useLocation();
+
+
+  // 전달된 작품 정보가 있다면 상태에 저장
+  useEffect(() => {
+    if (location.state && location.state.purchaseItems) {
+      setPurchaseItems(location.state.purchaseItems);
+      console.log(location.state.purchaseItems);
+    } else {
+      console.error("No purchase items were provided.");
+    }
+  }, [location.state]);
 
   useEffect(()=>{
     setPurchaseItems(targetItems);
@@ -94,7 +106,7 @@ function Payment() {
     address: string;
   }
 
-    const location = useLocation();
+
     const { user } = useAuth();
     const [purchaseFormData, setPurchaseFormData] = useState({
       name: user?.full_name || '',

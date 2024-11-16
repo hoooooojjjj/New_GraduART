@@ -1,25 +1,23 @@
 import styled from "@emotion/styled";
 
 export const Wrap = styled.div`
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: 100dvw;
-    height: 100dvh;
-    margin: 0;
-    padding: 0;
-    background-color: var(--black);
-    box-sizing: border-box;
-
-`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100dvw;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--black);
+  box-sizing: border-box;
+`;
 
 export const Frame = styled.div`
   width: 100%;
   overflow-y: auto;
   height: 100vh;
   padding-bottom: 100px;
-
-`
+`;
 export const MainFrame = styled.div`
   margin: 75px 77px;
 
@@ -31,7 +29,7 @@ export const MainFrame = styled.div`
     padding: 25px 20px;
     flex-direction: column;
   }
-`
+`;
 
 export const RectangleFrame = styled.div`
   display: flex;
@@ -41,10 +39,10 @@ export const RectangleFrame = styled.div`
   @media (max-width: 768px) and (min-width: 320px) {
     gap: 20px;
   }
-`
+`;
 
 export const PageText = styled.div`
-  color: #FFF;
+  color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 50px;
   font-style: normal;
@@ -54,7 +52,7 @@ export const PageText = styled.div`
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 25px;
   }
-`
+`;
 
 export const TextLine = styled.div`
   width: 100%;
@@ -63,24 +61,23 @@ export const TextLine = styled.div`
   margin: 25px 0px;
 
   @media (max-width: 768px) and (min-width: 320px) {
-   margin-top: 18.84px;
-   margin-bottom: 9px; 
+    margin-top: 18.84px;
+    margin-bottom: 9px;
   }
-`
+`;
 
 export const RectangleImage = styled.div`
   border-radius: 20px;
-  background: rgba(215, 215, 215, 0.30);
-  padding: 35px 52px;  
+  background: rgba(215, 215, 215, 0.3);
+  padding: 35px 52px;
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding: 19px 16px;
   }
-
-`
+`;
 
 export const SubText = styled.div`
-  color: #FFF;
+  color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 24px;
   font-style: normal;
@@ -92,19 +89,17 @@ export const SubText = styled.div`
     font-size: 12px;
     padding-bottom: 13px;
   }
-
-`
+`;
 
 export const Line = styled.div`
   width: 100%;
   height: 2px;
-  background: #A348F6;
-
-`
+  background: #a348f6;
+`;
 
 export const Products = styled.div`
   width: 100%;
-`
+`;
 
 export const Product1 = styled.div`
   width: 100%;
@@ -113,13 +108,12 @@ export const Product1 = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 20px 0px;
-  border-bottom: 1px solid #A348F6;
+  border-bottom: 1px solid #a348f6;
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding: 11px 0px;
   }
-
-`
+`;
 
 export const Left = styled.div`
   display: flex;
@@ -130,14 +124,14 @@ export const Left = styled.div`
   @media (max-width: 768px) and (min-width: 320px) {
     gap: 5px;
   }
-`
+`;
 
 export const ProductImage = styled.div`
   width: 100px;
   height: 100px;
   flex-shrink: 0;
   border-radius: 20px;
-  background: rgba(217, 217, 217, 0.30);
+  background: rgba(217, 217, 217, 0.3);
   backdrop-filter: blur(50px);
 
   @media (max-width: 768px) and (min-width: 320px) {
@@ -145,17 +139,16 @@ export const ProductImage = styled.div`
     height: 50px;
     border-radius: 10px;
   }
-`
-
+`;
 
 export const ProductDescription = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-`
+`;
 
 export const Title = styled.div`
-  color: #DDD;
+  color: #ddd;
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
   font-style: normal;
@@ -165,10 +158,10 @@ export const Title = styled.div`
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 10px;
   }
-`
+`;
 
 export const DetailDescription = styled.div`
-  color: #FFF;
+  color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 13px;
   font-style: normal;
@@ -177,30 +170,30 @@ export const DetailDescription = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
-  
+
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 8px;
     gap: 5px;
   }
-`
+`;
 
 export const SmallLine = styled.div`
-  border: 2px solid #FFF;
+  border: 2px solid #fff;
 
   @media (max-width: 768px) and (min-width: 320px) {
-    border: 0.5px solid #FFF;
+    border: 0.5px solid #fff;
   }
-`
+`;
 
 export const Right = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 34px;
-`
+`;
 
 export const ProductPrice = styled.div`
-  color: #A348F6;
+  color: #a348f6;
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
   font-style: normal;
@@ -211,10 +204,10 @@ export const ProductPrice = styled.div`
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 10px;
   }
-`
+`;
 
 export const TotalProducts = styled.div`
-  color: #FFF;
+  color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 24px;
   font-style: normal;
@@ -224,34 +217,35 @@ export const TotalProducts = styled.div`
   justify-content: flex-end;
   padding-top: 20px;
   gap: 5px;
-`
+`;
 
 export const WhiteText = styled.div`
-  color: #FFF;
+  color: #fff;
 
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 10px;
   }
-`
+`;
 export const PurpleText = styled.div`
-  color: #A348F6;
+  color: #a348f6;
   margin-left: 4px;
 
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 15px;
   }
-`
+`;
 
 export const Buttons = styled.div`
   display: flex;
   flex-direction: row;
   gap: 15px;
   padding-bottom: 25px;
+  cursor: pointer;
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding-bottom: 13px;
   }
-`
+`;
 export const SelectAllButton = styled.div`
   display: flex;
   padding: 17px 15px;
@@ -261,8 +255,8 @@ export const SelectAllButton = styled.div`
   gap: 10px;
   flex-shrink: 0;
   border-radius: 20px;
-  background: rgba(163, 72, 246, 0.50);
-  color: #FFF;
+  background: rgba(163, 72, 246, 0.5);
+  color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
   font-style: normal;
@@ -275,8 +269,7 @@ export const SelectAllButton = styled.div`
     padding: 9px 8px;
     font-size: 10px;
   }
-  
-`
+`;
 export const SelectDeleteButton = styled.div`
   display: flex;
   padding: 17px 15px;
@@ -286,8 +279,8 @@ export const SelectDeleteButton = styled.div`
   gap: 10px;
   flex-shrink: 0;
   border-radius: 20px;
-  border: 2px solid rgba(163, 72, 246, 0.70);
-  color: #FFF;
+  border: 2px solid rgba(163, 72, 246, 0.7);
+  color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
   font-style: normal;
@@ -300,10 +293,8 @@ export const SelectDeleteButton = styled.div`
     height: 27px;
     padding: 7px 6px;
     font-size: 10px;
-    
   }
-
-`
+`;
 export const CheckBox = styled.div`
   width: 20px;
   height: 20px;
@@ -317,21 +308,20 @@ export const CheckBox = styled.div`
     width: 10px;
     height: 10px;
   }
-
-`
+`;
 
 export const RectangleTop = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
-`
+`;
 
 export const Total = styled.div`
   display: flex;
   flex-direction: row;
   gap: 34px;
   justify-content: flex-end;
-`
+`;
 
 export const Bar = styled.div`
   background: rgba(215, 215, 215, 0.80);
@@ -353,10 +343,10 @@ export const Bar = styled.div`
     flex-shrink: 0;
     padding: 13px;
   }
-`
+`;
 
 export const TotalPrice = styled.div`
-  color: #D7D7D7;
+  color: #d7d7d7;
   font-family: "KoddiUD OnGothic";
   font-size: 32px;
   font-style: normal;
@@ -369,7 +359,7 @@ export const TotalPrice = styled.div`
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 15px;
   }
-`
+`;
 export const PurchaseButton = styled.div`
   display: flex;
   padding: 17px 52px;
@@ -378,8 +368,8 @@ export const PurchaseButton = styled.div`
   gap: 10px;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #A348F6;
-  color: #FFF;
+  background: #a348f6;
+  color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 25px;
   font-style: normal;
@@ -388,9 +378,9 @@ export const PurchaseButton = styled.div`
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding: 10px 23px;
-    font-size: 10px;    
+    font-size: 10px;
   }
-`
+`;
 
 export const TotalTextFrame = styled.div`
   display: flex;
@@ -401,4 +391,4 @@ export const TotalTextFrame = styled.div`
   @media (max-width: 768px) and (min-width: 320px) {
     gap: 20px;
   }
-`
+`;

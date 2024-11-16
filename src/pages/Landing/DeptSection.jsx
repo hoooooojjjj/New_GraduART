@@ -11,6 +11,7 @@ import {
 import Loading from "../../components/common/Loading";
 import ErrorMessage from "../../components/common/ErrorMessage";
 import api from "../../utils/axios";
+import { useNavigate } from "react-router-dom";
 
 const departments = [
   { title: "Ceramic", subtitle: "도예전공" },
@@ -20,6 +21,7 @@ const departments = [
 const DeptSection = () => {
   const [selectedDepts, setSelectedDepts] = useState([]);
   const [selectedItems, setSelectedItems] = useState({}); // 학과별로 선택된 작품을 저장하는 상태
+  const navigate = useNavigate();
 
   const toggleDept = (deptTitle) => {
     if (selectedDepts.includes(deptTitle)) {
@@ -70,7 +72,10 @@ const DeptSection = () => {
           {selectedDepts.includes(dept.title) && (
             <ProductListContainer>
               {selectedItems[dept.title]?.map((item) => (
-                <ProductCard key={item.item_id}>
+                <ProductCard
+                  key={item.item_id}
+                  onClick={() => navigate(`/artwork/${item.item_id}`)}
+                >
                   <img src={item.image_original} alt={item.title} />
                 </ProductCard>
               ))}

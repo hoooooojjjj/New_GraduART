@@ -95,7 +95,7 @@ export const DeptDetailHeadernavinfowrapper = styled.div((props) => ({
   position: "relative",
   width: "23.1vw",
   height: "5.982vh",
-  display: "flex",
+
   alignItems: "center",
   justifyContent: "center",
   display: props.isNavHover ? "flex" : "none",
