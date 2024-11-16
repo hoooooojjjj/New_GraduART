@@ -26,8 +26,7 @@ import api from "../../../../utils/axios";
 import ErrorMessage from "../../../../components/common/ErrorMessage";
 import Loading from "../../../../components/common/Loading";
 
-function ExhibitionTitle({items, setItems}) {
-  const curDepartmentObj = useContext(curDepartmentObjContext);
+function ExhibitionTitle({items, setItems, curDepartmentObj}) {
   const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태
   //const [searchResults, setSearchResults] = useState([]); // 검색 결과 상태
 
@@ -70,7 +69,7 @@ function ExhibitionTitle({items, setItems}) {
   );
 }
 
-function ExhibitionGrid({items, setItems}) {
+function ExhibitionGrid({items, setItems, curDepartmentObj}) {
   // 한 페이지에서 보일 작품 수
   const itemsPerPage = 8;
 
@@ -80,7 +79,6 @@ function ExhibitionGrid({items, setItems}) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const curDepartmentObj = useContext(curDepartmentObjContext);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -202,10 +200,13 @@ function ExhibitionGrid({items, setItems}) {
 }
 
 function DeptDetailExhibitionComponent({items, setItems}) {
+  const curDepartmentObj = useContext(curDepartmentObjContext);
+  console.log(curDepartmentObj)
+
   return (
     <DeptDetailExhibition>
-      <ExhibitionTitle items={items} setItems={setItems}/>
-      <ExhibitionGrid items={items} setItems={setItems}/>
+      <ExhibitionTitle items={items} setItems={setItems} curDepartmentObj={curDepartmentObj}/>
+      <ExhibitionGrid items={items} setItems={setItems} curDepartmentObj={curDepartmentObj}/>
     </DeptDetailExhibition>
   );
 }
