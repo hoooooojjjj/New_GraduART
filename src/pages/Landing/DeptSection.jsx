@@ -13,7 +13,7 @@ import ErrorMessage from "../../components/common/ErrorMessage";
 import api from "../../utils/axios";
 
 const departments = [
-  { title: "Ceramic", subtitle: "도예전공" },
+  { title: "Ceramic", subtitle: "도자공예전공" },
   { title: "Metal", subtitle: "금속공예전공" },
 ];
 

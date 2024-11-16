@@ -34,7 +34,7 @@ function ExhibitionTitle({items, setItems, curDepartmentObj}) {
   useEffect(() => {
     setSearchTerm(""); // 검색어 상태 초기화
   }, [location]);
-  
+
   // 검색 API 호출 함수
   const search = async (term) => {
     try {
