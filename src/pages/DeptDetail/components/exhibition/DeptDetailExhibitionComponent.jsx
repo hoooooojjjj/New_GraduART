@@ -20,7 +20,7 @@ import {
   TitleText,
   TitleYear,
 } from "./DeptDetailExhibitionComponentStyles";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { curDepartmentObjContext } from "../../DeptDetail";
 import api from "../../../../utils/axios";
 import ErrorMessage from "../../../../components/common/ErrorMessage";
@@ -28,8 +28,13 @@ import Loading from "../../../../components/common/Loading";
 
 function ExhibitionTitle({items, setItems, curDepartmentObj}) {
   const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태
-  //const [searchResults, setSearchResults] = useState([]); // 검색 결과 상태
+  const location = useLocation(); // 현재 경로 가져오기
 
+  // 경로 변경 시 검색창 초기화
+  useEffect(() => {
+    setSearchTerm(""); // 검색어 상태 초기화
+  }, [location]);
+  
   // 검색 API 호출 함수
   const search = async (term) => {
     try {
@@ -75,7 +80,6 @@ function ExhibitionGrid({items, setItems, curDepartmentObj}) {
 
   // 현재 페이지
   const [currentPage, setCurrentPage] = useState(1);
-  //const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -128,7 +132,7 @@ function ExhibitionGrid({items, setItems, curDepartmentObj}) {
 
   useEffect(() => {
     // 이미지 높이 (너비와 동일, 즉 셀의 너비와 같음) + 각 요소 사이의 gap 높이 * 2
-    if (imgRef.current) {
+    if (imgRef.current && items.length > 0) {
       const columnHeight = imgRef.current.clientWidth;
       const computedMinHeight = columnHeight * 2; // 2행 + gap
       setMinHeight(computedMinHeight);
@@ -161,10 +165,10 @@ function ExhibitionGrid({items, setItems, curDepartmentObj}) {
             <ArtWorkCircle
               style={{
                 display: isHover[i] ? "block" : "none",
-                width: imgRef.current.clientWidth
+                width: imgRef.current?.clientWidth
                   ? imgRef.current.clientWidth * 1.4
                   : 0,
-                height: imgRef.current.clientWidth
+                height: imgRef.current?.clientWidth
                   ? imgRef.current.clientWidth * 1.4
                   : 0,
               }}
@@ -201,7 +205,6 @@ function ExhibitionGrid({items, setItems, curDepartmentObj}) {
 
 function DeptDetailExhibitionComponent({items, setItems}) {
   const curDepartmentObj = useContext(curDepartmentObjContext);
-  console.log(curDepartmentObj)
 
   return (
     <DeptDetailExhibition>

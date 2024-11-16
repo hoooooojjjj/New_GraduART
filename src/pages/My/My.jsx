@@ -90,8 +90,8 @@ function My() {
   };
 
   //주문 상세 페이지로 이동
-  const handlePaymentInfo = () => {
-    navigate("/PaymentInfo")
+  const handlePaymentInfo = (itemId) => {
+    navigate("/payment-info", { state: { itemId } });
   }
 
   // 로그아웃 핸들러
@@ -145,7 +145,7 @@ function My() {
                         </Right>
                       </Product1>
                       <Bottom>
-                        <RefundButton onClick={handlePaymentInfo}>결제 정보</RefundButton>
+                        <RefundButton onClick={() => handlePaymentInfo(item.item_id)}>결제 정보</RefundButton>
                         <DeliveryTrackingButton onClick={() => handleDeliveryCheck(item.item_id)}>
                           배송 조회
                         </DeliveryTrackingButton>
@@ -181,6 +181,7 @@ function My() {
                           {item.price.toLocaleString()}
                           <WhiteText>원</WhiteText>
                         </ProductPrice>
+                        <RefundButton onClick={() => handlePaymentInfo(item.item_id)}>결제 정보</RefundButton>
                         <DeliveryTrackingButton onClick={() => handleDeliveryCheck(item.item_id)}>
                           배송 조회
                         </DeliveryTrackingButton>

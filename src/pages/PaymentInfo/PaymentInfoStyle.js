@@ -12,6 +12,7 @@ export const Wrap = styled("div")`
   box-sizing: border-box;
   overflow-y: auto;
   align-items: center;
+  padding: 80px 0 0; 
 `;
 
 export const PaymentText = styled.div`
@@ -108,13 +109,43 @@ export const MiddleText = styled.div`
 export const TwoTextWrapper = styled.div`
   display: flex;
   gap: 10px;
+  width: 100%; /* 전체 너비를 부모 컨테이너에 맞추기 */
+  box-sizing: border-box; /* 테두리와 패딩 포함 */
 `;
 
 export const TextWrapper = styled.input`
   display: flex;
   border-radius: 20px;
   background: rgba(215, 215, 215, 0.3);
-  width: ${({ width }) => width}%;
+  //width: ${({ width }) => width}%;
+  width: 100%;
+  padding-left: 15px;
+  align-items: center;
+  color: #d7d7d7;
+  font-size: 13px;
+  font-style: normal;
+  font-family: KoddiUDOnGothic, sans-serif;
+  font-weight: 400;
+  line-height: 100%;
+  margin-bottom: 12px;
+  height: 43px;
+  border: none;
+  outline: none;
+  &::placeholder {
+    color: #d7d7d7;
+  }
+
+  @media (max-width: 768px) and (min-width: 320px) {
+    font-size: 8px;
+    height: 25px;
+    margin-bottom: 8px;
+  }
+`;
+
+export const OneTextWrapper = styled.input`
+  display: flex;
+  border-radius: 20px;
+  background: rgba(215, 215, 215, 0.3);
   padding-left: 15px;
   align-items: center;
   color: #d7d7d7;

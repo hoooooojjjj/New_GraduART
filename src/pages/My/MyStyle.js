@@ -210,6 +210,7 @@ export const DeliveryTrackingButton = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 100%; /* 15px */
+  cursor: pointer;
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding: 10px 23px;
@@ -233,6 +234,7 @@ export const RefundButton = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 100%; /* 15px */
+  cursor: pointer;
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding: 8px 13px;
@@ -296,6 +298,7 @@ export const SignOutButton = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 100%; /* 24px */
+  cursor: pointer;
 
   position: absolute;
   bottom: 20px;  /* 화면 하단에서 20px 위로 띄우기 */
