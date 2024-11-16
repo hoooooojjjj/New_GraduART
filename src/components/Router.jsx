@@ -17,6 +17,8 @@ import My from "../pages/My/My.jsx";
 import Cart from "../pages/Cart/Cart.jsx";
 import SearchPage from "../pages/Serach";
 
+import GoogleCallback from '../pages/SignIn/ GoogleCallback.jsx';
+
 
 function Router() {
   return (
@@ -37,6 +39,7 @@ function Router() {
         <Route path="/my" element={<My />} />
         <Route exact path="/cart" element={<Cart />}></Route>
         <Route exact path="/payment-info" element={<PaymentInfo />}></Route>
+        <Route path="/auth/callback" element={<GoogleCallback />} />
       </Routes>
     </BrowserRouter>
   );

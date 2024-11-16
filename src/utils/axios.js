@@ -60,10 +60,10 @@ api.interceptors.response.use(
         // 토큰 갱신 실패 시 로그인 페이지로 이동 (단, 로그인 페이지와 작품 상세 페이지는 제외)
         processQueue(refreshError);
         if (
-          window.location.pathname !== "/login" &&
+          window.location.pathname !== "/signin" &&
           !window.location.pathname.startsWith("/items")
         ) {
-          window.location.href = "/login";
+          //window.location.href = "/signin";
         }
         return Promise.reject(refreshError);
       } finally {

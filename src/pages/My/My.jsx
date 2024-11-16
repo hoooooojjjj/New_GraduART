@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useAuth } from '../../contexts/AuthContext';
 import { useMediaQuery } from "react-responsive";
 import {
   Wrap,
@@ -25,18 +26,27 @@ import {
   PurpleText,
   Bottom,
   MobileWrapper,
-
+  SignOutButton,
 } from "./MyStyle";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
 import {useNavigate} from "react-router-dom";
 
 function My() {
+  const { user, logout } = useAuth();
   const isMobile = useMediaQuery({ maxWidth: 768 });
-
   const navigate = useNavigate();
   const handlePaymentInfo = () => {
     navigate("/PaymentInfo")
   }
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/");
+    } catch (error) {
+      console.error('로그아웃 실패:', error);
+    }
+  };
 
   return (
     <Wrap>
@@ -111,6 +121,7 @@ function My() {
           </RectangleImage>
         </MainFrame>
       </Frame>
+      <SignOutButton onClick={handleLogout}>로그아웃</SignOutButton>
     </Wrap>
   );
 }
