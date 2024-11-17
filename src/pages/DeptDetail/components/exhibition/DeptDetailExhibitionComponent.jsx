@@ -26,7 +26,7 @@ import api from "../../../../utils/axios";
 import ErrorMessage from "../../../../components/common/ErrorMessage";
 import Loading from "../../../../components/common/Loading";
 
-function ExhibitionTitle({items, setItems, curDepartmentObj}) {
+function ExhibitionTitle({ items, setItems, curDepartmentObj }) {
   const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태
   const location = useLocation(); // 현재 경로 가져오기
 
@@ -39,7 +39,7 @@ function ExhibitionTitle({items, setItems, curDepartmentObj}) {
   const search = async (term) => {
     try {
       const response = await api.get(
-        `/items/search/?query=${term}&department=${curDepartmentObj.Department}`
+        `/items/search/?query=${term}&department=${curDepartmentObj.Department}`,
       );
       setItems(response.data); // 검색 결과 저장
     } catch (error) {
@@ -67,14 +67,18 @@ function ExhibitionTitle({items, setItems, curDepartmentObj}) {
         <TitleYear>2024</TitleYear>
       </ExhibitionTitleTextWrap>
       <ExhibitionTitleSearchContainer onSubmit={handleSearchSubmit}>
-        <ExhibitionTitleSearchWrap value={searchTerm} onChange={handleSearchChange} placeholder="작품명, 작가명 검색하기" />
+        <ExhibitionTitleSearchWrap
+          value={searchTerm}
+          onChange={handleSearchChange}
+          placeholder="작품명, 작가명 검색하기"
+        />
         <SearchIcon src="/assets/searchIcon.svg" alt="search" />
       </ExhibitionTitleSearchContainer>
     </ExhibitionTitleWrap>
   );
 }
 
-function ExhibitionGrid({items, setItems, curDepartmentObj}) {
+function ExhibitionGrid({ items, setItems, curDepartmentObj }) {
   // 한 페이지에서 보일 작품 수
   const itemsPerPage = 8;
 
@@ -203,13 +207,21 @@ function ExhibitionGrid({items, setItems, curDepartmentObj}) {
   );
 }
 
-function DeptDetailExhibitionComponent({items, setItems}) {
+function DeptDetailExhibitionComponent({ items, setItems }) {
   const curDepartmentObj = useContext(curDepartmentObjContext);
 
   return (
     <DeptDetailExhibition>
-      <ExhibitionTitle items={items} setItems={setItems} curDepartmentObj={curDepartmentObj}/>
-      <ExhibitionGrid items={items} setItems={setItems} curDepartmentObj={curDepartmentObj}/>
+      <ExhibitionTitle
+        items={items}
+        setItems={setItems}
+        curDepartmentObj={curDepartmentObj}
+      />
+      <ExhibitionGrid
+        items={items}
+        setItems={setItems}
+        curDepartmentObj={curDepartmentObj}
+      />
     </DeptDetailExhibition>
   );
 }

@@ -34,8 +34,11 @@ export const MainFrame = styled.div`
 export const RectangleFrame = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 40px;
-
+  gap: 20px;
+  background: rgba(215, 215, 215, 0.3);
+  border-radius: 20px;
+  margin-bottom: 30px;
+  padding: 34px 55px;
   @media (max-width: 768px) and (min-width: 320px) {
     gap: 20px;
   }
@@ -67,9 +70,7 @@ export const TextLine = styled.div`
 `;
 
 export const RectangleImage = styled.div`
-  border-radius: 20px;
-  background: rgba(215, 215, 215, 0.3);
-  padding: 35px 52px;
+  //padding: 0px 52px;
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding: 19px 16px;
@@ -83,7 +84,6 @@ export const SubText = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
-  padding-bottom: 31px;
 
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 12px;
@@ -314,6 +314,7 @@ export const RectangleTop = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
+  align-items: center;
 `;
 
 export const Total = styled.div`

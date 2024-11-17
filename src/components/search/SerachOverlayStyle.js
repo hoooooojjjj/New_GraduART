@@ -6,6 +6,9 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   background-color: #d9d9d9;
+  @media (max-width: 768px) and (min-width: 320px) {
+    flex-direction: column;
+  }
 `;
 
 export const Head = styled.header`
@@ -16,6 +19,16 @@ export const Head = styled.header`
   justify-content: space-between;
   position: relative;
   width: 100%;
+  @media (max-width: 768px) and (min-width: 320px) {
+  }
+`;
+
+export const SearchWrap = styled.div`
+  display: flex;
+  z-index: 1100;
+  width: 100vw;
+  justify-content: center;
+  margin-top: 50px;
 `;
 
 export const Logo = styled.div`
@@ -102,6 +115,11 @@ export const ArtworkListContainer = styled.div`
   max-height: 350px;
   overflow-y: scroll;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+    margin-top: 30px;
+  }
 `;
 
 // 각 컬럼을 나누는 컨테이너
@@ -111,10 +129,15 @@ export const Column = styled.div`
   width: 300px;
   gap: 20px;
   flex: 1;
-  min-width: 300px;
+  //min-width: 300px;
 
   @media (min-width: 1024px) {
     width: 50%;
+  }
+
+  @media (max-width: 768px) {
+    gap: 5px;
+    width: 40%;
   }
 `;
 
@@ -132,8 +155,10 @@ export const ArtworkCard = styled.div`
   display: flex;
   align-items: center;
   gap: 15px;
-
   width: 330px;
+  @media (max-width: 768px) {
+    width: 150px;
+  }
 `;
 
 export const ArtworkImage = styled.div`
@@ -157,6 +182,9 @@ export const ArtworkTitle = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 100%; /* 24px */
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 export const ArtworkDetails = styled.div`
@@ -166,4 +194,7 @@ export const ArtworkDetails = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
 `;
