@@ -17,6 +17,7 @@ import {
   Circles,
   Ellipse,
   Ellipse3,
+  SearchWrap,
 } from "./SerachOverlayStyle";
 import { Ellipse2 } from "../DepartmentHeader/DepartmentHeaderStyle";
 import ItemSearch from "./ItemSearch";
@@ -24,6 +25,7 @@ import api from "../../utils/axios";
 import { useNavigate } from "react-router-dom";
 import Loading from "../common/Loading";
 import ErrorMessage from "../common/ErrorMessage";
+import { useMediaQuery } from "react-responsive";
 
 const SearchOverlay = ({ artworks, handleSearch }) => {
   const [filteredArtworks, setFilteredArtworks] = useState([]);
@@ -31,6 +33,7 @@ const SearchOverlay = ({ artworks, handleSearch }) => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const [isSearchAttempted, setIsSearchAttempted] = useState(false);
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const handleItemSearch = async (query) => {
     try {
@@ -80,8 +83,7 @@ const SearchOverlay = ({ artworks, handleSearch }) => {
           )}
         </Logo>
         <Circles>
-          <ItemSearch onSearch={handleItemSearch} />
-
+          {!isMobile && <ItemSearch onSearch={handleItemSearch} />}
           <Ellipse2>
             <svg
               width="15"
@@ -123,6 +125,11 @@ const SearchOverlay = ({ artworks, handleSearch }) => {
           </Ellipse3>
         </Circles>
       </Head>
+      {isMobile && (
+        <SearchWrap>
+          <ItemSearch onSearch={handleItemSearch} />
+        </SearchWrap>
+      )}
       <ArtworkListContainer>
         {isSearchAttempted && filteredArtworks.length === 0 ? (
           <div

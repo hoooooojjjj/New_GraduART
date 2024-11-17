@@ -209,6 +209,7 @@ export const PurchaseButton = styled.div((props) => ({
   fontSize: "13px",
   fontWeight: "700",
   backgroundColor: props.bgColor,
+  cursor: "pointer",
 }));
 
 /*-----------------모바일 관련 컴포넌트들----------------*/

@@ -181,6 +181,15 @@ function Cart() {
     }
   };
 
+  // 학과별로 cartItems를 그룹화
+  const groupedCartItems = cartItems.reduce((acc, item) => {
+    if (!acc[item.department]) {
+      acc[item.department] = [];
+    }
+    acc[item.department].push(item);
+    return acc;
+  }, {});
+
   if (loading) return <Loading />;
   if (error) return <ErrorMessage message={error} />;
 
@@ -200,50 +209,52 @@ function Cart() {
               선택 삭제
             </SelectDeleteButton>
           </Buttons>
-          <RectangleFrame>
-            {cartItems.map((item) => (
-              <RectangleImage key={item.item_id}>
-                <RectangleTop>
-                  <CheckBox
-                    isChecked={checkedItems[item.item_id]}
-                    onClick={() => handleCheckboxClick(item.item_id)}
-                  />
-                  <SubText>{item.department}</SubText>
-                </RectangleTop>
-                <Line />
-                <Products>
-                  <Product1>
-                    <Left>
-                      <CheckBox
-                        isChecked={checkedItems[item.item_id]}
-                        onClick={() => handleCheckboxClick(item.item_id)}
-                      />
-                      <ProductImage
-                        src={item.image_original}
-                        alt={item.title}
-                      />
-                      <ProductDescription>
-                        <Title>{item.title}</Title>
-                        <DetailDescription>
-                          {item.name}
-                          <SmallLine></SmallLine>
-                          {item.size}
-                          <SmallLine></SmallLine>
-                          {item.material}
-                        </DetailDescription>
-                      </ProductDescription>
-                    </Left>
-                    <Right>
-                      <ProductPrice>
-                        {item.price.toLocaleString()}
-                        <WhiteText>원</WhiteText>
-                      </ProductPrice>
-                    </Right>
-                  </Product1>
-                </Products>
-              </RectangleImage>
-            ))}
-          </RectangleFrame>
+          {Object.keys(groupedCartItems).map((department) => (
+            <RectangleFrame key={department}>
+              <RectangleTop>
+                <CheckBox
+                  isChecked={departmentChecked[department]}
+                  onClick={() => handleDepartmentCheckboxClick(department)}
+                />
+                <SubText>{department}</SubText>
+              </RectangleTop>
+              <Line />
+              <Products>
+                {groupedCartItems[department].map((item) => (
+                  <RectangleImage key={item.item_id}>
+                    <Product1>
+                      <Left>
+                        <CheckBox
+                          isChecked={checkedItems[item.item_id]}
+                          onClick={() => handleCheckboxClick(item.item_id)}
+                        />
+                        <ProductImage
+                          src={item.image_original}
+                          alt={item.title}
+                        />
+                        <ProductDescription>
+                          <Title>{item.title}</Title>
+                          <DetailDescription>
+                            {item.name}
+                            <SmallLine></SmallLine>
+                            {item.size}
+                            <SmallLine></SmallLine>
+                            {item.material}
+                          </DetailDescription>
+                        </ProductDescription>
+                      </Left>
+                      <Right>
+                        <ProductPrice>
+                          {item.price.toLocaleString()}
+                          <WhiteText>원</WhiteText>
+                        </ProductPrice>
+                      </Right>
+                    </Product1>
+                  </RectangleImage>
+                ))}
+              </Products>
+            </RectangleFrame>
+          ))}
         </MainFrame>
         <Bar>
           <TotalTextFrame>
