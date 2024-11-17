@@ -210,6 +210,7 @@ export const DeliveryTrackingButton = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 100%; /* 15px */
+  cursor: pointer;
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding: 10px 23px;
@@ -233,6 +234,7 @@ export const RefundButton = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 100%; /* 15px */
+  cursor: pointer;
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding: 8px 13px;
@@ -277,4 +279,29 @@ export const PurpleText = styled.div`
 export const MobileWrapper = styled.div`
   display: flex;
   flex-direction: column;
+`
+
+export const SignOutButton = styled.div`
+  display: flex;
+  width: 205px;
+  height: 56px;
+  padding: 14px 34px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #A348F6;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 24px */
+  cursor: pointer;
+
+  position: absolute;
+  bottom: 20px;  /* 화면 하단에서 20px 위로 띄우기 */
+  left: 50%;
+  transform: translateX(-50%);  /* 버튼을 수평 중앙에 배치 */
 `

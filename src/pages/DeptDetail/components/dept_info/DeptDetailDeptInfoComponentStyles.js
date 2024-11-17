@@ -34,6 +34,7 @@ export const DeptInfoImgPassive = styled.div({
     height: 10,
     borderRadius: "10px",
   },
+  cursor: "pointer",
 });
 
 export const DeptInfoImgActive = styled.img({

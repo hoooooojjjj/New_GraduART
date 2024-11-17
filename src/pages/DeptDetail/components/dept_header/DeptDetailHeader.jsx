@@ -54,7 +54,6 @@ function DeptDetailHeaderComponent() {
               //동그라미 click 시, 해당 과 페이지로 이동
               onClick={() => {
                 navigate(`/dept_detail/${dept.Department}`);
-                
               }} 
             ></DeptDetailHeadercircle>
             <DeptDetailHeadernavinfowrapper isNavHover={isNavHover[i]}>

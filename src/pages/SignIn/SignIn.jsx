@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+//import { useForm } from 'react-hook-form';
+import { useAuth } from '../../contexts/AuthContext';
+//import { useNavigate, Link } from 'react-router-dom';
 import {
   Wrap,
   PageText,
@@ -12,6 +15,8 @@ import {
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
 
 function SignIn() {
+  const { googleLogin } = useAuth();
+
   return (
     <Wrap>
       <DepartmentHeader />
@@ -21,7 +26,7 @@ function SignIn() {
             <PageText>로그인</PageText>
           </TextFrame>
           <Line />
-          <ImageFrame src="/google-signin-icon.png" />
+          <ImageFrame src="/google-signin-icon.png" onClick={googleLogin}/>
         </MainFrame>
       </MainWrapper>
       <BackgroundCircle />

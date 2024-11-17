@@ -12,6 +12,7 @@ import {
 } from "./DepartmentHeaderStyle";
 import { useNavigate } from "react-router-dom";
 import SearchOverlay from "../search/SearchOverlay"; // Adjust the path as necessary
+import { useAuth } from '../../contexts/AuthContext';
 
 const mockArtworks = [
   {
@@ -62,7 +63,8 @@ const mockArtworks = [
 export const DepartmentHeader = () => {
   const navigate = useNavigate();
   const [isSearchVisible, setIsSearchVisible] = useState(false);
-
+  const { user, logout } = useAuth();
+  
   // 뒤로가기 버튼을 눌렀을 때
   const handleBack = () => {
     if (window.location.pathname.startsWith("/dept_detail")) {
@@ -89,12 +91,21 @@ export const DepartmentHeader = () => {
 
   //장바구니 버튼 눌렀을때
   const handleCart = () => {
-    navigate("/cart");
+    if (user) {
+      navigate("/cart");
+    } else {
+      navigate("/signin");
+    }
   };
 
   //마이페이지 버튼 눌렀을때
   const handleMypage = () => {
-    navigate("/my");
+    if (user) {
+      navigate("/my");
+    } else {
+      navigate("/signin");
+    }
+    
   };
 
   return (

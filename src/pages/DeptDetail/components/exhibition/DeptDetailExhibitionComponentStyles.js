@@ -167,6 +167,7 @@ export const ArtWorkImg = styled.img({
   aspectRatio: "1", // 너비와 높이를 동일하게 설정
   borderRadius: "20px",
   backdropFilter: "blur(50px)",
+  cursor: "pointer",
   "@media (max-width: 768px)": {
     borderRadius: "10px",
   },

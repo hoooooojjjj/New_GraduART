@@ -82,6 +82,7 @@ export const DeptDetailHeadercircle = styled.div({
   flexShrink: 0,
   background: "rgba(217, 217, 217, 0.30)",
   borderRadius: "50%",
+  cursor: "pointer",
   ":hover": {
     background: "#A348F6",
   },

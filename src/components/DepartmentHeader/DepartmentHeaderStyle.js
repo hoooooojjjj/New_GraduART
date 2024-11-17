@@ -34,6 +34,7 @@ export const TextWrapper = styled.span`
 
 export const BackBtn = styled.div`
   padding: 10px;
+  cursor: pointer;
   @media (max-width: 768px) {
     padding: 5px;
     margin-top: 5px;
@@ -66,6 +67,7 @@ export const Ellipse = styled.div`
   left: 0;
   top: 0;
   width: 25px;
+  cursor: pointer;
 `;
 
 export const Ellipse2 = styled.div`
@@ -77,6 +79,7 @@ export const Ellipse2 = styled.div`
   height: 25px;
   top: 0;
   width: 25px;
+  cursor: pointer;
 `;
 
 export const Ellipse3 = styled.div`
@@ -88,4 +91,5 @@ export const Ellipse3 = styled.div`
   height: 25px;
   top: 0;
   width: 25px;
+  cursor: pointer;
 `;
