@@ -9,6 +9,7 @@ import {
   FooterMainElementTitle,
   FooterMainElementWrap,
 } from "./FooterStyles";
+import { Link } from "react-router-dom";
 
 const svgIcon1 = (
   <svg
@@ -66,9 +67,35 @@ function FooterMainElement({ title, content }) {
             {window.innerWidth > 768 ? svgIcon1 : null}
             {window.innerWidth > 768 ? svgIcon2 : null}
           </div>
+        ) : text.includes("개인정보처리방침") ? (
+          <FooterMainElementText>
+            <Link
+              to="https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343?pvs=4"
+              target="_blank"
+              style={{
+                color: "white",
+                textDecoration: "underline",
+                cursor: "pointer",
+              }}
+            >
+              {text.split("|")[0]}{" "}
+            </Link>
+            |
+            <Link
+              to="https://minseoparkk.notion.site/13c735fb457580539adfe398d38deec0?pvs=4"
+              target="_blank"
+              style={{
+                color: "white",
+                textDecoration: "underline",
+                cursor: "pointer",
+              }}
+            >
+              {text.split("|")[1]}
+            </Link>
+          </FooterMainElementText>
         ) : (
           <FooterMainElementText key={index}>{text}</FooterMainElementText>
-        ),
+        )
       )}
     </FooterMainElementWrap>
   );
@@ -77,33 +104,37 @@ function FooterMainElement({ title, content }) {
 function Footer() {
   return (
     <FooterContainer>
-      <FooterHeader>snu graduart</FooterHeader>
+      <FooterHeader>graduart</FooterHeader>
       <FooterMain>
         <FooterMainElementWrap data-area="about">
           <FooterMainElement
             title="About us"
             content={[
               "상담/주문전화",
-              "010-1234-5678",
+              "010-4912-0992",
               "CS 운영시간",
               "월-금 09:00-18:00",
+              "작품 등록 문의",
+              "snugraduart@gmail.com",
             ]}
           />
         </FooterMainElementWrap>
         <FooterMainElementWrap data-area="payment">
           <FooterMainElement
             title="결제 정보"
-            content={[
-              "무통장 계좌정보",
-              "하나 123-456789-12345",
-              "사단법인 졸작팝니다",
-            ]}
+            content={["무통장 계좌정보", "하나 484-910265-28107"]}
           />
         </FooterMainElementWrap>
         <FooterMainElementWrap data-area="register">
           <FooterMainElement
-            title="작품 등록"
-            content={["문의 이메일", "mindong@naver.com"]}
+            title="사업자 정보"
+            content={[
+              "그래두아트",
+              `경기도 안양시 만안구 안양천서로 249, 116동 2903호`,
+              "대표: 박민서",
+              "사업자: 888-13-02558",
+              "이용약관 및 환불규정 | 개인정보처리방침",
+            ]}
           />
         </FooterMainElementWrap>
         <FooterMainElementWrap data-area="madeBy">
@@ -121,7 +152,7 @@ function Footer() {
           </div>
         </FooterMainElementWrap>
       </FooterMain>
-      <FooterFooter>CompanyName @ 2024. All rights reserved.</FooterFooter>
+      <FooterFooter>그래두아트 @ 2024. All rights reserved.</FooterFooter>
     </FooterContainer>
   );
 }
