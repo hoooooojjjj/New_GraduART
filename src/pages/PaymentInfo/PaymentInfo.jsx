@@ -31,6 +31,7 @@ export const PaymentInfo = () => {
         try {
             const response = await api.get(`/purchases/${itemId}/`);
             setOrderInfo(response.data);
+            console.log(`orderInfo:${orderInfo}`)
         } catch (err) {
             setError(err.response?.data?.error || '주문 상세 정보를 불러오는데 실패했습니다.');
         } finally {

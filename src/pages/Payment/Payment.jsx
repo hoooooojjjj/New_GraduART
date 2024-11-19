@@ -26,7 +26,6 @@ import {
   TextWrapper, Modal,
 } from "./PaymentStyle";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
-import targetItems from "./PurchaseItems.json"
 import {useLocation} from "react-router-dom";
 import { useAuth } from '../../contexts/AuthContext';
 import api from '../../utils/axios';
@@ -36,20 +35,17 @@ function Payment() {
   const [purchaseItems, setPurchaseItems] = useState([]);
   const location = useLocation();
 
-
-  // 전달된 작품 정보가 있다면 상태에 저장
   useEffect(() => {
-    if (location.state && location.state.purchaseItems) {
-      setPurchaseItems(location.state.purchaseItems);
-      console.log(location.state.purchaseItems);
+    const items = location.state?.selectedItems || []; // Directly retrieve selectedItems
+    if (items.length > 0) {
+      setPurchaseItems(items); // Directly set the items
+      console.log(items);
+      console.log("Converted Selected Items:", items); // Debug log
     } else {
       console.error("No purchase items were provided.");
+      setPurchaseItems([]); // Fallback to empty array
     }
   }, [location.state]);
-
-  useEffect(()=>{
-    setPurchaseItems(targetItems);
-  },[targetItems]);
 
   const [formData, setFormData] = useState({
     orderName: "",
@@ -114,7 +110,6 @@ function Payment() {
       phone_num: '',
       address: '', // 배송주소 => 프론트에서 처리할 때 한 줄의 string으로 잘 concatenate해서 보내주세요. 포맷만 통일되면 됩니다~
     });
-    const cartItems = location.state?.cartItems || [];
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
@@ -134,11 +129,10 @@ function Payment() {
         address: `${formData.address} ${formData.detailAddress}`
       }));
 
-      console.log("Purchase Items:", purchaseItems);
+      console.log("Purchase Requested Items:", purchaseItems);
       console.log("Purchase Items.map result: ", purchaseItems.map(item => item.num_code));
       const response = await api.post('/purchases/prepare/', {
-        item_ids: purchaseItems.map(item => item.item_id),
-        user_ids: '3b7b0b52-02b7-4324-9bbb-d7b8a06c8474'
+        item_ids: purchaseItems.map(item => item.item_id)
       });
 
       window.location.href = response.data.next_redirect_pc_url;
@@ -235,7 +229,7 @@ function Payment() {
           {purchaseItems.map((item) => (
               <OrderMidWrap key={item.num_code}>
                 <LeftWrapper>
-                  <ArtImage src={item.imagePath[0]} alt={item.title} />
+                  <ArtImage src={item.image_original} alt={item.title} />
                   <ArtTextWrap>
                     <ArtText>{item.title}</ArtText>
                     <ArtInfo>{`${item.artist} | ${item.department}`}</ArtInfo>
