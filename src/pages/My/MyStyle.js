@@ -1,21 +1,22 @@
 import styled from "@emotion/styled";
 
 export const Wrap = styled.div`
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: 100dvw;
-    height: 100dvh;
-    margin: 0;
-    padding: 0;
-    background-color: var(--black);
-    box-sizing: border-box;
-`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100dvw;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--black);
+  box-sizing: border-box;
+`;
 
 export const Frame = styled.div`
   width: 100%;
-  heigth: 100%;
-`
+  height: 100%;
+`;
+
 export const MainFrame = styled.div`
   margin: 75px 77px;
 
@@ -25,12 +26,12 @@ export const MainFrame = styled.div`
     width: calc(100% - 76px);
     margin-top: 20px;
     padding: 25px 20px;
-    flex-direction: column;    
+    flex-direction: column;
   }
-`
+`;
 
 export const PageText = styled.div`
-  color: #A348F6;
+  color: #a348f6;
   font-family: "KoddiUD OnGothic";
   font-size: 50px;
   font-style: normal;
@@ -42,23 +43,23 @@ export const PageText = styled.div`
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 25px;
     padding-bottom: 40px;
-    color: #FFF;
+    color: #fff;
     text-align: center;
   }
-`
+`;
 
 export const RectangleImage = styled.div`
   border-radius: 20px;
-  background: rgba(215, 215, 215, 0.30);
+  background: rgba(215, 215, 215, 0.3);
   padding: 35px 52px;
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding: 19px 16px;
   }
-`
+`;
 
 export const SubText = styled.div`
-  color: #FFF;
+  color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 24px;
   font-style: normal;
@@ -70,18 +71,17 @@ export const SubText = styled.div`
     font-size: 12px;
     padding-bottom: 13px;
   }
-`
+`;
 
 export const Line = styled.div`
   width: 100%;
   height: 2px;
-  background: #A348F6;
-
-`
+  background: #a348f6;
+`;
 
 export const Products = styled.div`
   width: 100%;
-`
+`;
 
 export const Product1 = styled.div`
   width: 100%;
@@ -90,13 +90,13 @@ export const Product1 = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 20px 0px;
-  border-bottom: 1px solid #A348F6;
+  border-bottom: 1px solid #a348f6;
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding: 10px 0px;
     border-bottom: 0px;
   }
-`
+`;
 
 export const Left = styled.div`
   display: flex;
@@ -107,14 +107,14 @@ export const Left = styled.div`
   @media (max-width: 768px) and (min-width: 320px) {
     gap: 5px;
   }
-`
+`;
 
 export const ProductImage = styled.div`
   width: 100px;
   height: 100px;
   flex-shrink: 0;
   border-radius: 20px;
-  background: rgba(217, 217, 217, 0.30);
+  background: rgba(217, 217, 217, 0.3);
   backdrop-filter: blur(50px);
 
   @media (max-width: 768px) and (min-width: 320px) {
@@ -122,17 +122,16 @@ export const ProductImage = styled.div`
     height: 50px;
     border-radius: 10px;
   }
-`
-
+`;
 
 export const ProductDescription = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-`
+`;
 
 export const Title = styled.div`
-  color: #DDD;
+  color: #ddd;
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
   font-style: normal;
@@ -142,10 +141,10 @@ export const Title = styled.div`
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 10px;
   }
-`
+`;
 
 export const DetailDescription = styled.div`
-  color: #FFF;
+  color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 13px;
   font-style: normal;
@@ -159,25 +158,25 @@ export const DetailDescription = styled.div`
     font-size: 8px;
     gap: 5px;
   }
-`
+`;
 
 export const SmallLine = styled.div`
-  border: 2px solid #FFF;
+  border: 2px solid #fff;
 
   @media (max-width: 768px) and (min-width: 320px) {
-    border: 0.5px solid #FFF;
+    border: 0.5px solid #fff;
   }
-`
+`;
 
 export const Right = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 25px;
-`
+`;
 
 export const ProductPrice = styled.div`
-  color: #A348F6;
+  color: #a348f6;
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
   font-style: normal;
@@ -188,14 +187,14 @@ export const ProductPrice = styled.div`
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 10px;
   }
-`
+`;
 export const Bottom = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  border-bottom: 1px solid #A348F6;
+  border-bottom: 1px solid #a348f6;
   gap: 5px;
-`
+`;
 export const DeliveryTrackingButton = styled.div`
   display: flex;
   padding: 14px 34px;
@@ -203,9 +202,9 @@ export const DeliveryTrackingButton = styled.div`
   align-items: center;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #A348F6;
-  color: #FFF;
-  font-family: "KoddiUD OnGothic",sans-serif;
+  background: #a348f6;
+  color: #fff;
+  font-family: "KoddiUD OnGothic", sans-serif;
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
@@ -214,10 +213,10 @@ export const DeliveryTrackingButton = styled.div`
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding: 10px 23px;
-    font-size: 10px;    
+    font-size: 10px;
     margin-bottom: 10px;
   }
-`
+`;
 
 export const RefundButton = styled.div`
   display: flex;
@@ -227,8 +226,8 @@ export const RefundButton = styled.div`
   gap: 10px;
   flex-shrink: 0;
   border-radius: 20px;
-  border: 2px solid #A348F6;
-  color: #FFF;
+  border: 2px solid #a348f6;
+  color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 15px;
   font-style: normal;
@@ -238,13 +237,13 @@ export const RefundButton = styled.div`
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding: 8px 13px;
-    font-size: 10px;    
+    font-size: 10px;
     margin-bottom: 10px;
   }
-`
+`;
 
 export const TotalProducts = styled.div`
-  color: #FFF;
+  color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 24px;
   font-style: normal;
@@ -258,28 +257,26 @@ export const TotalProducts = styled.div`
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 12px;
   }
-
-  
-`
+`;
 
 export const WhiteText = styled.div`
-  color: #FFF;
+  color: #fff;
 
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 10px;
   }
-`
+`;
 export const PurpleText = styled.div`
-  color: #A348F6;
+  color: #a348f6;
 
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 15px;
   }
-`
+`;
 export const MobileWrapper = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const SignOutButton = styled.div`
   display: flex;
@@ -291,8 +288,8 @@ export const SignOutButton = styled.div`
   gap: 10px;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #A348F6;
-  color: #FFF;
+  background: #a348f6;
+  color: #fff;
   font-family: Inter;
   font-size: 24px;
   font-style: normal;
@@ -301,7 +298,7 @@ export const SignOutButton = styled.div`
   cursor: pointer;
 
   position: absolute;
-  bottom: 20px;  /* 화면 하단에서 20px 위로 띄우기 */
+  bottom: 20px; /* 화면 하단에서 20px 위로 띄우기 */
   left: 50%;
-  transform: translateX(-50%);  /* 버튼을 수평 중앙에 배치 */
-`
+  transform: translateX(-50%); /* 버튼을 수평 중앙에 배치 */
+`;
