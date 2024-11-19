@@ -23,17 +23,19 @@ import {
   ArtText,
   ArtInfo,
   TotalWrap,
-  TextWrapper, Modal,
+  TextWrapper, Modal, AgreeText, AgreeTextWrapper,
 } from "./PaymentStyle";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import { useAuth } from '../../contexts/AuthContext';
 import api from '../../utils/axios';
 import { CartItem } from '../../types/cart';
+import {CheckBox} from "../Cart/CartStyle";
 
 function Payment() {
   const [purchaseItems, setPurchaseItems] = useState([]);
   const location = useLocation();
+  const [agree, setAgree] = useState(false);
 
   useEffect(() => {
     const items = location.state?.selectedItems || []; // Directly retrieve selectedItems
@@ -83,8 +85,8 @@ function Payment() {
     const allFieldsFilled = Object.values(formData).every(
       (value) => value.trim() !== "",
     );
-    setIsFormComplete(allFieldsFilled);
-  }, [formData]);
+    setIsFormComplete(allFieldsFilled && agree);
+  }, [formData,agree]);
 
   const handlePaymentClick = () => {
     if (!isFormComplete) {
@@ -140,6 +142,18 @@ function Payment() {
       alert(error.response?.data?.error || '결제 준비 중 오류가 발생했습니다.');
     }
   };
+
+  //////이용약관 동의 관련///////
+
+  const handleAgree = (e) => {
+    e.stopPropagation();
+    setAgree(!agree);
+  }
+
+  const handleTermsClick = (e) => {
+    e.stopPropagation();
+    window.open('https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343');
+  }
 
 
   return (
@@ -253,6 +267,10 @@ function Payment() {
           </TotalWrap>
         </OrderDetailWrap>
       </MiddleWrapper>
+      <AgreeTextWrapper onClick={handleAgree}>
+        <CheckBox isChecked={agree}></CheckBox>
+        <AgreeText><span onClick={handleTermsClick} style={{textDecoration:"underline 1px white solid",cursor:"pointer"}}>이용약관 및 환불규정</span>에 모두 동의하며, 결제 내용을 모두 읽고 확인했습니다.</AgreeText>
+      </AgreeTextWrapper>
       <PaymentButton isComplete={isFormComplete} onClick={handlePaymentClick}>
         카카오페이로 결제하기
       </PaymentButton>
