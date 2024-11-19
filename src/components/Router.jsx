@@ -32,7 +32,7 @@ function Router() {
         <Route path="/refund" element={<Refund />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/dept_detail/:dept_id" element={<DeptDetail />}></Route>
-        <Route path="/payment-approval" element={<PaymentApproval />}></Route>
+        <Route path="/purchaseApprove" element={<PaymentApproval />}></Route>
         <Route path="/payment-success" element={<PaymentSuccess />}></Route>
         <Route exact path="/*" element={<NotFound />}></Route>
         <Route path="/signin" element={<SignIn />} />

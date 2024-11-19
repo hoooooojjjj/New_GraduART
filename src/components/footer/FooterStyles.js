@@ -87,7 +87,7 @@ export const FooterMainElementText = styled.div({
   fontSize: "clamp(8px, 1.056vw, 30px)",
   fontStyle: "normal",
   fontWeight: 400,
-  lineHeight: "100%" /* 16px */,
+  lineHeight: "150%" /* 16px */,
   "@media (max-width: 768px)": {
     fontSize: 8,
   },

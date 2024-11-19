@@ -178,6 +178,7 @@ function Cart() {
       alert("구매할 작품을 선택해주세요.");
     } else {
       navigate("/payment", { state: { selectedItems } });
+      console.log(selectedItems);
     }
   };
 
