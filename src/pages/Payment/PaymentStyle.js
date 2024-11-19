@@ -309,7 +309,7 @@ export const PaymentButton = styled.button`
   font-weight: 700;
   background-color: ${({ isComplete }) =>
     isComplete ? "#fae100" : "var(--black)"};
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 50px;
 
   @media (max-width: 768px) and (min-width: 320px) {
@@ -330,3 +330,17 @@ export const Modal = styled.div`
     display: flex;
     flex-direction: column;
 `;
+
+export const AgreeText = styled.span`
+    color: var(--white);
+    font-family: KoddiUDOnGothic sans-serif;
+    font-size: 14px;
+    margin-left: 12px;
+`;
+
+export const AgreeTextWrapper = styled.div`
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    flex-direction: row;
+`

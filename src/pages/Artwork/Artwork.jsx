@@ -216,7 +216,7 @@ function Artwork() {
     // 결제 페이지로 이동하면서 작품 정보 전달
     navigate("/payment", {
       state: {
-        purchaseItems: [targetArt], // 작품 정보를 배열 형태로 전달
+        selectedItems: [targetArt], // 작품 정보를 배열 형태로 전달
       },
     });
   };

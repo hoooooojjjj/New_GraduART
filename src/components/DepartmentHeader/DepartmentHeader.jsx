@@ -12,7 +12,7 @@ import {
 } from "./DepartmentHeaderStyle";
 import { useNavigate } from "react-router-dom";
 import SearchOverlay from "../search/SearchOverlay"; // Adjust the path as necessary
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from "../../contexts/AuthContext";
 
 const mockArtworks = [
   {
@@ -64,7 +64,7 @@ export const DepartmentHeader = () => {
   const navigate = useNavigate();
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const { user, logout } = useAuth();
-  
+
   // 뒤로가기 버튼을 눌렀을 때
   const handleBack = () => {
     if (window.location.pathname.startsWith("/dept_detail")) {
@@ -105,7 +105,6 @@ export const DepartmentHeader = () => {
     } else {
       navigate("/signin");
     }
-    
   };
 
   return (
@@ -133,7 +132,7 @@ export const DepartmentHeader = () => {
               />
             </svg>
           </BackBtn>
-          <TextWrapper>snu graduart </TextWrapper>
+          <TextWrapper>graduart </TextWrapper>
           {window.innerWidth > 768 && (
             <Span>| 서울대학교 졸업전시 작품 전시 ・ 판매</Span>
           )}

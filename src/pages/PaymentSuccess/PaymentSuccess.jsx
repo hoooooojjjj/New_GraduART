@@ -11,8 +11,14 @@ import {
   PaymentSuccessContainer,
 } from "./PaymentSuccessStyles";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
+import {useNavigate} from "react-router-dom";
 
 function PaymentSuccess() {
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate('/my')
+  };
+
   return (
     <PaymentSuccessContainer>
       <header>
@@ -23,7 +29,7 @@ function PaymentSuccess() {
         <InfoWrap>
           <InfoText>결제가 완료되었습니다</InfoText>
           <InfoBtnWrap>
-            <InfoBtnGoPayWrap>
+            <InfoBtnGoPayWrap onClick={handleNavigate}>
               <InfoBtnGoPay>구매내역으로 이동</InfoBtnGoPay>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

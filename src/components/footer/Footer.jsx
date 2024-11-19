@@ -9,6 +9,8 @@ import {
   FooterMainElementTitle,
   FooterMainElementWrap,
 } from "./FooterStyles";
+import {useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const svgIcon1 = (
   <svg
@@ -55,9 +57,25 @@ const svgIcon2 = (
   </svg>
 );
 
-function FooterMainElement({ title, content }) {
+function FooterMainElement({ title, content, isTerms, isPrivacy }) {
+    const navigate = useNavigate();
+    const handleTermsNavigation = (e) => {
+        e.stopPropagation(); // Prevent event propagation
+        if(isTerms){
+            window.open(
+                'https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343',
+                '_blank' // Open in a new tab
+            );
+        } else if(isPrivacy){
+            window.open(
+                'https://minseoparkk.notion.site/13c735fb457580539adfe398d38deec0',
+                '_blank' // Open in a new tab
+            );
+        }
+    };
+
   return (
-    <FooterMainElementWrap>
+    <FooterMainElementWrap onClick={handleTermsNavigation}>
       <FooterMainElementTitle>{title}</FooterMainElementTitle>
       {content.map((text, index) =>
         text.includes("/asset") ? (
@@ -66,9 +84,35 @@ function FooterMainElement({ title, content }) {
             {window.innerWidth > 768 ? svgIcon1 : null}
             {window.innerWidth > 768 ? svgIcon2 : null}
           </div>
+        ) : text.includes("개인정보처리방침") ? (
+          <FooterMainElementText>
+            <Link
+              to="https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343?pvs=4"
+              target="_blank"
+              style={{
+                color: "white",
+                textDecoration: "underline",
+                cursor: "pointer",
+              }}
+            >
+              {text.split("|")[0]}{" "}
+            </Link>
+            |
+            <Link
+              to="https://minseoparkk.notion.site/13c735fb457580539adfe398d38deec0?pvs=4"
+              target="_blank"
+              style={{
+                color: "white",
+                textDecoration: "underline",
+                cursor: "pointer",
+              }}
+            >
+              {text.split("|")[1]}
+            </Link>
+          </FooterMainElementText>
         ) : (
           <FooterMainElementText key={index}>{text}</FooterMainElementText>
-        ),
+        )
       )}
     </FooterMainElementWrap>
   );
@@ -77,33 +121,33 @@ function FooterMainElement({ title, content }) {
 function Footer() {
   return (
     <FooterContainer>
-      <FooterHeader>snu graduart</FooterHeader>
+      <FooterHeader>graduart</FooterHeader>
       <FooterMain>
         <FooterMainElementWrap data-area="about">
           <FooterMainElement
-            title="About us"
+            title="사업자 정보"
             content={[
-              "상담/주문전화",
-              "010-1234-5678",
-              "CS 운영시간",
-              "월-금 09:00-18:00",
+                "그래두아트(Gradu Art)",
+                "대표자 | 박민서",
+                "주소 | 경기도 안양시 만안구",
+                "안양천서로 249, 116동 2903호",
             ]}
           />
         </FooterMainElementWrap>
         <FooterMainElementWrap data-area="payment">
           <FooterMainElement
-            title="결제 정보"
-            content={[
-              "무통장 계좌정보",
-              "하나 123-456789-12345",
-              "사단법인 졸작팝니다",
-            ]}
+            title="이용 약관"
+            content={["이용약관 및 환불규정","개인정보처리방침"]}
+            isTerms={true}
           />
         </FooterMainElementWrap>
         <FooterMainElementWrap data-area="register">
           <FooterMainElement
             title="작품 등록"
-            content={["문의 이메일", "mindong@naver.com"]}
+            content={["문의 이메일", "snugraduart@gmail.com",
+                "고객센터",
+                "010-4171-0584",
+            ]}
           />
         </FooterMainElementWrap>
         <FooterMainElementWrap data-area="madeBy">
@@ -115,13 +159,9 @@ function Footer() {
               "이은재 이진서 조유진 전비아",
             ]}
           />
-          <div style={{ display: "flex" }}>
-            {window.innerWidth > 768 ? null : svgIcon1}
-            {window.innerWidth > 768 ? null : svgIcon2}
-          </div>
         </FooterMainElementWrap>
       </FooterMain>
-      <FooterFooter>CompanyName @ 2024. All rights reserved.</FooterFooter>
+      <FooterFooter>그래두아트 @ 2024. All rights reserved.</FooterFooter>
     </FooterContainer>
   );
 }
