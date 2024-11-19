@@ -92,17 +92,38 @@ function Refund() {
       <Line />
       <MainFrame>
         {isMobile ? (
-          <MobileWrap>
-            <RectangleImage src={item?.image_original} alt={item?.title} />
-            <TextWrapper>
-              <OrderInfoWrapper>
-                <OrderInformation>주문 정보</OrderInformation>
-                <OrderDescription>
-                  {item?.title} | {item?.name} | {item?.size} | {item?.material}
-                </OrderDescription>
-              </OrderInfoWrapper>
-            </TextWrapper>
-          </MobileWrap>
+          <>
+            <MobileWrap>
+              <RectangleImage src={item?.image_original} alt={item?.title} />
+              <TextWrapper>
+                <OrderInfoWrapper>
+                  <OrderInformation>주문 정보</OrderInformation>
+                  <OrderDescription>
+                    {item?.title} | {item?.name} | {item?.size} |{" "}
+                    {item?.material}
+                  </OrderDescription>
+                </OrderInfoWrapper>
+              </TextWrapper>
+            </MobileWrap>
+
+            <MiddleWrapper>
+              <LabelValueWrapper>
+                <PurpleText>금액</PurpleText>
+                <ValueWrapper>
+                  <AmountValue>{item?.price?.toLocaleString()}</AmountValue>
+                  <Currency>원</Currency>
+                </ValueWrapper>
+              </LabelValueWrapper>
+              <LabelValueWrapper>
+                <PurpleText>결제수단</PurpleText>
+                <ValueWrapper>
+                  <PaymentText>
+                    {item?.payment_method || "카카오페이"}
+                  </PaymentText>
+                </ValueWrapper>
+              </LabelValueWrapper>{" "}
+            </MiddleWrapper>
+          </>
         ) : (
           <>
             <RectangleImage src={item?.image_original} alt={item?.title} />
@@ -129,12 +150,6 @@ function Refund() {
                     </PaymentText>
                   </ValueWrapper>
                 </LabelValueWrapper>
-                <LabelValueWrapper>
-                  <PurpleText>제작 시기</PurpleText>
-                  <ValueWrapper>
-                    <ApprovalTimeText>{item?.made_at}</ApprovalTimeText>
-                  </ValueWrapper>
-                </LabelValueWrapper>
               </MiddleWrapper>
             </TextWrapper>
           </>
@@ -142,7 +157,7 @@ function Refund() {
       </MainFrame>
       <ButtonWrapper>
         <RefundButton onClick={handleRefundRequest} disabled={refundStatus}>
-          {refundStatus ? "환불 진행 중" : "취소/환불 신청하기"}
+          {refundStatus ? "취소/환불 신청 완료" : "취소/환불 신청하기"}
         </RefundButton>
       </ButtonWrapper>
     </Wrap>
