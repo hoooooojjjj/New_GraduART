@@ -10,6 +10,7 @@ import {
   FooterMainElementWrap,
 } from "./FooterStyles";
 import {useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const svgIcon1 = (
   <svg
@@ -83,9 +84,35 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
             {window.innerWidth > 768 ? svgIcon1 : null}
             {window.innerWidth > 768 ? svgIcon2 : null}
           </div>
+        ) : text.includes("개인정보처리방침") ? (
+          <FooterMainElementText>
+            <Link
+              to="https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343?pvs=4"
+              target="_blank"
+              style={{
+                color: "white",
+                textDecoration: "underline",
+                cursor: "pointer",
+              }}
+            >
+              {text.split("|")[0]}{" "}
+            </Link>
+            |
+            <Link
+              to="https://minseoparkk.notion.site/13c735fb457580539adfe398d38deec0?pvs=4"
+              target="_blank"
+              style={{
+                color: "white",
+                textDecoration: "underline",
+                cursor: "pointer",
+              }}
+            >
+              {text.split("|")[1]}
+            </Link>
+          </FooterMainElementText>
         ) : (
           <FooterMainElementText key={index}>{text}</FooterMainElementText>
-        ),
+        )
       )}
     </FooterMainElementWrap>
   );
@@ -94,7 +121,7 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
 function Footer() {
   return (
     <FooterContainer>
-      <FooterHeader>snu graduart</FooterHeader>
+      <FooterHeader>graduart</FooterHeader>
       <FooterMain>
         <FooterMainElementWrap data-area="about">
           <FooterMainElement
@@ -134,7 +161,7 @@ function Footer() {
           />
         </FooterMainElementWrap>
       </FooterMain>
-      <FooterFooter>CompanyName @ 2024. All rights reserved.</FooterFooter>
+      <FooterFooter>그래두아트 @ 2024. All rights reserved.</FooterFooter>
     </FooterContainer>
   );
 }
