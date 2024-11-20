@@ -122,6 +122,10 @@ const SideFloatingModals = ({
           <Price color={"var(--purple)"}>수령 방법</Price>{" "}
           <Price color={"var(--white)"}>택배</Price>
         </PriceWrap>
+        <PriceWrap>
+          <Price color={"var(--purple)"}>배송 기간</Price>{" "}
+          <Price color={"var(--white)"}>영업일 기준 6~7일 소요됩니다.</Price>
+        </PriceWrap>
         <ButtonsWrap>
           <PurchaseButton
             color={"var(--white)"}
@@ -280,6 +284,10 @@ function Artwork() {
                 <PriceWrap>
                   <Price color={"var(--purple)"}>수령 방법</Price>{" "}
                   <Price color={"var(--white)"}>택배</Price>
+                </PriceWrap>
+                <PriceWrap>
+                  <Price color={"var(--purple)"}>배송기간</Price>{" "}
+                  <Price color={"var(--white)"}>영업일 기준 6~7일 소요됩니다.</Price>
                 </PriceWrap>
                 <ButtonsWrap>
                   <PurchaseButton
