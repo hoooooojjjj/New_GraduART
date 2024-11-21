@@ -1,4 +1,3 @@
-
 import axios from "axios";
 
 const api = axios.create({
@@ -55,10 +54,22 @@ api.interceptors.response.use(
       isRefreshing = true;
 
       try {
-        // 토큰 갱신 API 호출
-        const response = await api.get("/auth/token/refresh/");
+        // refresh token을 쿠키에서 가져옴
+        const refreshToken = document.cookie
+          .split('; ')
+          .find(row => row.startsWith('refresh_token='))
+          ?.split('=')[1];
+
+        if (!refreshToken) {
+          throw new Error('Refresh token not found');
+        }
+
+        // 토큰 갱신 API 호출 시 refresh token을 함께 전송
+        const response = await api.post("/auth/token/refresh/", {
+          refresh_token: refreshToken
+        });
         
-        const { access_token } = response.data; // 새로운 access_token 받기
+        const { access_token } = response.data;
         
         // 쿠키에 새로운 access_token 저장
         document.cookie = `access_token=${access_token}; path=/; max-age=1800; secure`;
@@ -66,7 +77,7 @@ api.interceptors.response.use(
         // 대기 중인 요청들 다시 실행
         processQueue();
         
-        return api(originalRequest); // 토큰 갱신 후 원래 요청을 재시도
+        return api(originalRequest);
       } catch (refreshError) {
         processQueue(refreshError);
         // 토큰 갱신 실패 시 로그인 페이지로 이동 (단, 로그인 페이지와 작품 상세 페이지는 제외)

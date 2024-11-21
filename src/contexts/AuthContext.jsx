@@ -51,8 +51,20 @@ export function AuthProvider({ children }) {
 
     const logout = async () => {
         try {
+            // refresh token을 쿠키에서 가져옴
+            const refreshToken = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('refresh_token='))
+                ?.split('=')[1];
+
+            if (!refreshToken) {
+                throw new Error('Refresh token not found');
+            }
+
             //백엔드 로그아웃 API 호출
-            await api.get('/auth/logout/');
+            await api.post('/auth/logout/', {
+                refresh_token: refreshToken
+            });
 
             //쿠키 삭제
             document.cookie = "access_token=; Max-Age=0; path=/; secure; SameSite=Lax";
@@ -62,7 +74,7 @@ export function AuthProvider({ children }) {
             setUser(null);
             setIsAuthenticated(false);
         } catch (error) {
-            console.error("로그아웃 실해:", error);
+            console.error("로그아웃 실패:", error);
         }
     };
 
