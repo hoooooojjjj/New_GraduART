@@ -114,7 +114,7 @@ export const TextWrapper = styled.input`
   display: flex;
   border-radius: 20px;
   background: rgba(215, 215, 215, 0.3);
-  width: ${({ width }) => width}%;
+  width: ${(props) => props.width || "100%"};
   padding-left: 15px;
   align-items: center;
   color: #d7d7d7;
@@ -327,20 +327,20 @@ export const Modal = styled.div`
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   z-index: 1000;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const AgreeText = styled.span`
-    color: var(--white);
-    font-family: KoddiUDOnGothic sans-serif;
-    font-size: 14px;
-    margin-left: 12px;
+  color: var(--white);
+  font-family: KoddiUDOnGothic sans-serif;
+  font-size: 14px;
+  margin-left: 12px;
 `;
 
 export const AgreeTextWrapper = styled.div`
-    display: flex;
-    margin-top: 30px;
-    align-items: center;
-    flex-direction: row;
-`
+  display: flex;
+  margin-top: 30px;
+  align-items: center;
+  flex-direction: row;
+`;
