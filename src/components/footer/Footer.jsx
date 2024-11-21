@@ -148,7 +148,7 @@ function Footer() {
               "문의 이메일",
               "snugraduart@gmail.com",
               "고객센터",
-              "010-4171-0584",
+              "010-4912-0992",
             ]}
           />
         </FooterMainElementWrap>
