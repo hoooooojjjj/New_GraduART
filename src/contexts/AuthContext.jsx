@@ -50,9 +50,20 @@ export function AuthProvider({ children }) {
     };
 
     const logout = async () => {
-        await api.get('/auth/logout/');
-        setUser(null);
-        setIsAuthenticated(false);
+        try {
+            //백엔드 로그아웃 API 호출
+            await api.get('/auth/logout/');
+
+            //쿠키 삭제
+            document.cookie = "access_token=; Max-Age=0; path=/; secure; SameSite=Lax";
+            document.cookie = "refresh_token=; Max-Age=0; path=/; secure; SameSite=Lax";
+        
+            //상태 초기화
+            setUser(null);
+            setIsAuthenticated(false);
+        } catch (error) {
+            console.error("로그아웃 실해:", error);
+        }
     };
 
     const googleLogin = () => {
