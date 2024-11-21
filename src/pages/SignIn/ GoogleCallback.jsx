@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import api from "../../utils/axios";
 import Cookies from "js-cookie";
-import axios from "axios";
 
 function GoogleCallback() {
   const navigate = useNavigate();
@@ -34,8 +33,8 @@ function GoogleCallback() {
         }
 
         // 서버로 전송하여 인증 처리
-        const response = await axios.post(
-          "https://newgraduart-backend.fly.dev/api/v1/auth/google/callback/",
+        const response = await api.post(
+          "/auth/google/callback/",
           tokens
         );
 
