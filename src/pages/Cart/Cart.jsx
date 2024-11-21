@@ -65,7 +65,7 @@ function Cart() {
       }, {});
       setCheckedItems(initialCheckedItems);
     } catch (err) {
-      setError(err.response?.data?.error || "장바구니 조회 실패");
+      setError(err.response?.data?.error || "로그인 후 장바구니 조회가 가능합니다.");
     } finally {
       setLoading(false);
     }
@@ -82,7 +82,7 @@ function Cart() {
         return newCheckedItems;
       });
     } catch (err) {
-      alert(err.response?.data?.error || "삭제 실패");
+      alert(err.response?.data?.error || "상품 삭제에 실패했습니다.");
     }
   };
 
