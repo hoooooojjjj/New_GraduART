@@ -74,6 +74,10 @@ export const DepartmentHeader = () => {
     }
   };
 
+  const logoNav = () => {
+    navigate("/");
+  };
+
   // 검색 버튼을 눌렀을 때
   const handleSearch = () => {
     setIsSearchVisible(!isSearchVisible);
@@ -132,7 +136,7 @@ export const DepartmentHeader = () => {
               />
             </svg>
           </BackBtn>
-          <TextWrapper>graduart </TextWrapper>
+          <TextWrapper onClick={logoNav}>graduart </TextWrapper>
           {window.innerWidth > 768 && (
             <Span>| 서울대학교 졸업전시 작품 전시 ・ 판매</Span>
           )}

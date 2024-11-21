@@ -9,7 +9,7 @@ import {
   FooterMainElementTitle,
   FooterMainElementWrap,
 } from "./FooterStyles";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const svgIcon1 = (
@@ -58,21 +58,21 @@ const svgIcon2 = (
 );
 
 function FooterMainElement({ title, content, isTerms, isPrivacy }) {
-    const navigate = useNavigate();
-    const handleTermsNavigation = (e) => {
-        e.stopPropagation(); // Prevent event propagation
-        if(isTerms){
-            window.open(
-                'https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343',
-                '_blank' // Open in a new tab
-            );
-        } else if(isPrivacy){
-            window.open(
-                'https://minseoparkk.notion.site/13c735fb457580539adfe398d38deec0',
-                '_blank' // Open in a new tab
-            );
-        }
-    };
+  const navigate = useNavigate();
+  const handleTermsNavigation = (e) => {
+    e.stopPropagation(); // Prevent event propagation
+    if (isTerms) {
+      window.open(
+        "https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343",
+        "_blank", // Open in a new tab
+      );
+    } else if (isPrivacy) {
+      window.open(
+        "https://minseoparkk.notion.site/13c735fb457580539adfe398d38deec0",
+        "_blank", // Open in a new tab
+      );
+    }
+  };
 
   return (
     <FooterMainElementWrap onClick={handleTermsNavigation}>
@@ -84,8 +84,22 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
             {window.innerWidth > 768 ? svgIcon1 : null}
             {window.innerWidth > 768 ? svgIcon2 : null}
           </div>
+        ) : text.includes("이용약관 및 환불규정") ? (
+          <FooterMainElementText key={index}>
+            <Link
+              to="https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343?pvs=4"
+              target="_blank"
+              style={{
+                color: "white",
+                textDecoration: "underline",
+                cursor: "pointer",
+              }}
+            >
+              {text}
+            </Link>
+          </FooterMainElementText>
         ) : text.includes("개인정보처리방침") ? (
-          <FooterMainElementText>
+          <FooterMainElementText key={index}>
             <Link
               to="https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343?pvs=4"
               target="_blank"
@@ -97,7 +111,6 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
             >
               {text.split("|")[0]}{" "}
             </Link>
-            |
             <Link
               to="https://minseoparkk.notion.site/13c735fb457580539adfe398d38deec0?pvs=4"
               target="_blank"
@@ -112,7 +125,7 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
           </FooterMainElementText>
         ) : (
           <FooterMainElementText key={index}>{text}</FooterMainElementText>
-        )
+        ),
       )}
     </FooterMainElementWrap>
   );
@@ -127,26 +140,28 @@ function Footer() {
           <FooterMainElement
             title="사업자 정보"
             content={[
-                "그래두아트(Gradu Art)",
-                "대표자 | 박민서",
-                "주소 | 경기도 안양시 만안구",
-                "안양천서로 249, 116동 2903호",
+              "그래두아트(Gradu Art)",
+              "대표자 | 박민서",
+              "주소 | 경기도 안양시 만안구",
+              "안양천서로 249, 116동 2903호",
             ]}
           />
         </FooterMainElementWrap>
         <FooterMainElementWrap data-area="payment">
           <FooterMainElement
             title="이용 약관"
-            content={["이용약관 및 환불규정","개인정보처리방침"]}
+            content={["이용약관 및 환불규정", "개인정보처리방침"]}
             isTerms={true}
           />
         </FooterMainElementWrap>
         <FooterMainElementWrap data-area="register">
           <FooterMainElement
             title="작품 등록"
-            content={["문의 이메일", "snugraduart@gmail.com",
-                "고객센터",
-                "010-4171-0584",
+            content={[
+              "문의 이메일",
+              "snugraduart@gmail.com",
+              "고객센터",
+              "010-4171-0584",
             ]}
           />
         </FooterMainElementWrap>
