@@ -13,7 +13,7 @@ export const Main = styled.main({
   paddingRight: "5vw",
   paddingTop: "3.908vh",
   paddingBottom: "3.908vh",
-  background: "#000",
+  background: "#AFB7B9",
   "@media (max-width: 768px)": {
     paddingLeft: "5.12vw",
     paddingRight: "5.12vw",
@@ -35,7 +35,7 @@ export const Title = styled.h1`
   font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 700;
   font-size: 40px;
-  color: var(--purple);
+  color: #4e5a5b;
   text-align: center;
 `;
 
@@ -64,7 +64,7 @@ export const BacktoDepartment = styled.div({
   },
 });
 export const DeptName = styled.span`
-  color: var(--white);
+  color: "#4e5a5b";
   padding-left: 15px;
   font-family: godorounded, sans-serif;
   font-size: 26px;
@@ -134,7 +134,7 @@ export const DetailComponent = styled.div({
   display: "flex",
   flexDirection: "column",
   alignItems: "flex-start",
-  backgroundColor: `#A348F699`,
+  backgroundColor: `#4E5A5B99`,
   borderRadius: "20px",
   gap: `10px`,
   "@media (max-width: 768px)": {
@@ -200,7 +200,7 @@ export const ButtonsWrap = styled.div`
 
 export const PurchaseButton = styled.div((props) => ({
   color: props.color,
-  border: "2px solid #A348F6",
+  border: "2px solid #4e5a5b",
   borderRadius: "10px",
   width: "100%",
   textAlign: `center`,

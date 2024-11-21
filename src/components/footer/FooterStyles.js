@@ -5,7 +5,7 @@ export const FooterContainer = styled.div({
   display: "flex",
   flexDirection: "column",
   width: "100%",
-  backgroundColor: "rgba(43,43,43,255)",
+  backgroundColor: "#afb7b9",
   backdropFilter: "blur(50px)",
   paddingLeft: "5vw",
   paddingRight: "5vw",
@@ -16,12 +16,12 @@ export const FooterContainer = styled.div({
 });
 
 export const FooterHeader = styled.div({
-  color: "#A348F6",
+  color: "#4E5A5B",
   fontFamily: "godoRounded",
   fontSize: "clamp(20px, 4.224vw, 120px)",
   fontStyle: "normal",
   fontWeight: 400,
-  borderBottom: "1px solid #A348F6",
+  borderBottom: "1px solid #4E5A5B",
   paddingTop: "3.908vh",
   paddingBottom: "3.908vh",
   "@media (max-width: 768px)": {
@@ -32,7 +32,7 @@ export const FooterHeader = styled.div({
 });
 
 export const FooterMain = styled.div({
-  borderBottom: "1px solid #A348F6",
+  borderBottom: "1px solid #4E5A5B",
   paddingTop: "3.908vh",
   paddingBottom: "3.908vh",
   width: "100%",
@@ -68,7 +68,7 @@ export const FooterMainElementWrap = styled.div({
 });
 
 export const FooterMainElementTitle = styled.div({
-  color: "#A348F6",
+  color: "#4E5A5B",
   fontFamily: "KoddiUDOnGothic",
   fontSize: "clamp(10px, 1.188vw, 40px)",
   fontStyle: "normal",

@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Head = styled.header`
   align-items: center;
-  background-color: var(--black);
+  background-color: #afb7b9;
   display: flex;
   height: 72px;
   justify-content: space-between;
@@ -42,7 +42,7 @@ export const BackBtn = styled.div`
 `;
 
 export const Span = styled.span`
-  color: #8f8f8f;
+  color: #909090;
   font-family: "godo", sans-serif;
   font-size: 20px;
   line-height: 20px;
