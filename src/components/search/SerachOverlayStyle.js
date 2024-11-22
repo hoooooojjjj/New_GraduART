@@ -8,6 +8,7 @@ export const Container = styled.div`
   background-color: #d9d9d9;
   @media (max-width: 768px) and (min-width: 320px) {
     flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -28,7 +29,7 @@ export const SearchWrap = styled.div`
   z-index: 1100;
   width: 100vw;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 60px;
 `;
 
 export const Logo = styled.div`
@@ -112,13 +113,13 @@ export const ArtworkListContainer = styled.div`
   gap: 40px; /* 각 컬럼 간격 설정 */
   margin-top: 80px;
   margin-bottom: 60px;
-  max-height: 350px;
+  max-height: 250px;
   overflow-y: scroll;
-  overflow: hidden;
 
   @media (max-width: 768px) {
     gap: 10px;
     margin-top: 30px;
+    width: 90%;
   }
 `;
 
@@ -136,8 +137,7 @@ export const Column = styled.div`
   }
 
   @media (max-width: 768px) {
-    gap: 5px;
-    width: 40%;
+    width: 50%;
   }
 `;
 
@@ -157,7 +157,7 @@ export const ArtworkCard = styled.div`
   gap: 15px;
   width: 330px;
   @media (max-width: 768px) {
-    width: 150px;
+    width: auto;
   }
 `;
 
@@ -166,6 +166,7 @@ export const ArtworkImage = styled.div`
   height: 70px;
   background-color: #8f8f8f;
   border-radius: 15px;
+  min-width: 70px;
 `;
 
 // 작품 정보 (제목, 작가명, 등)

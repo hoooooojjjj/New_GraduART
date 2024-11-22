@@ -64,12 +64,16 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
     if (isTerms) {
       window.open(
         "https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343",
-        "_blank" // Open in a new tab
+
+        "_blank", // Open in a new tab
+
       );
     } else if (isPrivacy) {
       window.open(
         "https://minseoparkk.notion.site/13c735fb457580539adfe398d38deec0",
-        "_blank" // Open in a new tab
+
+        "_blank", // Open in a new tab
+
       );
     }
   };
@@ -84,6 +88,20 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
             {window.innerWidth > 768 ? svgIcon1 : null}
             {window.innerWidth > 768 ? svgIcon2 : null}
           </div>
+        ) : text.includes("이용약관 및 환불규정") ? (
+          <FooterMainElementText key={index}>
+            <Link
+              to="https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343?pvs=4"
+              target="_blank"
+              style={{
+                color: "white",
+                textDecoration: "underline",
+                cursor: "pointer",
+              }}
+            >
+              {text}
+            </Link>
+          </FooterMainElementText>
         ) : text.includes("개인정보처리방침") ? (
           <FooterMainElementText key={index}>
             <Link
@@ -97,7 +115,6 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
             >
               {text.split("|")[0]}{" "}
             </Link>
-            |
             <Link
               to="https://minseoparkk.notion.site/13c735fb457580539adfe398d38deec0?pvs=4"
               target="_blank"
@@ -112,7 +129,7 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
           </FooterMainElementText>
         ) : (
           <FooterMainElementText key={index}>{text}</FooterMainElementText>
-        )
+        ),
       )}
     </FooterMainElementWrap>
   );
@@ -148,7 +165,9 @@ function Footer() {
               "문의 이메일",
               "snugraduart@gmail.com",
               "고객센터",
+
               "010-4912-0992",
+
             ]}
           />
         </FooterMainElementWrap>

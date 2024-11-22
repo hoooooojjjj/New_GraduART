@@ -20,6 +20,12 @@ export const SearchInput = styled.input`
   line-height: 100%; /* 16px */
   outline: none;
 
+  @media (max-width: 768px) {
+    width: 200px;
+    font-size: 12px;
+    padding: 8px 0px;
+  }
+
   &::placeholder {
     color: #909090; /* placeholder의 색상 */
   }

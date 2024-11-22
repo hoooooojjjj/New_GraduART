@@ -27,6 +27,7 @@ export const TextWrapper = styled.span`
   font-family: "godorounded", sans-serif;
   font-size: 40px;
   font-weight: 400;
+  cursor: pointer;
   @media (max-width: 768px) {
     font-size: 22px;
   }
