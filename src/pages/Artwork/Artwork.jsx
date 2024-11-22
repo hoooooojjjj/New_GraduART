@@ -164,7 +164,7 @@ function Artwork() {
         setTargetArt(response.data);
       } catch (err) {
         setError(
-          err.response?.data?.error || "작품 정보를 불러오는데 실패했습니다.",
+          err.response?.data?.error || "새로고침 후 이용 가능합니다.",
         );
       } finally {
         setLoading(false);
@@ -189,7 +189,7 @@ function Artwork() {
       await api.post("/cart/insert/", { item_id: artwork_id });
       alert("장바구니에 추가되었습니다.");
     } catch (err) {
-      alert(err.response?.data?.error || "장바구니 추가 실패");
+      alert(err.response?.data?.error || "로그인 후에만 상품 구매가 가능하니 먼저 로그인해주세요.");
     }
   };
 
@@ -213,7 +213,7 @@ function Artwork() {
     } catch (err) {
       if (err.response?.status !== 409) {
         // 409 에러가 아닌 경우만 알림 표시
-        alert(err.response?.data?.error || "구매 처리 실패");
+        alert(err.response?.data?.error || "로그인 후에만 상품 구매가 가능하니 먼저 로그인해주세요.");
         return;
       }
     }

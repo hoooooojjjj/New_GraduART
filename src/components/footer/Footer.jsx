@@ -64,12 +64,16 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
     if (isTerms) {
       window.open(
         "https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343",
+
         "_blank", // Open in a new tab
+
       );
     } else if (isPrivacy) {
       window.open(
         "https://minseoparkk.notion.site/13c735fb457580539adfe398d38deec0",
+
         "_blank", // Open in a new tab
+
       );
     }
   };
@@ -161,7 +165,9 @@ function Footer() {
               "문의 이메일",
               "snugraduart@gmail.com",
               "고객센터",
-              "010-4171-0584",
+
+              "010-4912-0992",
+
             ]}
           />
         </FooterMainElementWrap>
