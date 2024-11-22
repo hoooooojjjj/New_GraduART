@@ -3,19 +3,19 @@ import styled from "@emotion/styled";
 export const PaymentSuccessContainer = styled.div({
   width: "100vw",
   height: "100vh",
-  background: "#000",
+  background: "var(--light-green)",
   position: "relative",
 });
 
 export const BackgroundCircle = styled.div({
   position: "absolute",
-  top: "15%",
-  left: "23%",
+  top: "27%",
+  left: "22%",
   width: "500px",
   height: "500px",
   flexShrink: 0,
   borderRadius: "500px",
-  background: "#A348F6",
+  background: "var(--purple)",
   "@media (max-width: 768px)": {
     width: "350px",
     height: "350px",
@@ -63,7 +63,7 @@ export const InfoText = styled.div({
 export const InfoBtnWrap = styled.div({
   display: "flex",
   flexDirection: "column",
-  width: `${275 + 275}px`,
+  width: `${290 + 290}px`,
   height: `${69 + 69}px`,
   position: "relative",
   "@media (max-width: 768px)": {
@@ -78,12 +78,12 @@ export const InfoBtnGoMainWrap = styled.div({
   position: "absolute",
   top: "69px",
   left: "0px",
-  width: "275px",
+  width: "290px",
   height: "69px",
   flexShrink: 0,
   borderRadius: "100px",
   background: "rgba(217, 217, 217, 0.30)",
-  backdropFilter: "blur(50px)",
+  backdropFilter: "blur(100px)",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -97,13 +97,16 @@ export const InfoBtnGoMainWrap = styled.div({
 });
 
 export const InfoBtnGoMain = styled.div({
-  color: "#FFF",
+  color: "#4e5a5b",
   textAlign: "center",
   fontFamily: "KoddiUD OnGothic",
   fontSize: "24px",
   fontStyle: "normal",
-  fontWeight: "400",
+  fontWeight: "600",
   lineHeight: "100%" /* 24px */,
+  "&:hover": {
+    cursor: "pointer",
+  },
   "@media (max-width: 768px)": {
     fontSize: "12px",
   },
@@ -113,16 +116,19 @@ export const InfoBtnGoPayWrap = styled.div({
   position: "absolute",
   top: "0px",
   right: "0px",
-  width: "275px",
+  width: "290px",
   height: "69px",
   flexShrink: 0,
   borderRadius: "100px",
   background: "rgba(217, 217, 217, 0.30)",
-  backdropFilter: "blur(50px)",
+  backdropFilter: "blur(100px)",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   gap: "10px",
+  "&:hover": {
+    cursor: "pointer",
+  },
   "@media (max-width: 768px)": {
     left: "50%",
     width: "150px",
@@ -131,14 +137,23 @@ export const InfoBtnGoPayWrap = styled.div({
 });
 
 export const InfoBtnGoPay = styled.div({
-  color: "#FFF",
+  color: "#4e5a5b",
   textAlign: "center",
   fontFamily: "KoddiUD OnGothic",
   fontSize: "24px",
   fontStyle: "normal",
-  fontWeight: "400",
+  fontWeight: "600",
   lineHeight: "100%" /* 24px */,
   "@media (max-width: 768px)": {
     fontSize: "12px",
   },
+});
+
+export const MainContainer = styled.div({
+  width: "100%",
+  height: "100vh",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
 });
