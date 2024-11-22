@@ -280,8 +280,8 @@ export const MobileWrapper = styled.div`
 
 export const SignOutButton = styled.div`
   display: flex;
-  width: 205px;
-  height: 56px;
+  width: 150px;
+  height: 30px;
   padding: 14px 34px;
   justify-content: center;
   align-items: center;
