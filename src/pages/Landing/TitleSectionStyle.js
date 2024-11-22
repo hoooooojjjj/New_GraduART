@@ -18,16 +18,16 @@ export const TitleContent = styled.div((props) => ({
     props.hovered === "g" || props.hovered === "d"
       ? "translateX(248px)" // Right shift for left hover
       : props.hovered === "a" || props.hovered === "u"
-        ? "translateX(-248px)" // Left shift for right hover
-        : "translateX(0)",
+      ? "translateX(-248px)" // Left shift for right hover
+      : "translateX(0)",
   transition: "transform 1.2s ease-in-out",
   "@media (max-width: 768px)": {
     transform:
       props.hovered === "g" || props.hovered === "d"
         ? "translateX(240px)"
         : props.hovered === "a" || props.hovered === "u"
-          ? "translateX(-240px)"
-          : "translateX(0)",
+        ? "translateX(-240px)"
+        : "translateX(0)",
   },
 }));
 
@@ -75,7 +75,7 @@ export const HighlightBlock = styled.div({
 
 export const HighlightBar = styled.div({
   width: "150px",
-  border: "10px solid #A348F6",
+  border: "10px solid var(--purple)",
   "@media (max-width: 768px)": {
     width: "75px",
     border: "5px solid #A348F6",
@@ -85,7 +85,7 @@ export const HighlightBar = styled.div({
 export const PurpleCircleLeft = styled.div({
   width: "537px",
   height: "537px",
-  backgroundColor: "#A348F6",
+  backgroundColor: "var(--purple)",
   borderRadius: "9999px",
   position: "absolute",
   top: "-40%",
@@ -102,7 +102,7 @@ export const PurpleCircleLeft = styled.div({
 export const PurpleCircleRight = styled.div({
   width: "537px",
   height: "537px",
-  backgroundColor: "#A348F6",
+  backgroundColor: "var(--purple)",
   borderRadius: "9999px",
   position: "absolute",
   top: "-40%",
@@ -224,7 +224,7 @@ export const HoverButton = styled(Link)({
       gap: "3px",
     },
     ".dept-name": {
-      color: "#A348F6",
+      color: "var(--purple)",
       fontSize: "30px",
       fontWeight: 700,
       marginLeft: "7px",

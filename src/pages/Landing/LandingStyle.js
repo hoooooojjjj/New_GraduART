@@ -5,7 +5,7 @@ export const MainContainer = styled.div({
   height: "100dvh",
   display: "flex",
   flexDirection: "column",
-  backgroundColor: "black",
+  backgroundColor: "var(--light-green)",
   overflow: "hidden",
   userSelect: "none",
 });

@@ -63,7 +63,7 @@ export const DeptTitle = styled.div((props) => ({
 }));
 
 export const DeptSubtitle = styled.span({
-  color: "var(--light-gray)",
+  color: "#757b6f",
   fontSize: "20px",
   fontFamily: "'KoddiUD OnGothic'",
   fontWeight: 400,

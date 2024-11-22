@@ -5,8 +5,9 @@ export const FooterContainer = styled.div({
   display: "flex",
   flexDirection: "column",
   width: "100%",
-  backgroundColor: "#afb7b9",
-  backdropFilter: "blur(50px)",
+  backgroundColor: "rgba(217, 217, 217, 0.2)", // bg-[#d9d9d9]/20
+  backdropFilter: "blur(100px)",
+  WebkitBackdropFilter: "blur(100px)",
   paddingLeft: "5vw",
   paddingRight: "5vw",
   "@media (max-width: 768px)": {
