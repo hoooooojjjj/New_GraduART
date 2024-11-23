@@ -32,11 +32,14 @@ import { useLocation } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import api from "../../utils/axios";
 import { CheckBox } from "../Cart/CartStyle";
+import AddressSearchModal from "./AdressModal";
 
 function Payment() {
   const [purchaseItems, setPurchaseItems] = useState([]);
   const location = useLocation();
   const [agree, setAgree] = useState(false);
+
+  const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
 
   const { user } = useAuth();
   const [purchaseFormData, setPurchaseFormData] = useState({
@@ -48,6 +51,21 @@ function Payment() {
     address: "",
     detailAddress: "",
   });
+
+  const handleAddressComplete = (fullAddress) => {
+    setPurchaseFormData((prev) => ({
+      ...prev,
+      address: fullAddress,
+    }));
+    setIsAddressModalOpen(false);
+  };
+
+  const openModal = () => {
+    if (isAddressModalOpen) {
+      return;
+    }
+    setIsAddressModalOpen(true);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -146,7 +164,7 @@ function Payment() {
                 onChange={handleChange}
               />
               <TextWrapper
-                width={50}
+                width={70}
                 placeholder="전화번호를 입력해주세요"
                 name="addressPhone"
                 value={purchaseFormData.addressPhone}
@@ -155,13 +173,11 @@ function Payment() {
             </TwoTextWrapper>
             <TextWrapper
               width={100}
-              placeholder="지번/도로명 주소를 입력해주세요"
+              placeholder="클릭해서 주소를 검색해주세요"
               name="address"
               value={purchaseFormData.address}
-              onChange={(e) => {
-                handleChange(e);
-                console.log("Current address:", e.target.value);
-              }}
+              readOnly
+              onClick={openModal}
             />
             <TextWrapper
               width={100}
@@ -171,6 +187,12 @@ function Payment() {
               onChange={handleChange}
             />
           </DeliveryAddressWrap>
+          {isAddressModalOpen && (
+            <AddressSearchModal
+              onClose={() => setIsAddressModalOpen(false)}
+              onComplete={handleAddressComplete}
+            />
+          )}
         </OrderInformationWrap>
         <OrderDetailWrap>
           <OrderText>주문 내역</OrderText>

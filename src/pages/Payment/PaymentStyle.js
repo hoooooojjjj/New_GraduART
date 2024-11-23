@@ -107,6 +107,7 @@ export const MiddleText = styled.div`
 
 export const TwoTextWrapper = styled.div`
   display: flex;
+  width: 100%;
   gap: 10px;
 `;
 
