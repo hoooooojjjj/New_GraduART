@@ -78,7 +78,7 @@ export const HighlightBar = styled.div({
   border: "10px solid var(--purple)",
   "@media (max-width: 768px)": {
     width: "75px",
-    border: "5px solid #A348F6",
+    border: "5px solid var(--purple)",
   },
 });
 

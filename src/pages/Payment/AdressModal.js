@@ -8,23 +8,21 @@ const AddressSearchModal = ({ onClose, onComplete }) => {
       return;
     }
 
-    isInitialized.current = true; 
+    isInitialized.current = true;
 
     const scriptInstance = new window.daum.Postcode({
       oncomplete: (data) => {
         const fullAddress = data.address;
-        onComplete(fullAddress); 
-        onClose(); 
+        onComplete(fullAddress);
+        onClose();
       },
     });
 
     scriptInstance.open({
-      popupTitle: "우편번호 검색",
+      popupTitle: "기본 주소 검색",
     });
 
-    return () => {
-
-    };
+    return () => {};
   }, [onClose, onComplete]);
 
   return null;

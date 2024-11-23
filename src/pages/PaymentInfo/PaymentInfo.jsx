@@ -62,7 +62,6 @@ export const PaymentInfo = () => {
 
   const purchaseItems = orderInfo?.purchaseItems || [];
 
-
   return (
     <Wrap>
       <DepartmentHeader />

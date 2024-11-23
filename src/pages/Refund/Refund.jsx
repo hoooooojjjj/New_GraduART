@@ -23,6 +23,7 @@ import {
   RefundButton,
   MobileWrap,
 } from "./RefundStyle";
+import Loading from "../../components/common/Loading";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
 import api from "../../utils/axios";
 
@@ -83,7 +84,7 @@ function Refund() {
   };
 
   if (error) return <div>{error}</div>;
-  if (loading) return <div>로딩 중</div>;
+  if (loading) return <Loading />;
 
   return (
     <Wrap>
