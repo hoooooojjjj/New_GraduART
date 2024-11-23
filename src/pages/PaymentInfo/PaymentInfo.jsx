@@ -42,10 +42,10 @@ export const PaymentInfo = () => {
     const fetchOrderInfo = async () => {
       try {
         setLoading(true);
-
         const response = await api.get(`/purchases/${itemId}/`);
         setOrderInfo(response.data);
       } catch (err) {
+        console.error(err);
         setError(
           err.response?.data?.error || "주문 정보를 불러올 수 없습니다."
         );

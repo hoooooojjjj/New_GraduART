@@ -31,6 +31,7 @@ import {
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
 import { useNavigate } from "react-router-dom";
 import api from "../../utils/axios";
+import Loading from "../../components/common/Loading";
 
 function My() {
   const { user, logout } = useAuth();
@@ -122,7 +123,7 @@ function My() {
     }
   };
 
-  if (loading) return <div>로딩 중...</div>;
+  if (loading) return <Loading />;
   if (error) return <div>{error}</div>;
 
   return (

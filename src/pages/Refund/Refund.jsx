@@ -25,6 +25,7 @@ import {
 } from "./RefundStyle";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
 import api from "../../utils/axios";
+import Loading from "../../components/common/Loading";
 
 function Refund() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
@@ -83,7 +84,7 @@ function Refund() {
   };
 
   if (error) return <div>{error}</div>;
-  if (loading) return <div>로딩 중</div>;
+  if (loading) return <Loading />;
 
   return (
     <Wrap>
