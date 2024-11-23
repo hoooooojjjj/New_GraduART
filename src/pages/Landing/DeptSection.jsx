@@ -11,7 +11,7 @@ import {
 
 import api from "../../utils/axios";
 import { useNavigate } from "react-router-dom";
-import Loading from "../../components/loading/MainLoading";
+import Loading from "../../components/loading/LoadingMainpage";
 
 const departments = [
   { title: "Ceramic", subtitle: "도자공예전공" },
