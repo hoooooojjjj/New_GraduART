@@ -200,7 +200,6 @@ function Payment() {
           {purchaseItems.map((item) => (
             <OrderMidWrap key={item.num_code}>
               <LeftWrapper>
-                console.log("Image URL:", item.image_original);
                 <ArtImage src={item.image_original} alt={item.title} />
                 <ArtTextWrap>
                   <ArtText>{item.title}</ArtText>
