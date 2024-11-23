@@ -8,7 +8,7 @@ export const Wrap = styled("div")`
   height: 100dvh;
   margin: 0;
   padding: 0;
-  background-color: var(--black);
+  background-color: var(--light-green);
   box-sizing: border-box;
   overflow-y: auto;
   align-items: center;
@@ -45,7 +45,7 @@ export const MiddleWrapper = styled.div`
 export const OrderInformationWrap = styled.div`
   width: 38%;
   border-radius: 20px;
-  background: rgba(163, 72, 246, 0.8);
+  background: var(--purple);
   padding: 30px 29px 20px 29px;
   @media (max-width: 768px) and (min-width: 320px) {
     width: calc(100% - 108px);
@@ -155,7 +155,7 @@ export const OrderDetailWrap = styled.div`
 `;
 
 export const OrderText = styled.div`
-  color: #a348f6;
+  color: var(--purple);
   font-size: 24px;
   font-style: normal;
   font-family: KoddiUDOnGothic, sans-serif;
@@ -172,7 +172,7 @@ export const OrderText = styled.div`
 `;
 
 export const Line = styled.div`
-  background: #a348f6;
+  background: var(--purple);
   margin: 18px 28px;
   height: 2px;
 
@@ -254,7 +254,7 @@ export const ArtPrice = styled.div`
 `;
 
 export const PurpleText = styled.span`
-  color: #a348f6;
+  color: var(--purple);
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -309,7 +309,7 @@ export const PaymentButton = styled.button`
   font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 700;
   background-color: ${({ isComplete }) =>
-    isComplete ? "#fae100" : "var(--black)"};
+    isComplete ? "#fae100" : "transparent"};
   margin-top: 30px;
   margin-bottom: 50px;
 
@@ -342,6 +342,15 @@ export const AgreeText = styled.span`
 export const AgreeTextWrapper = styled.div`
   display: flex;
   margin-top: 30px;
+    margin-right: 20px;
+    margin-left: 20px;
   align-items: center;
   flex-direction: row;
 `;
+
+export const Kakao = styled.img`
+    width: 80px;
+    @media (max-width: 768px) {
+        width: 40px
+    }
+`

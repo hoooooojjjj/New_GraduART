@@ -139,7 +139,7 @@ export const PaymentInfo = () => {
                 <ArtTextWrap>
                   <ArtText>{item.title}</ArtText>
                   <ArtInfo>{`${item.artist} | ${item.department}`}</ArtInfo>
-                </ArtTextWrap>
+                </ArtTextWrap>ㄴ
               </LeftWrapper>
               <ArtPrice>
                 <PurpleText>{item.price.toLocaleString()}</PurpleText>

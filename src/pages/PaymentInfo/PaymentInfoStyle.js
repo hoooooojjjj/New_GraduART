@@ -3,17 +3,16 @@ import styled from "@emotion/styled";
 // 레이아웃
 
 export const Wrap = styled("div")`
-  display: flex;
-  flex-direction: column;
-  width: 100dvw;
-  height: 100dvh;
-  margin: 0;
-  padding: 0;
-  background-color: var(--black);
-  box-sizing: border-box;
-  overflow-y: auto;
-  align-items: center;
-  padding: 0 0;
+    display: flex;
+    flex-direction: column;
+    width: 100dvw;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-green);
+    box-sizing: border-box;
+    overflow-y: auto;
+    align-items: center;
 `;
 
 export const MiddleWrapper = styled.div`
@@ -47,7 +46,7 @@ export const SmallWrapper = styled.div`
 export const OrderInformationWrap = styled.div`
   width: 38%;
   border-radius: 20px;
-  background: rgba(163, 72, 246, 0.8);
+  background: var(--purple);
   padding: 30px 29px 20px 29px;
 
   @media (max-width: 768px) and (min-width: 320px) {
@@ -59,7 +58,7 @@ export const OrderInformationWrap = styled.div`
 `;
 
 export const OrderInformationText = styled.div`
-  color: #fff;
+  color: var(--white);
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -85,7 +84,7 @@ export const DeliveryAddressWrap = styled.div`
 // 인풋필드
 
 export const PaymentText = styled.div`
-  color: #fff;
+  color: var(--white);
   font-family: KoddiUDOnGothic, sans-serif;
   font-size: 50px;
   font-style: normal;
@@ -106,7 +105,7 @@ export const TextWrapper = styled.input`
   width: ${({ width }) => width}%;
   padding-left: 15px;
   align-items: center;
-  color: #d7d7d7;
+  color: var(--purple);
   font-size: 13px;
   font-style: normal;
   font-family: KoddiUDOnGothic, sans-serif;
@@ -118,7 +117,7 @@ export const TextWrapper = styled.input`
   outline: none;
 
   &::placeholder {
-    color: #d7d7d7;
+    color: #D7D7D7;
   }
 
   @media (max-width: 768px) and (min-width: 320px) {
@@ -132,13 +131,13 @@ export const TwoTextWrapper = styled.div`
   display: flex;
   gap: 10px;
   width: 100%;
-  box-sizing: border-box;
+    
 `;
 
 export const OneTextWrapper = styled.input`
   display: flex;
   border-radius: 20px;
-  background: rgba(215, 215, 215, 0.3);
+  background: #D7D7D74D;
   padding-left: 15px;
   color: #d7d7d7;
   font-size: 13px;
@@ -161,7 +160,7 @@ export const OneTextWrapper = styled.input`
 `;
 
 export const MiddleText = styled.div`
-  color: #dadada;
+  color: var(--ambient-white);
   font-size: 20px;
   font-style: normal;
   font-family: KoddiUDOnGothic, sans-serif;
@@ -193,7 +192,7 @@ export const OrderDetailWrap = styled.div`
 `;
 
 export const OrderText = styled.div`
-  color: #a348f6;
+  color: var(--purple);
   font-size: 24px;
   font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 700;
@@ -260,7 +259,7 @@ export const ArtText = styled.span`
 `;
 
 export const ArtInfo = styled.span`
-  color: #fff;
+  color: #ddd;
   font-size: 12px;
   font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 400;
@@ -294,7 +293,7 @@ export const TotalWrap = styled.div`
 `;
 
 export const Line = styled.div`
-  background: #a348f6;
+  background: var(--purple);
   margin: 18px 28px;
   height: 2px;
 
@@ -304,7 +303,7 @@ export const Line = styled.div`
 `;
 
 export const PurpleText = styled.span`
-  color: #a348f6;
+  color: var(--purple);
   font-size: 20px;
   font-weight: 700;
 
