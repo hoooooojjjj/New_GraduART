@@ -17,6 +17,7 @@ import {
   PaginationWrap,
   PrevButton,
   SearchIcon,
+  SearchButton,
   TitleText,
   TitleYear,
 } from "./DeptDetailExhibitionComponentStyles";

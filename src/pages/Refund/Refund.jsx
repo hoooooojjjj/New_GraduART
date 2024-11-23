@@ -26,6 +26,7 @@ import {
 import Loading from "../../components/common/Loading";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
 import api from "../../utils/axios";
+import Loading from "../../components/common/Loading";
 
 function Refund() {
   const isMobile = useMediaQuery({ maxWidth: 768 });

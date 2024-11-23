@@ -59,6 +59,7 @@ export const PaymentInfo = () => {
         }
         setPurchaseItem(item);
       } catch (err) {
+        console.error(err);
         setError(
           err.response?.data?.error ||
             "구매 정보를 불러오는 중 오류가 발생했습니다."
