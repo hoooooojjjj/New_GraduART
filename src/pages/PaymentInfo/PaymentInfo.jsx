@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
 import Loading from "../../components/common/Loading";
 import {
@@ -32,22 +32,37 @@ import {
 import api from "../../utils/axios";
 
 export const PaymentInfo = () => {
+  const { itemId } = useParams();
+  console.log("Requesting purchase ID:", itemId);
   const [orderInfo, setOrderInfo] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const location = useLocation();
-  const { itemId } = location.state || {};
+
+  const [purchaseItem, setPurchaseItem] = useState(null);
 
   useEffect(() => {
     const fetchOrderInfo = async () => {
+      console.log("Fetching order info for itemId:", itemId);
       try {
         setLoading(true);
+        // 주문 정보 조회
+        const orderResponse = await api.get(`/purchases/${itemId}/`);
+        setOrderInfo(orderResponse.data);
 
-        const response = await api.get(`/purchases/${itemId}/`);
-        setOrderInfo(response.data);
+        // 구매 목록 조회
+        const purchaseResponse = await api.get("/purchases");
+        const item = purchaseResponse.data.find(
+          (item) => item.item_id === itemId
+        );
+        if (!item) {
+          throw new Error("해당 상품의 구매 정보를 찾을 수 없습니다.");
+        }
+        setPurchaseItem(item);
       } catch (err) {
+        console.error(err);
         setError(
-          err.response?.data?.error || "주문 정보를 불러올 수 없습니다."
+          err.response?.data?.error ||
+            "구매 정보를 불러오는 중 오류가 발생했습니다."
         );
       } finally {
         setLoading(false);
@@ -135,11 +150,11 @@ export const PaymentInfo = () => {
           {purchaseItems.map((item) => (
             <OrderMidWrap key={item.num_code}>
               <LeftWrapper>
-                <ArtImage src={item.imagePath[0]} alt={item.title} />
+                <ArtImage src={item.image_original} alt={item.title} />
                 <ArtTextWrap>
                   <ArtText>{item.title}</ArtText>
-                  <ArtInfo>{`${item.artist} | ${item.department}`}</ArtInfo>
-                </ArtTextWrap>ㄴ
+                  <ArtInfo>{`${item.name} | ${item.department}`}</ArtInfo>
+                </ArtTextWrap>
               </LeftWrapper>
               <ArtPrice>
                 <PurpleText>{item.price.toLocaleString()}</PurpleText>
@@ -150,16 +165,15 @@ export const PaymentInfo = () => {
           <Line />
           <TotalWrap>
             <SmallWrapper>
-              <WhiteText>총 주문상품</WhiteText>
+              <WhiteText>총 주문 상품</WhiteText>
               <PurpleText>{purchaseItems.length}</PurpleText>
               <WhiteText> 건</WhiteText>
               <PurpleText> |</PurpleText>
             </SmallWrapper>
 
             <SmallWrapper>
-              <WhiteText> 주문금액</WhiteText>
+              <WhiteText> 총 결제 금액</WhiteText>
               <PurpleText>
-                {" "}
                 {purchaseItems
                   .reduce((sum, item) => sum + Number(item.price), 0)
                   .toLocaleString()}

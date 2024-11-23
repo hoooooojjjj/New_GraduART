@@ -59,7 +59,7 @@ function DeptDetailHeaderComponent() {
             <DeptDetailHeadernavinfowrapper isNavHover={isNavHover[i]}>
               <DeptDetailHeadernavinfo isNavHover={isNavHover[i]} />
               <DeptDetailHeadernavinfotext isNavHover={isNavHover[i]}>
-                <strong style={{ color: "#A348F6" }}>
+                <strong style={{ color: "#686868" }}>
                   {dept.departmentName.slice(6)}{" "}
                 </strong>
                 작품 보러가기

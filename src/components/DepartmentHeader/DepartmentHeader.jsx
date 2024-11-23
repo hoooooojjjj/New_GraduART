@@ -96,6 +96,7 @@ export const DepartmentHeader = () => {
   //장바구니 버튼 눌렀을때
   const handleCart = () => {
     if (user) {
+      console.log(user);
       navigate("/cart");
     } else {
       navigate("/signin");

@@ -8,7 +8,7 @@ export const Wrap = styled('div')`
     height: 100dvh;
     margin: 0;
     padding: 0;
-    background-color: var(--black);
+    background-color: #afb7b9;
     box-sizing: border-box;
     position: relative;
 `
@@ -23,7 +23,7 @@ export const TextFrame = styled.div`
 `;
 
 export const PageText = styled.p`
-  color: #a348f6;
+  color: #4e5a5b;
   font-size: 50px;
   font-family: "KoddiUD OnGothic", sans-serif;
   font-weight: 700;
@@ -38,7 +38,7 @@ export const PageText = styled.p`
 export const Line = styled.div`
   width: 750px;
   height: 0;
-  border: 2px solid #A348F6;
+  border: 2px solid #4e5a5b;
 
   @media (max-width: 768px) and (min-width: 320px) {
     width: 100%;

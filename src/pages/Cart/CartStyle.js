@@ -126,13 +126,13 @@ export const Left = styled.div`
   }
 `;
 
-export const ProductImage = styled.div`
+export const ProductImage = styled.img`
   width: 100px;
   height: 100px;
   flex-shrink: 0;
   border-radius: 20px;
   background: rgba(217, 217, 217, 0.3);
-  backdrop-filter: blur(50px);
+  object-fit: cover;
 
   @media (max-width: 768px) and (min-width: 320px) {
     width: 50px;

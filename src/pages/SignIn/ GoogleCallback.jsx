@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import api from "../../utils/axios";
 import Cookies from "js-cookie";
+import Loading from "../../components/common/Loading";
 
 function GoogleCallback() {
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ function GoogleCallback() {
     handleCallback();
   }, [navigate, setAuthData]);
 
-  return <p>로그인 처리중...</p>;
+  return <Loading />;
 }
 
 export default GoogleCallback;
