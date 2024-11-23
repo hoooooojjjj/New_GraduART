@@ -72,12 +72,13 @@ export const MobileWrap = styled.div`
 `;
 
 // 이미지 스타일
-export const RectangleImage = styled.div`
+export const RectangleImage = styled.img`
   height: 300px;
   width: 300px;
   border-radius: 20px;
+  flex-shrink: 0;
   background: rgba(217, 217, 217, 0.3);
-  backdrop-filter: blur(50px);
+  object-fit: cover;
 
   @media (max-width: 768px) and (min-width: 320px) {
     width: 100px;

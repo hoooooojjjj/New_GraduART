@@ -33,10 +33,15 @@ import { useNavigate } from "react-router-dom";
 import api from "../../utils/axios";
 import Loading from "../../components/common/Loading";
 
+
 function My() {
   const { user, logout } = useAuth();
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const navigate = useNavigate();
+
+  const handleRefundNavigation = (itemId) => {
+    navigate(`/refund/${itemId}`);
+  };
 
   // 상태 관리
   const [purchases, setPurchases] = useState([]);
@@ -87,24 +92,6 @@ function My() {
       }
     } catch (err) {
       alert(err.response?.data?.error || "배송 조회에 실패했습니다.");
-    }
-  };
-
-  // 환불 신청 핸들러
-  const handleRefundRequest = async (itemId) => {
-    if (!window.confirm("환불 요청을 접수하시겠습니까?")) return;
-
-    try {
-      const response = await api.post("/refunds/request/", { item_id: itemId });
-      alert(response.data.message || "환불 요청이 정상적으로 접수되었습니다.");
-
-      // 환불 요청 후 구매 내역 갱신
-      const updatedResponse = await api.get("/purchases/");
-      setPurchases(updatedResponse.data);
-    } catch (err) {
-      alert(
-        err.response?.data?.error || "환불 요청 처리 중 오류가 발생했습니다."
-      );
     }
   };
 
@@ -168,7 +155,9 @@ function My() {
                       </Product1>
                       <Bottom>
                         <RefundButton
-                          onClick={() => handlePaymentInfo(item.item_id)}
+                          onClick={() =>
+                            navigate(`/payment-info/${item.item_id}`)
+                          }
                         >
                           결제 정보
                         </RefundButton>
@@ -179,9 +168,7 @@ function My() {
                         </DeliveryTrackingButton>
                         {!item.confirmed && (
                           <RefundButton
-                            onClick={() =>
-                              !item.refund && handleRefundRequest(item.item_id)
-                            }
+                            onClick={() => handleRefundNavigation(item.item_id)}
                             disabled={item.refund}
                             style={{
                               backgroundColor: item.refund ? "gray" : "#ff4d4f",
@@ -217,7 +204,9 @@ function My() {
                           <WhiteText>원</WhiteText>
                         </ProductPrice>
                         <RefundButton
-                          onClick={() => handlePaymentInfo(item.item_id)}
+                          onClick={() =>
+                            navigate(`/payment-info/${item.item_id}`)
+                          }
                         >
                           결제 정보
                         </RefundButton>
@@ -228,9 +217,7 @@ function My() {
                         </DeliveryTrackingButton>
                         {!item.confirmed && (
                           <RefundButton
-                            onClick={() =>
-                              !item.refund && handleRefundRequest(item.item_id)
-                            }
+                            onClick={() => handleRefundNavigation(item.item_id)}
                             disabled={item.refund}
                             style={{
                               backgroundColor: item.refund ? "gray" : "#ff4d4f",

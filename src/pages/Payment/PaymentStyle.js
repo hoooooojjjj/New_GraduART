@@ -107,6 +107,7 @@ export const MiddleText = styled.div`
 
 export const TwoTextWrapper = styled.div`
   display: flex;
+  width: 100%;
   gap: 10px;
 `;
 
@@ -203,9 +204,9 @@ export const LeftWrapper = styled.div`
 export const ArtImage = styled.img`
   height: 75px;
   width: 75px;
+  object-fit: cover;
   border-radius: 20px;
   background: rgba(217, 217, 217, 0.3);
-  backdrop-filter: blur(50px);
   @media (max-width: 768px) and (min-width: 320px) {
     height: 50px;
     width: 50px;

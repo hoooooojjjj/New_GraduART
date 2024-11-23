@@ -4,8 +4,9 @@ export const Container = styled.div({
   width: "100%",
   height: "100vh",
   flexDirection: "column",
-  overflowY: "auto", // 스크롤 가능하도록 설정
+  overflowY: "auto", 
   overflowX: "hidden",
+  backgroundColor: "#AFB7B9",
 });
 
 export const Main = styled.main({
