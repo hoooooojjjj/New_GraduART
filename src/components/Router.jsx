@@ -37,7 +37,7 @@ function Router() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/my" element={<My />} />
         <Route exact path="/cart" element={<Cart />}></Route>
-        <Route exact path="/payment-info" element={<PaymentInfo />}></Route>
+        <Route path="/payment-info/:itemId" element={<PaymentInfo />} />
         <Route path="/auth/callback" element={<GoogleCallback />} />
       </Routes>
     </BrowserRouter>
