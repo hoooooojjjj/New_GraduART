@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import {
   Wrap,
   MainFrame,
@@ -31,13 +31,11 @@ function Refund() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const { state } = useLocation();
   const navigate = useNavigate();
-
+  const { itemId } = useParams();
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
   const [refundStatus, setRefundStatus] = useState(null);
   const [error, setError] = useState(null);
-
-  const itemId = state?.itemId; // 마이페이지에서 넘어온 itemId
 
   useEffect(() => {
     if (!itemId) {
@@ -49,16 +47,13 @@ function Refund() {
     const fetchItemDetails = async () => {
       try {
         setLoading(true);
-
-        // 환불 상태 조회
-        const refundResponse = await api.get(`/refunds/${itemId}/`);
-        setRefundStatus(refundResponse.data.refund_status);
-
-        // 구매 상품 정보 가져오기
-        const itemResponse = await api.get(`/purchases/${itemId}/`);
-        setItem(itemResponse.data);
+        const response = await api.get(`/items/${itemId}`);
+        setItem(response.data);
       } catch (err) {
-        setError("상품 정보를 가져오는 중 오류가 발생했습니다.");
+        setError(
+          err.response?.data?.error ||
+            "상품 정보를 불러오는 중 오류가 발생했습니다."
+        );
       } finally {
         setLoading(false);
       }

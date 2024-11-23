@@ -42,7 +42,6 @@ export const PaymentInfo = () => {
     const fetchOrderInfo = async () => {
       try {
         setLoading(true);
-
         const response = await api.get(`/purchases/${itemId}/`);
         setOrderInfo(response.data);
       } catch (err) {
@@ -54,7 +53,12 @@ export const PaymentInfo = () => {
       }
     };
 
-    fetchOrderInfo();
+    if (itemId) {
+      fetchOrderInfo();
+    } else {
+      setError("상품 ID가 제공되지 않았습니다.");
+      setLoading(false);
+    }
   }, [itemId]);
 
   if (loading) return <Loading />;
