@@ -8,8 +8,6 @@ import {
   ProductListContainer,
   ProductCard,
 } from "./DeptSectionStyle";
-import Loading from "../../components/common/Loading";
-import ErrorMessage from "../../components/common/ErrorMessage";
 import api from "../../utils/axios";
 import { useNavigate } from "react-router-dom";
 
