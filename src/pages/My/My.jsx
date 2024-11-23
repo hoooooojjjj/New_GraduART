@@ -153,7 +153,9 @@ function My() {
                       </Product1>
                       <Bottom>
                         <RefundButton
-                          onClick={() => handlePaymentInfo(item.item_id)}
+                          onClick={() =>
+                            navigate(`/payment-info/${item.item_id}`)
+                          }
                         >
                           결제 정보
                         </RefundButton>
@@ -200,7 +202,9 @@ function My() {
                           <WhiteText>원</WhiteText>
                         </ProductPrice>
                         <RefundButton
-                          onClick={() => handlePaymentInfo(item.item_id)}
+                          onClick={() =>
+                            navigate(`/payment-info/${item.item_id}`)
+                          }
                         >
                           결제 정보
                         </RefundButton>

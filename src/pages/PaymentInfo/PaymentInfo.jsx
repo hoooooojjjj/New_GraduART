@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
 import Loading from "../../components/common/Loading";
 import {
@@ -36,7 +36,7 @@ export const PaymentInfo = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const location = useLocation();
-  const { itemId } = location.state || {};
+  const { itemId } = useParams();
 
   useEffect(() => {
     const fetchOrderInfo = async () => {
@@ -53,12 +53,7 @@ export const PaymentInfo = () => {
       }
     };
 
-    if (itemId) {
-      fetchOrderInfo();
-    } else {
-      setError("상품 ID가 제공되지 않았습니다.");
-      setLoading(false);
-    }
+    fetchOrderInfo();
   }, [itemId]);
 
   if (loading) return <Loading />;
