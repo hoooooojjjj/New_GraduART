@@ -19,6 +19,9 @@ const svgIcon1 = (
     style={window.innerWidth > 768 ? { marginRight: 10 } : { marginRight: 5 }}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    onClick={() => {
+      window.open("https://www.snulion.com/", "_blank");
+    }}
   >
     <path
       fillRule="evenodd"
@@ -41,6 +44,9 @@ const svgIcon2 = (
     viewBox="0 0 28 28"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    onClick={() => {
+      window.open("https://www.instagram.com/likelion_snu/", "_blank");
+    }}
   >
     <path
       d="M18.6867 2.3335H9.27166C7.43201 2.33566 5.66834 3.0675 4.36761 4.36844C3.06689 5.66938 2.33535 7.43317 2.3335 9.27283L2.3335 18.6878C2.33566 20.5275 3.0675 22.2912 4.36844 23.5919C5.66938 24.8926 7.43317 25.6241 9.27283 25.626H18.6878C20.5275 25.6238 22.2912 24.892 23.5919 23.5911C24.8926 22.2901 25.6241 20.5263 25.626 18.6867V9.27166C25.6238 7.43201 24.892 5.66834 23.5911 4.36761C22.2901 3.06689 20.5263 2.33535 18.6867 2.3335V2.3335ZM23.2833 18.6867C23.2833 19.2903 23.1644 19.888 22.9334 20.4457C22.7024 21.0034 22.3638 21.5102 21.937 21.937C21.5102 22.3638 21.0034 22.7024 20.4457 22.9334C19.888 23.1644 19.2903 23.2833 18.6867 23.2833H9.27166C8.05275 23.283 6.88387 22.7986 6.02208 21.9366C5.16029 21.0746 4.67616 19.9056 4.67616 18.6867V9.27166C4.67647 8.05275 5.1609 6.88387 6.02291 6.02208C6.88492 5.16029 8.05392 4.67616 9.27283 4.67616H18.6878C19.9067 4.67647 21.0756 5.1609 21.9374 6.02291C22.7992 6.88492 23.2833 8.05392 23.2833 9.27283V18.6878V18.6867Z"
@@ -65,15 +71,13 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
       window.open(
         "https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343",
 
-        "_blank", // Open in a new tab
-
+        "_blank"
       );
     } else if (isPrivacy) {
       window.open(
         "https://minseoparkk.notion.site/13c735fb457580539adfe398d38deec0",
 
-        "_blank", // Open in a new tab
-
+        "_blank"
       );
     }
   };
@@ -84,7 +88,11 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
       {content.map((text, index) =>
         text.includes("/asset") ? (
           <div key={index}>
-            <FooterMainElementImg src={text}></FooterMainElementImg>
+            <FooterMainElementImg
+              src={text}
+              style={{ width: "70%", height: "50%", marginBottom: 10 }}
+            ></FooterMainElementImg>
+            <br />
             {window.innerWidth > 768 ? svgIcon1 : null}
             {window.innerWidth > 768 ? svgIcon2 : null}
           </div>
@@ -129,7 +137,7 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
           </FooterMainElementText>
         ) : (
           <FooterMainElementText key={index}>{text}</FooterMainElementText>
-        ),
+        )
       )}
     </FooterMainElementWrap>
   );
@@ -167,7 +175,6 @@ function Footer() {
               "고객센터",
 
               "010-4912-0992",
-
             ]}
           />
         </FooterMainElementWrap>
@@ -175,7 +182,7 @@ function Footer() {
           <FooterMainElement
             title="Made by"
             content={[
-              "/assets/FooterImg.png",
+              "/assets/SnulionLogo.png",
               `김대유 김민서 김민석 박민서 유호준`,
               "이은재 이진서 조유진 전비아",
             ]}
