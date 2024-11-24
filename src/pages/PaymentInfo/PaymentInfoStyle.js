@@ -232,6 +232,7 @@ export const ArtImage = styled.img`
   height: 75px;
   width: 75px;
   border-radius: 20px;
+  object-fit: cover;
 
   @media (max-width: 768px) and (min-width: 320px) {
     height: 50px;

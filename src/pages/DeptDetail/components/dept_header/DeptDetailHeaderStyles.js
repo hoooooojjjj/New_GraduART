@@ -6,6 +6,7 @@ export const DeptDetailHeader = styled.section({
   height: "15vh",
   marginBottom: "40px",
   alignItems: "center",
+
   "@media (max-width: 768px)": {
     height: 66,
     marginBottom: "20px",
@@ -84,7 +85,7 @@ export const DeptDetailHeadercircle = styled.div({
   borderRadius: "50%",
   cursor: "pointer",
   ":hover": {
-    background: "#A348F6",
+    background: "#686868",
   },
   "@media (max-width: 768px)": {
     width: "4.096vw",

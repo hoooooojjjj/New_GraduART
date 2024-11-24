@@ -8,7 +8,7 @@ export const Wrap = styled.div`
   height: 100dvh;
   margin: 0;
   padding: 0;
-  background-color: var(--black);
+  background-color: #afb7b9;
   box-sizing: border-box;
 `;
 
@@ -126,13 +126,13 @@ export const Left = styled.div`
   }
 `;
 
-export const ProductImage = styled.div`
+export const ProductImage = styled.img`
   width: 100px;
   height: 100px;
   flex-shrink: 0;
   border-radius: 20px;
   background: rgba(217, 217, 217, 0.3);
-  backdrop-filter: blur(50px);
+  object-fit: cover;
 
   @media (max-width: 768px) and (min-width: 320px) {
     width: 50px;
@@ -325,7 +325,7 @@ export const Total = styled.div`
 `;
 
 export const Bar = styled.div`
-  background: rgba(215, 215, 215, 0.80);
+  background: rgba(215, 215, 215, 0.8);
   backdrop-filter: blur(50px);
   display: flex;
   flex-direction: row;
@@ -339,7 +339,7 @@ export const Bar = styled.div`
   box-sizing: border-box;
 
   @media (max-width: 768px) and (min-width: 320px) {
-    width: 100%:
+    width: 100%;
     height: 50px;
     flex-shrink: 0;
     padding: 13px;
