@@ -6,6 +6,7 @@ export const DeptDetailHeader = styled.section({
   height: "15vh",
   marginBottom: "40px",
   alignItems: "center",
+
   "@media (max-width: 768px)": {
     height: 66,
     marginBottom: "20px",
