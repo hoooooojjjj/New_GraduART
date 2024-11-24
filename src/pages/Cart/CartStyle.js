@@ -299,8 +299,8 @@ export const CheckBox = styled.div`
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  border: 1px solid ${(props) => (props.isChecked ? "#A348F6" : "#FFF")};
-  background-color: ${(props) => (props.isChecked ? "#A348F6" : "transparent")};
+  border: 1px solid ${(props) => (props.isChecked ? "var(--purple)" : "#FFF")};
+  background-color: ${(props) => (props.isChecked ? "var(--purple)" : "transparent")};
   cursor: pointer;
   transition: background-color;
 

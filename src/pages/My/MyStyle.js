@@ -10,6 +10,7 @@ export const Wrap = styled.div`
   padding: 0;
   background-color: #afb7b9;
   box-sizing: border-box;
+    overflow-y: auto; /* Enables vertical scrolling */
 `;
 
 export const Frame = styled.div`
@@ -161,7 +162,7 @@ export const DetailDescription = styled.div`
 `;
 
 export const SmallLine = styled.div`
-  border: 2px solid #fff;
+  border: 1px solid #fff;
 
   @media (max-width: 768px) and (min-width: 320px) {
     border: 0.5px solid #fff;
