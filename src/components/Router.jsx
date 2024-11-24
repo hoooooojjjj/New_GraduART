@@ -7,7 +7,7 @@ import Landing from "../pages/Landing/Landing.jsx";
 import Refund from "../pages/Refund/Refund";
 import Payment from "../pages/Payment/Payment.jsx";
 import PaymentApproval from "../pages/PaymentApproval/PaymentApproval.jsx";
-import {PaymentInfo} from "../pages/PaymentInfo/PaymentInfo.jsx";
+import { PaymentInfo } from "../pages/PaymentInfo/PaymentInfo.jsx";
 
 import DeptDetail from "../pages/DeptDetail/DeptDetail.jsx";
 import Artwork from "../pages/Artwork/Artwork.jsx";
@@ -17,8 +17,7 @@ import My from "../pages/My/My.jsx";
 import Cart from "../pages/Cart/Cart.jsx";
 import SearchPage from "../pages/Serach";
 
-import GoogleCallback from '../pages/SignIn/ GoogleCallback.jsx';
-
+import GoogleCallback from "../pages/SignIn/ GoogleCallback.jsx";
 
 function Router() {
   return (
@@ -29,7 +28,7 @@ function Router() {
         <Route path="/artwork/:artwork_id" element={<Artwork />}></Route>
         <Route path="/:department" element={<Department />}></Route>
         <Route exact path="/*" element={<NotFound />}></Route>
-        <Route path="/refund" element={<Refund />} />
+        <Route path="/refund/:itemId" element={<Refund />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/dept_detail/:dept_id" element={<DeptDetail />}></Route>
         <Route path="/purchaseApprove" element={<PaymentApproval />}></Route>
@@ -38,7 +37,7 @@ function Router() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/my" element={<My />} />
         <Route exact path="/cart" element={<Cart />}></Route>
-        <Route exact path="/payment-info" element={<PaymentInfo />}></Route>
+        <Route path="/payment-info/:itemId" element={<PaymentInfo />} />
         <Route path="/auth/callback" element={<GoogleCallback />} />
       </Routes>
     </BrowserRouter>

@@ -11,7 +11,6 @@ const containerStyle = css`
   display: flex;
   justify-content: center;
   align-items: center;
-
   background-color: #afb7b9;
 `;
 
