@@ -52,13 +52,9 @@ api.interceptors.response.use(
           ?.split("=")[1];
         if (!refreshToken) throw new Error("Refresh token not found");
 
-        const response = await api.post(
-          "/auth/token/refresh/",
-          {},
-          {
-            headers: { Authorization: `Bearer ${refreshToken}` },
-          }
-        );
+        const response = await api.post("/auth/token/refresh/", {
+          refresh_token: refreshToken,
+        });
 
         const { access_token } = response.data;
         document.cookie = `access_token=${access_token}; path=/; max-age=1800; secure`;
