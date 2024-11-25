@@ -2,8 +2,19 @@ import React from "react";
 
 function ErrorMessage({ message }) {
   return (
-    <div className="text-center text-red-500 p-4">
-      <p>{message}</p>
+    <div
+      style={{
+        backgroundColor: "#afb7b9",
+        width: "100vw",
+        height: "100vh",
+        color: "#4e5a5b",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        fontSize: "15px",
+      }}
+    >
+      {message}
     </div>
   );
 }

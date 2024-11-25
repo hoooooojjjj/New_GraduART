@@ -90,7 +90,7 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
           <div key={index}>
             <FooterMainElementImg
               src={text}
-              style={{ width: "70%", height: "50%", marginBottom: 10 }}
+              style={{ marginBottom: 10, maxWidth: "60%", height: "auto" }}
             ></FooterMainElementImg>
             <br />
             {window.innerWidth > 768 ? svgIcon1 : null}
