@@ -62,7 +62,9 @@ export function AuthProvider({ children }) {
       }
 
       //백엔드 로그아웃 API 호출
-      await api.get("/auth/logout/");
+      await api.post('/auth/logout/', {
+        refresh_token: refreshToken,
+      });
 
       //쿠키 삭제
       document.cookie =
