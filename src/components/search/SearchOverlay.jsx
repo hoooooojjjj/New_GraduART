@@ -50,6 +50,7 @@ const SearchOverlay = ({ artworks, handleSearch }) => {
       const response = await api.get(
         `/items/search/?query=${encodeURIComponent(query)}`,
       );
+
       setFilteredArtworks(response.data);
     } catch (err) {
       setError(err.response?.data?.error || "검색에 실패했습니다.");
@@ -77,7 +78,7 @@ const SearchOverlay = ({ artworks, handleSearch }) => {
         }}
       >
         <Logo>
-          <TextWrapper>snu graduart </TextWrapper>
+          <TextWrapper>graduart </TextWrapper>
           {window.innerWidth > 768 && (
             <Span>| 서울대학교 졸업전시 작품 전시 ・ 판매</Span>
           )}
@@ -160,13 +161,14 @@ const SearchOverlay = ({ artworks, handleSearch }) => {
                   <ArtworkInfo>
                     <ArtworkTitle>{artwork.title}</ArtworkTitle>
                     <ArtworkDetails>
-                      {artwork.artist} | {artwork.material} | {artwork.size}
+                      {artwork.artist_name} | {artwork.material} |{" "}
+                      {artwork.size}
                     </ArtworkDetails>
                   </ArtworkInfo>
                 </ArtworkCard>
               ))}
-            </Column>
-            <Line></Line>
+            </Column>{" "}
+            {filteredArtworks.length > 1 && <Line></Line>}
             <Column>
               {rightColumn.map((artwork) => (
                 <ArtworkCard
@@ -182,7 +184,8 @@ const SearchOverlay = ({ artworks, handleSearch }) => {
                   <ArtworkInfo>
                     <ArtworkTitle>{artwork.title}</ArtworkTitle>
                     <ArtworkDetails>
-                      {artwork.artist} | {artwork.material} | {artwork.size}
+                      {artwork.artist_name} | {artwork.material} |{" "}
+                      {artwork.size}
                     </ArtworkDetails>
                   </ArtworkInfo>
                 </ArtworkCard>

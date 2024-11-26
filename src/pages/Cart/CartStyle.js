@@ -35,7 +35,7 @@ export const RectangleFrame = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: rgba(215, 215, 215, 0.3);
+  background: var(--CHANGE_GRAY2, #d7d7d7);
   border-radius: 20px;
   margin-bottom: 30px;
   padding: 34px 55px;
@@ -83,7 +83,7 @@ export const SubText = styled.div`
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  line-height: 100%;
+  line-height: 100%; /* 24px */
 
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 12px;
@@ -94,7 +94,7 @@ export const SubText = styled.div`
 export const Line = styled.div`
   width: 100%;
   height: 2px;
-  background: #a348f6;
+  background: var(--CHANGE_GREEN2, #4e5a5b);
 `;
 
 export const Products = styled.div`
@@ -108,7 +108,7 @@ export const Product1 = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 20px 0px;
-  border-bottom: 1px solid #a348f6;
+  border-bottom: 1px solid var(--CHANGE_GREEN2, #4e5a5b);
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding: 11px 0px;
@@ -148,12 +148,12 @@ export const ProductDescription = styled.div`
 `;
 
 export const Title = styled.div`
-  color: #ddd;
+  color: var(--CHANGE_GREEN2, #4e5a5b);
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
-  line-height: 100%;
+  line-height: 100%; /* 20px */
 
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 10px;
@@ -193,7 +193,7 @@ export const Right = styled.div`
 `;
 
 export const ProductPrice = styled.div`
-  color: #a348f6;
+  color: var(--CHANGE_GREEN2, #4e5a5b);
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
   font-style: normal;
@@ -227,7 +227,7 @@ export const WhiteText = styled.div`
   }
 `;
 export const PurpleText = styled.div`
-  color: #a348f6;
+  color: var(--CHANGE_GREEN2, #4e5a5b);
   margin-left: 4px;
 
   @media (max-width: 768px) and (min-width: 320px) {
@@ -255,7 +255,7 @@ export const SelectAllButton = styled.div`
   gap: 10px;
   flex-shrink: 0;
   border-radius: 20px;
-  background: rgba(163, 72, 246, 0.5);
+  background: rgba(78, 90, 91, 0.5);
   color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
@@ -279,7 +279,7 @@ export const SelectDeleteButton = styled.div`
   gap: 10px;
   flex-shrink: 0;
   border-radius: 20px;
-  border: 2px solid rgba(163, 72, 246, 0.7);
+  border: 2px solid rgba(78, 90, 91, 0.7);
   color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
@@ -300,7 +300,8 @@ export const CheckBox = styled.div`
   height: 20px;
   flex-shrink: 0;
   border: 1px solid ${(props) => (props.isChecked ? "var(--purple)" : "#FFF")};
-  background-color: ${(props) => (props.isChecked ? "var(--purple)" : "transparent")};
+  background-color: ${(props) =>
+    props.isChecked ? "var(--purple)" : "transparent"};
   cursor: pointer;
   transition: background-color;
 
@@ -347,7 +348,7 @@ export const Bar = styled.div`
 `;
 
 export const TotalPrice = styled.div`
-  color: #d7d7d7;
+  color: var(--CHANGE_WHITE, #fff);
   font-family: "KoddiUD OnGothic";
   font-size: 32px;
   font-style: normal;
@@ -369,7 +370,7 @@ export const PurchaseButton = styled.div`
   gap: 10px;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #a348f6;
+  background: var(--CHANGE_GREEN2, #4e5a5b);
   color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 25px;

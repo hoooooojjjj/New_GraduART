@@ -64,7 +64,9 @@ function Cart() {
       }, {});
       setCheckedItems(initialCheckedItems);
     } catch (err) {
-      setError(err.response?.data?.error || "로그인 후 장바구니 조회가 가능합니다.");
+      setError(
+        err.response?.data?.error || "로그인 후 장바구니 조회가 가능합니다.",
+      );
     } finally {
       setLoading(false);
     }
@@ -176,7 +178,7 @@ function Cart() {
     if (selectedItems.length === 0) {
       alert("구매할 작품을 선택해주세요.");
     } else {
-      navigate("/payment", { state: { selectedItems } })
+      navigate("/payment", { state: { selectedItems } });
     }
   };
 
