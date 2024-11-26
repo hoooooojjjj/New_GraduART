@@ -31,7 +31,8 @@ import {
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
 import { useNavigate } from "react-router-dom";
 import api from "../../utils/axios";
-import Loading from "../../components/loading/MainLoading";
+import Loading from "../../components/common/Loading";
+import ErrorMessage from "../../components/common/ErrorMessage";
 
 function My() {
   const { user, logout } = useAuth();
@@ -109,13 +110,8 @@ function My() {
     }
   };
 
-  if (loading)
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
-  if (error) return <div>{error}</div>;
+  if (loading) return <Loading />;
+  if (error) return <ErrorMessage message={error}></ErrorMessage>;
 
   return (
     <Wrap>

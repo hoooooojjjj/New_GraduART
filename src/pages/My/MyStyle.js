@@ -8,8 +8,9 @@ export const Wrap = styled.div`
   height: 100dvh;
   margin: 0;
   padding: 0;
-  background-color: var(--black);
+  background-color: #afb7b9;
   box-sizing: border-box;
+    overflow-y: auto; /* Enables vertical scrolling */
 `;
 
 export const Frame = styled.div`
@@ -31,7 +32,7 @@ export const MainFrame = styled.div`
 `;
 
 export const PageText = styled.div`
-  color: #a348f6;
+  color: #4e5a5b;
   font-family: "KoddiUD OnGothic";
   font-size: 50px;
   font-style: normal;
@@ -76,7 +77,7 @@ export const SubText = styled.div`
 export const Line = styled.div`
   width: 100%;
   height: 2px;
-  background: #a348f6;
+  background: #4e5a5b;
 `;
 
 export const Products = styled.div`
@@ -90,7 +91,7 @@ export const Product1 = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 20px 0px;
-  border-bottom: 1px solid #a348f6;
+  border-bottom: 1px solid #4e5a5b;
 
   @media (max-width: 768px) and (min-width: 320px) {
     padding: 10px 0px;
@@ -131,7 +132,7 @@ export const ProductDescription = styled.div`
 `;
 
 export const Title = styled.div`
-  color: #ddd;
+  color: #4e5a5b;
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
   font-style: normal;
@@ -161,7 +162,7 @@ export const DetailDescription = styled.div`
 `;
 
 export const SmallLine = styled.div`
-  border: 2px solid #fff;
+  border: 1px solid #fff;
 
   @media (max-width: 768px) and (min-width: 320px) {
     border: 0.5px solid #fff;
@@ -176,7 +177,7 @@ export const Right = styled.div`
 `;
 
 export const ProductPrice = styled.div`
-  color: #a348f6;
+  color: #4e5a5b;
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
   font-style: normal;
@@ -192,7 +193,7 @@ export const Bottom = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  border-bottom: 1px solid #a348f6;
+  border-bottom: 1px solid #4e5a5b;
   gap: 5px;
 `;
 export const DeliveryTrackingButton = styled.div`
@@ -202,7 +203,7 @@ export const DeliveryTrackingButton = styled.div`
   align-items: center;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #a348f6;
+  background: #4e5a5b;
   color: #fff;
   font-family: "KoddiUD OnGothic", sans-serif;
   font-size: 15px;
@@ -226,7 +227,7 @@ export const RefundButton = styled.div`
   gap: 10px;
   flex-shrink: 0;
   border-radius: 20px;
-  border: 2px solid #a348f6;
+  border: 2px solid #4e5a5b;
   color: #fff;
   font-family: "KoddiUD OnGothic";
   font-size: 15px;
@@ -267,7 +268,7 @@ export const WhiteText = styled.div`
   }
 `;
 export const PurpleText = styled.div`
-  color: #a348f6;
+  color: #4e5a5b;
 
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 15px;
@@ -282,13 +283,13 @@ export const SignOutButton = styled.div`
   display: flex;
   width: 205px;
   height: 56px;
-  padding: 14px 34px;
+  padding: 5px 10px;
   justify-content: center;
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #a348f6;
+  background: #4e5a5b;
   color: #fff;
   font-family: Inter;
   font-size: 24px;

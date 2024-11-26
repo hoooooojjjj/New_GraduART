@@ -25,7 +25,7 @@ import {
   TotalWrap,
   TextWrapper,
   AgreeText,
-  AgreeTextWrapper,
+  AgreeTextWrapper, Kakao,
 } from "./PaymentStyle";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
 import { useLocation } from "react-router-dom";
@@ -83,6 +83,7 @@ function Payment() {
   useEffect(() => {
     const items = location.state?.selectedItems || [];
     setPurchaseItems(items);
+    console.log(`purchaseItems: ${purchaseItems}`);
   }, [location.state]);
 
   // 결제
@@ -203,7 +204,7 @@ function Payment() {
                 <ArtImage src={item.image_original} alt={item.title} />
                 <ArtTextWrap>
                   <ArtText>{item.title}</ArtText>
-                  <ArtInfo>{`${item.artist} | ${item.department}`}</ArtInfo>
+                  <ArtInfo>{`${item.name} | ${item.department}`}</ArtInfo>
                 </ArtTextWrap>
               </LeftWrapper>
               <ArtPrice>
@@ -242,6 +243,7 @@ function Payment() {
         </AgreeText>
       </AgreeTextWrapper>
       <PaymentButton isComplete={isFormComplete} onClick={handlePaymentClick}>
+        <Kakao src={'/assets/kakaopay.png'} alt = {"카카오페이 로고"}/>
         카카오페이로 결제하기
       </PaymentButton>
     </Wrap>

@@ -3,14 +3,11 @@ import { css, keyframes } from "@emotion/react";
 import React from "react";
 
 const containerStyle = css`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
   background-color: #afb7b9;
 `;
 
@@ -42,4 +39,3 @@ function Loading() {
 }
 
 export default Loading;
-

@@ -4,6 +4,7 @@
   --dark-gray: #d9d9d94d; /*연한회색으로 바뀜 */
   --white: #ffffff;
   --light-gray: #909090;
+  --ambient-white: #D7D7D7;
   --light-green: #afb7b9; /*배경색에 주로 쓰이는 연녹색 */
   --overlay-fill: rgba(217, 217, 217, 0.3); /* #D9D9D9 with 30% opacity */
 }

@@ -22,7 +22,7 @@ function DeptDetail() {
   // 현재 라우트에 해당하는 과 정보를 가져옴
   useEffect(() => {
     const curDepartment = dept_info.filter(
-      (dept) => dept.Department === dept_id,
+      (dept) => dept.Department === dept_id
     );
 
     setCurDepartment(curDepartment[0]);
@@ -37,7 +37,7 @@ function DeptDetail() {
         <Main>
           <DeptDetailHeaderComponent />
           <DeptDetailDeptInfoComponent />
-          <DeptDetailExhibitionComponent items={items} setItems={setItems}/>
+          <DeptDetailExhibitionComponent items={items} setItems={setItems} />
         </Main>
         <footer>
           <Footer />

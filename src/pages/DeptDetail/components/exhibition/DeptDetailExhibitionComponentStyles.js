@@ -47,7 +47,7 @@ export const TitleText = styled.div({
 
 export const TitleYear = styled.div({
   borderRadius: "40px",
-  background: "#A348F6",
+  background: "#686868",
   boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
   backdropFilter: "blur(50px)",
   padding: "0.977vh 1.32vw",
@@ -116,6 +116,7 @@ export const SearchIcon = styled.img({
   position: "absolute",
   right: "2.31vw",
   cursor: "pointer",
+
   "@media (max-width: 768px)": {
     width: "3.84vw",
     height: "3.84vw",
@@ -153,7 +154,7 @@ export const ArtWorkWrap = styled.div({
 
 export const ArtWorkCircle = styled.div`
   border-radius: 50%; // 완전한 원 모양
-  background: rgba(163, 72, 246, 0.5);
+  background: #4e5a5b;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -245,7 +246,7 @@ export const CurrentPage = styled.div({
   paddingBottom: 1,
   alignItems: "center",
   justifyContent: "center",
-  background: "#A348F6",
+  background: "#4e5a5b",
   color: "#FFF",
   fontFamily: "godoRounded",
   fontSize: "16px",
@@ -262,7 +263,7 @@ export const CurrentPage = styled.div({
 export const NextButton = styled.button({
   padding: "10px 20px",
   borderRadius: "40px",
-  background: "#A348F6",
+  background: "rgba(217, 217, 217, 0.30)",
   backdropFilter: "blur(50px)",
   color: "white",
   border: "none",
