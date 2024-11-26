@@ -44,22 +44,34 @@ const Images = ({ targetArt }) => {
           <ImageDescriptions>Original View</ImageDescriptions>
         </React.Fragment>
       )}
-      {targetArt.image_side_1 && (
-        <React.Fragment key="image_side_1">
-          <Image src={targetArt.image_side_1} />
+      {targetArt.image_1 && (
+        <React.Fragment key="image_1">
+          <Image src={targetArt.image_1} />
           <ImageDescriptions>Side View 1</ImageDescriptions>
         </React.Fragment>
       )}
-      {targetArt.image_side_2 && (
-        <React.Fragment key="image_side_2">
-          <Image src={targetArt.image_side_2} />
+      {targetArt.image_2 && (
+        <React.Fragment key="image_2">
+          <Image src={targetArt.image_2} />
           <ImageDescriptions>Side View 2</ImageDescriptions>
         </React.Fragment>
       )}
-      {targetArt.image_enlarged && (
-        <React.Fragment key="image_enlarged">
-          <Image src={targetArt.image_enlarged} />
-          <ImageDescriptions>Enlarged View</ImageDescriptions>
+      {targetArt.image_3 && (
+        <React.Fragment key="image_3">
+          <Image src={targetArt.image_3} />
+          <ImageDescriptions>Side View 3</ImageDescriptions>
+        </React.Fragment>
+      )}
+      {targetArt.image_4 && (
+        <React.Fragment key="image_4">
+          <Image src={targetArt.image_4} />
+          <ImageDescriptions>Side View 4</ImageDescriptions>
+        </React.Fragment>
+      )}
+      {targetArt.image_5 && (
+        <React.Fragment key="image_5">
+          <Image src={targetArt.image_5} />
+          <ImageDescriptions>Side View 5</ImageDescriptions>
         </React.Fragment>
       )}
     </ImagesWrap>
@@ -188,7 +200,7 @@ function Artwork() {
     } catch (err) {
       alert(
         err.response?.data?.error ||
-          "로그인 후에만 상품 구매가 가능하니 먼저 로그인해주세요."
+          "로그인 후에만 상품 구매가 가능하니 먼저 로그인해주세요.",
       );
     }
   };
@@ -204,7 +216,7 @@ function Artwork() {
       // 장바구니에 담겨있지 않은 경우에만 장바구니에 추가
       const cartResponse = await api.get("/cart/items/");
       const isInCart = cartResponse.data.some(
-        (item) => item.item_id === artwork_id
+        (item) => item.item_id === artwork_id,
       );
 
       if (!isInCart) {
@@ -215,7 +227,7 @@ function Artwork() {
         // 409 에러가 아닌 경우만 알림 표시
         alert(
           err.response?.data?.error ||
-            "로그인 후에만 상품 구매가 가능하니 먼저 로그인해주세요."
+            "로그인 후에만 상품 구매가 가능하니 먼저 로그인해주세요.",
         );
         return;
       }
@@ -294,22 +306,24 @@ function Artwork() {
                     영업일 기준 6~7일 소요됩니다.
                   </Price>
                 </PriceWrap>
-                <ButtonsWrap>
-                  <PurchaseButton
-                    color={"var(--white)"}
-                    bgColor={`transparent`}
-                    onClick={handleCart}
-                  >
-                    장바구니에 담기
-                  </PurchaseButton>
-                  <PurchaseButton
-                    color={"var(--white)"}
-                    bgColor={`var(--purple)`}
-                    onClick={handlePurchase}
-                  >
-                    구매하기
-                  </PurchaseButton>
-                </ButtonsWrap>
+                {targetArt.onSale && (
+                  <ButtonsWrap>
+                    <PurchaseButton
+                      color={"var(--white)"}
+                      bgColor={`transparent`}
+                      onClick={handleCart}
+                    >
+                      장바구니에 담기
+                    </PurchaseButton>
+                    <PurchaseButton
+                      color={"var(--white)"}
+                      bgColor={`var(--purple)`}
+                      onClick={handlePurchase}
+                    >
+                      구매하기
+                    </PurchaseButton>
+                  </ButtonsWrap>
+                )}
               </PricingComponent>
             </DetailWrap>
           </Middle>
