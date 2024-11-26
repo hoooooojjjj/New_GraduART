@@ -183,7 +183,7 @@ export const AmountValue = styled.span`
 
 // 원화 표시 스타일
 export const Currency = styled.span`
-  color: #a348f6;
+  color: #4e5a5b;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
@@ -230,9 +230,7 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const RefundButton = styled.button`
-  border-radius: 100px;
   background: #4e5a5b;
-  backdrop-filter: blur(50px);
   color: #fff;
   text-align: center;
   font-size: 24px;
