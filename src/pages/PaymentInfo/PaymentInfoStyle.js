@@ -105,7 +105,7 @@ export const TextWrapper = styled.input`
   width: ${({ width }) => width}%;
   padding-left: 15px;
   align-items: center;
-  color: var(--purple);
+  color: #D7D7D7;
   font-size: 13px;
   font-style: normal;
   font-family: KoddiUDOnGothic, sans-serif;
@@ -117,7 +117,7 @@ export const TextWrapper = styled.input`
   outline: none;
 
   &::placeholder {
-    color: #D7D7D7;
+    color: var(--light-gray);
   }
 
   @media (max-width: 768px) and (min-width: 320px) {
@@ -278,19 +278,16 @@ export const ArtPrice = styled.div`
 `;
 
 export const TotalWrap = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-right: 60px;
-  gap: 15px;
-  margin-bottom: 39px;
-  margin-top: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin: 4px 40px 39px;
 
-  @media (max-width: 768px) and (min-width: 320px) {
-    margin-right: 26px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    gap: 3px;
-  }
+    @media (max-width: 768px) and (min-width: 320px) {
+        margin: 15px;
+        gap: 3px;
+    }
 `;
 
 export const Line = styled.div`
