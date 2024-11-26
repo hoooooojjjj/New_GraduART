@@ -229,8 +229,9 @@ export const ButtonWrapper = styled.div`
   justify-content: center;
 `;
 
-export const RefundButton = styled.button`
+export const RefundButton = styled.div`
   background: #4e5a5b;
+    border-radius: 20px;
   color: #fff;
   text-align: center;
   font-size: 24px;

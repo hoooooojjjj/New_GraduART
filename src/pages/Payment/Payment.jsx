@@ -132,14 +132,14 @@ function Payment() {
             <MiddleText>주문자</MiddleText>
             <TwoTextWrapper>
               <TextWrapper
-                width={30}
+                width={'200px'}
                 placeholder="이름을 입력해주세요"
                 name="orderName"
                 value={purchaseFormData.orderName}
                 onChange={handleChange}
               />
               <TextWrapper
-                width={50}
+                width={'200px'}
                 placeholder="전화번호를 입력해주세요"
                 name="orderPhone"
                 value={purchaseFormData.orderPhone}
@@ -158,14 +158,14 @@ function Payment() {
             <MiddleText>배송지 정보</MiddleText>
             <TwoTextWrapper>
               <TextWrapper
-                width={30}
+                width={'200px'}
                 placeholder="이름을 입력해주세요"
                 name="addressName"
                 value={purchaseFormData.addressName}
                 onChange={handleChange}
               />
               <TextWrapper
-                width={70}
+                width={'200px'}
                 placeholder="전화번호를 입력해주세요"
                 name="addressPhone"
                 value={purchaseFormData.addressPhone}

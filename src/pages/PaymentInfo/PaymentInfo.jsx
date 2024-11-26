@@ -36,8 +36,7 @@ export const PaymentInfo = () => {
   const [orderInfo, setOrderInfo] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  const [purchaseItem, setPurchaseItem] = useState(null);
+  const [purchaseItems, setPurchaseItems] = useState(null);
 
   useEffect(() => {
     const fetchOrderInfo = async () => {
@@ -49,13 +48,14 @@ export const PaymentInfo = () => {
 
         // 구매 목록 조회
         const purchaseResponse = await api.get("/purchases");
-        const item = purchaseResponse.data.find(
-          (item) => item.item_id === itemId
-        );
-        if (!item) {
-          throw new Error("해당 상품의 구매 정보를 찾을 수 없습니다.");
+        if (purchaseResponse.data) {
+          console.log(purchaseResponse);
+          const itemsList = purchaseResponse.data[Object.keys(purchaseResponse.data)[0]]; // Get the array in the "data" key
+          setPurchaseItems(itemsList); // Set the items array into the state
+          console.log(`purchaseItems: ${JSON.stringify(itemsList)}`);
+        } else {
+          console.error("No data found in purchaseResponse:", purchaseResponse.data);
         }
-        setPurchaseItem(item);
       } catch (err) {
         console.error(err);
         setError(
@@ -73,7 +73,6 @@ export const PaymentInfo = () => {
   if (loading) return <Loading />;
   if (error) return <div>{error}</div>;
 
-  const purchaseItems = orderInfo?.purchaseItems || [];
 
   return (
     <Wrap>
@@ -86,27 +85,20 @@ export const PaymentInfo = () => {
             <MiddleText>주문자</MiddleText>
             <TwoTextWrapper>
               <TextWrapper
-                width={30}
+                width={'150px'}
                 placeholder="이름이 없습니다"
                 name="orderName"
                 value={orderInfo.orderName}
                 readOnly
               />
               <TextWrapper
-                width={50}
-                placeholder="전화번호가 없습니다"
-                name="orderPhone"
-                value={orderInfo.orderPhone}
+                width={'150px'}
+                placeholder="이메일이 없습니다"
+                name="orderEmail"
+                value={orderInfo.email}
                 readOnly
               />
             </TwoTextWrapper>
-            <OneTextWrapper
-              width={100}
-              placeholder="이메일 주소가 없습니다"
-              name="orderEmail"
-              value={orderInfo.orderEmail}
-              readOnly
-            />
           </OrdererWrap>
           <DeliveryAddressWrap>
             <MiddleText>배송지 정보</MiddleText>
@@ -115,29 +107,22 @@ export const PaymentInfo = () => {
                 width={30}
                 placeholder="이름이 없습니다"
                 name="addressName"
-                value={orderInfo.addressName}
+                value={orderInfo.name}
                 readOnly
               />
               <TextWrapper
                 width={50}
                 placeholder="전화번호가 없습니다"
                 name="addressPhone"
-                value={orderInfo.addressPhone}
+                value={orderInfo.phone_num}
                 readOnly
               />
             </TwoTextWrapper>
             <OneTextWrapper
               width={100}
-              placeholder="지번/도로명 주소가 없습니다"
+              placeholder="주소 조회에 실패했습니다"
               name="address"
               value={orderInfo.address}
-              readOnly
-            />
-            <OneTextWrapper
-              width={100}
-              placeholder="상세 주소가 없습니다"
-              name="detailAddress"
-              value={orderInfo.detailAddress}
               readOnly
             />
           </DeliveryAddressWrap>
@@ -145,28 +130,26 @@ export const PaymentInfo = () => {
         <OrderDetailWrap>
           <OrderText>주문 내역</OrderText>
           <Line />
-          {purchaseItems.map((item) => (
-            <OrderMidWrap key={item.num_code}>
+            <OrderMidWrap key={purchaseItems.num_code}>
               <LeftWrapper>
-                <ArtImage src={item.image_original} alt={item.title} />
+                <ArtImage src={purchaseItems.image_original} alt={purchaseItems.title} />
                 <ArtTextWrap>
-                  <ArtText>{item.title}</ArtText>
-                  <ArtInfo>{`${item.name} | ${item.size || "크기 미등록"} | ${
-                    item.material || "재료 미등록"
+                  <ArtText>{purchaseItems.title}</ArtText>
+                  <ArtInfo>{`${purchaseItems.name} | ${purchaseItems.size || "크기 미등록"} | ${
+                    purchaseItems.material || "재료 미등록"
                   }`}</ArtInfo>{" "}
                 </ArtTextWrap>
               </LeftWrapper>
               <ArtPrice>
-                <PurpleText>{item.price.toLocaleString()}</PurpleText>
+                <PurpleText>{purchaseItems.price.toLocaleString()}</PurpleText>
                 <WhiteText> 원</WhiteText>
               </ArtPrice>
             </OrderMidWrap>
-          ))}
           <Line />
           <TotalWrap>
             <SmallWrapper>
               <WhiteText>총 주문 상품</WhiteText>
-              <PurpleText>{purchaseItems.length}</PurpleText>
+              <PurpleText>1</PurpleText>
               <WhiteText> 건</WhiteText>
               <PurpleText> |</PurpleText>
             </SmallWrapper>
@@ -174,9 +157,7 @@ export const PaymentInfo = () => {
             <SmallWrapper>
               <WhiteText> 총 결제 금액</WhiteText>
               <PurpleText>
-                {purchaseItems
-                  .reduce((sum, item) => sum + Number(item.price), 0)
-                  .toLocaleString()}
+                {purchaseItems.price.toLocaleString()}
               </PurpleText>
               <WhiteText>원</WhiteText>
               <PurpleText> |</PurpleText>

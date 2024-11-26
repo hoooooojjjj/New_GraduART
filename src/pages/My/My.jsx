@@ -91,7 +91,7 @@ function My() {
         alert("배송 정보를 찾을 수 없습니다.");
       }
     } catch (err) {
-      alert(err.response?.data?.error || "배송 조회에 실패했습니다.");
+      alert(err.response?.data?.error || "배송 조회에 실패했습니다. 아직 운송장이 입력되지 않았을 수 있습니다.");
     }
   };
 
