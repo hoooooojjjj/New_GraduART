@@ -7,7 +7,7 @@ export const Wrap = styled("div")`
   height: 100dvh;
   margin: 0;
   padding: 0;
-  background-color: var(--black);
+  background-color: var(--light-green);
   box-sizing: border-box;
   overflow-y: auto;
   align-items: center;
@@ -18,7 +18,7 @@ export const Wrap = styled("div")`
 `;
 
 export const PageText = styled.div`
-  color: #a348f6;
+  color: #4e5a5b;
   font-size: 50px;
   font-style: normal;
   font-weight: 700;
@@ -42,7 +42,7 @@ export const Line = styled.div`
 `;
 
 export const MainFrame = styled.div`
-  background-color: #d6d6d64c;
+  background-color: #d7d7d7;
   border-radius: 20px;
   padding: 25px 40px;
   width: 55%;
@@ -99,7 +99,7 @@ export const TextWrapper = styled.div`
 `;
 
 export const OrderInformation = styled.span`
-  color: #fff;
+  color: #4e5a5b;
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
@@ -112,7 +112,7 @@ export const OrderInformation = styled.span`
 `;
 
 export const PurpleText = styled.span`
-  color: #a348f6;
+  color: #4e5a5b;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
@@ -134,7 +134,7 @@ export const OrderInfoWrapper = styled.div`
 // 주문 설명 텍스트 스타일
 export const OrderDescription = styled.p`
   align-self: stretch;
-  color: #d6d6d6;
+  color: #ffffff;
   font-size: 20px;
   font-weight: 400;
   line-height: 20px;
@@ -231,7 +231,7 @@ export const ButtonWrapper = styled.div`
 
 export const RefundButton = styled.button`
   border-radius: 100px;
-  background: #a348f6;
+  background: #4e5a5b;
   backdrop-filter: blur(50px);
   color: #fff;
   text-align: center;
