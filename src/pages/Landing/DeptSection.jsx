@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   DeptContainer,
   DeptTitleContainer,
@@ -25,17 +25,18 @@ const DeptSection = () => {
   const [loadingDepts, setLoadingDepts] = useState([]);
   const navigate = useNavigate();
 
+  // 초기 렌더링 시 작품 데이터 로드
+  useEffect(() => {
+    fetchItems("Ceramic");
+    fetchItems("Metal");
+  }, []);
+
+  // 학과 선택 토글 -> 그냥 클릭하면 작품 보였다 안보였다 하도록 수정
   const toggleDept = (deptTitle) => {
     if (selectedDepts.includes(deptTitle)) {
       setSelectedDepts((prev) => prev.filter((title) => title !== deptTitle));
-      setSelectedItems((prev) => {
-        const newItems = { ...prev };
-        delete newItems[deptTitle];
-        return newItems;
-      });
     } else {
       setSelectedDepts((prev) => [...prev, deptTitle]);
-      fetchItems(deptTitle);
     }
   };
 
@@ -65,11 +66,11 @@ const DeptSection = () => {
             ...prev,
             [item.item_id]: false,
           }));
-        }, 500); // 시뮬레이션용 딜레이
+        }, 100); // 시뮬레이션용 딜레이
       });
     } catch (err) {
       console.error(
-        err.response?.data?.error || "작품을 불러오는데 실패했습니다.",
+        err.response?.data?.error || "작품을 불러오는데 실패했습니다."
       );
     } finally {
       setLoadingDepts((prev) => prev.filter((title) => title !== deptTitle)); // 학과 로딩 종료
