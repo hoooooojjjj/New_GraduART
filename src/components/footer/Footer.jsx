@@ -65,25 +65,25 @@ const svgIcon2 = (
 
 function FooterMainElement({ title, content, isTerms, isPrivacy }) {
   const navigate = useNavigate();
-  const handleTermsNavigation = (e) => {
-    e.stopPropagation(); // Prevent event propagation
-    if (isTerms) {
-      window.open(
-        "https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343",
+  // const handleTermsNavigation = (e) => {
+  //   e.stopPropagation(); // Prevent event propagation
+  //   if (isTerms) {
+  //     window.open(
+  //       "https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343",
 
-        "_blank"
-      );
-    } else if (isPrivacy) {
-      window.open(
-        "https://minseoparkk.notion.site/13c735fb457580539adfe398d38deec0",
+  //       "_blank"
+  //     );
+  //   } else if (isPrivacy) {
+  //     window.open(
+  //       "https://minseoparkk.notion.site/13c735fb457580539adfe398d38deec0",
 
-        "_blank"
-      );
-    }
-  };
+  //       "_blank"
+  //     );
+  //   }
+  // };
 
   return (
-    <FooterMainElementWrap onClick={handleTermsNavigation}>
+    <FooterMainElementWrap>
       <FooterMainElementTitle>{title}</FooterMainElementTitle>
       {content.map((text, index) =>
         text.includes("/asset") ? (
@@ -113,17 +113,6 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
         ) : text.includes("개인정보처리방침") ? (
           <FooterMainElementText key={index}>
             <Link
-              to="https://minseoparkk.notion.site/13c735fb4575808e8252de29766eb343?pvs=4"
-              target="_blank"
-              style={{
-                color: "white",
-                textDecoration: "underline",
-                cursor: "pointer",
-              }}
-            >
-              {text.split("|")[0]}{" "}
-            </Link>
-            <Link
               to="https://minseoparkk.notion.site/13c735fb457580539adfe398d38deec0?pvs=4"
               target="_blank"
               style={{
@@ -132,7 +121,7 @@ function FooterMainElement({ title, content, isTerms, isPrivacy }) {
                 cursor: "pointer",
               }}
             >
-              {text.split("|")[1]}
+              {text.split("|")[0]}{" "}
             </Link>
           </FooterMainElementText>
         ) : (
@@ -156,6 +145,7 @@ function Footer() {
               "대표자 | 박민서",
               "주소 | 경기도 안양시 만안구",
               "안양천서로 249, 116동 2903호",
+              "사업자번호 | 888-13-02558",
             ]}
           />
         </FooterMainElementWrap>
