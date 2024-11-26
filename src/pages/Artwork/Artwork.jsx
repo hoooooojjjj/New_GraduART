@@ -160,7 +160,6 @@ function Artwork() {
       try {
         setLoading(true);
         const response = await api.get(`/items/${artwork_id}/`);
-        console.log(response);
         setTargetArt(response.data);
       } catch (err) {
         setError(err.response?.data?.error || "새로고침 후 이용 가능합니다.");

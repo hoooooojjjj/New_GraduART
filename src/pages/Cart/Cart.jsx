@@ -57,7 +57,6 @@ function Cart() {
       setLoading(true);
       const response = await api.get("/cart/items/");
       setCartItems(response.data);
-      console.log(response);
       // 초기 체크 상태 설정
       const initialCheckedItems = response.data.reduce((acc, item) => {
         acc[item.item_id] = false;
@@ -177,8 +176,7 @@ function Cart() {
     if (selectedItems.length === 0) {
       alert("구매할 작품을 선택해주세요.");
     } else {
-      navigate("/payment", { state: { selectedItems } });
-      console.log(selectedItems);
+      navigate("/payment", { state: { selectedItems } })
     }
   };
 

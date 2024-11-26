@@ -33,7 +33,6 @@ import api from "../../utils/axios";
 
 export const PaymentInfo = () => {
   const { itemId } = useParams();
-  console.log("Requesting purchase ID:", itemId);
   const [orderInfo, setOrderInfo] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -42,7 +41,6 @@ export const PaymentInfo = () => {
 
   useEffect(() => {
     const fetchOrderInfo = async () => {
-      console.log("Fetching order info for itemId:", itemId);
       try {
         setLoading(true);
         // 주문 정보 조회
