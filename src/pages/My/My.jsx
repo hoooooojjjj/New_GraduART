@@ -91,7 +91,10 @@ function My() {
         alert("배송 정보를 찾을 수 없습니다.");
       }
     } catch (err) {
-      alert(err.response?.data?.error || "배송 조회에 실패했습니다. 아직 운송장이 입력되지 않았을 수 있습니다.");
+      alert(
+        err.response?.data?.error ||
+          "배송 조회에 실패했습니다. 아직 운송장이 입력되지 않았을 수 있습니다."
+      );
     }
   };
 
@@ -124,7 +127,19 @@ function My() {
             <Line />
             <Products>
               {purchases.length === 0 ? (
-                <div>구매 내역이 없습니다.</div>
+                <div
+                  style={{
+                    color: "rgb(78, 90, 91)",
+                    fontFamily: "KoddiUD OnGothic",
+                    fontSize: "20px",
+                    fontStyle: "normal",
+                    fontWeight: 700,
+                    lineHeight: "100%",
+                    marginTop: "20px",
+                  }}
+                >
+                  구매 내역이 존재하지 않습니다.
+                </div>
               ) : (
                 purchases.map((item) =>
                   isMobile ? (
