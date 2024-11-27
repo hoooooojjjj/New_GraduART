@@ -17,7 +17,6 @@ import {
   PaginationWrap,
   PrevButton,
   SearchIcon,
-  SearchButton,
   TitleText,
   TitleYear,
 } from "./DeptDetailExhibitionComponentStyles";
@@ -30,6 +29,9 @@ import Loading from "../../../../components/common/Loading";
 function ExhibitionTitle({ items, setItems, curDepartmentObj }) {
   const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태
   const location = useLocation(); // 현재 경로 가져오기
+  const [isSearching, setIsSearching] = useState(false); // 검색 상태
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // 경로 변경 시 검색창 초기화
   useEffect(() => {
@@ -57,8 +59,32 @@ function ExhibitionTitle({ items, setItems, curDepartmentObj }) {
   const handleSearchSubmit = (event) => {
     event.preventDefault(); // 폼 제출 시 페이지 리로딩 방지
     if (searchTerm.trim()) {
+      setIsSearching(true);
       search(searchTerm);
     }
+  };
+
+  const handleSearchReset = () => {
+    setSearchTerm(""); // 검색어 초기화
+    setIsSearching(false); // 검색 상태 비활성화
+    const fetchItems = async () => {
+      try {
+        setLoading(true);
+        if (curDepartmentObj.Department) {
+          const response = await api.get(
+            `/items/?department=${curDepartmentObj.Department}`,
+          );
+          setItems(response.data);
+        }
+      } catch (err) {
+        setError(
+          err.response?.data?.error || "작품을 불러오는데 실패했습니다.",
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchItems();
   };
 
   return (
@@ -73,7 +99,11 @@ function ExhibitionTitle({ items, setItems, curDepartmentObj }) {
           onChange={handleSearchChange}
           placeholder="작품명, 작가명 검색하기"
         />
-        <SearchIcon src="/assets/searchIcon.svg" alt="search" />
+        <SearchIcon 
+        src={isSearching ? "/assets/vector.svg" : "/assets/searchIcon.svg"} 
+        alt={isSearching ? "search_cacel" : "search"} 
+        onClick={isSearching ? handleSearchReset : handleSearchSubmit}
+        />
       </ExhibitionTitleSearchContainer>
     </ExhibitionTitleWrap>
   );
@@ -110,7 +140,6 @@ function ExhibitionGrid({ items, setItems, curDepartmentObj }) {
   const [minHeight, setMinHeight] = useState(0);
 
   const imgRef = useRef(0);
-
   // 작품 hover 상태를 저장하는 state
   const [isHover, setIsHover] = useState(items.map(() => false));
 
