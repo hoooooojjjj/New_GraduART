@@ -128,7 +128,9 @@ const SideFloatingModals = ({
         </SellStatus>
         <PriceWrap>
           <Price color={"var(--purple)"}>판매 가격</Price>{" "}
-          <Price color={"var(--white)"}>{targetArt.price}</Price>
+          <Price color={"var(--white)"}>
+            {targetArt.price.toLocaleString("ko-KR")}
+          </Price>
         </PriceWrap>
         <PriceWrap>
           <Price color={"var(--purple)"}>수령 방법</Price>{" "}
@@ -200,7 +202,7 @@ function Artwork() {
     } catch (err) {
       alert(
         err.response?.data?.error ||
-          "로그인 후에만 상품 구매가 가능하니 먼저 로그인해주세요.",
+          "로그인 후에만 상품 구매가 가능하니 먼저 로그인해주세요."
       );
     }
   };
@@ -216,7 +218,7 @@ function Artwork() {
       // 장바구니에 담겨있지 않은 경우에만 장바구니에 추가
       const cartResponse = await api.get("/cart/items/");
       const isInCart = cartResponse.data.some(
-        (item) => item.item_id === artwork_id,
+        (item) => item.item_id === artwork_id
       );
 
       if (!isInCart) {
@@ -227,7 +229,7 @@ function Artwork() {
         // 409 에러가 아닌 경우만 알림 표시
         alert(
           err.response?.data?.error ||
-            "로그인 후에만 상품 구매가 가능하니 먼저 로그인해주세요.",
+            "로그인 후에만 상품 구매가 가능하니 먼저 로그인해주세요."
         );
         return;
       }
@@ -294,7 +296,10 @@ function Artwork() {
                 </SellStatus>
                 <PriceWrap>
                   <Price color={"var(--purple)"}>판매 가격</Price>{" "}
-                  <Price color={"var(--white)"}>{targetArt.price}</Price>
+                  <Price color={"var(--white)"}>
+                    {" "}
+                    {targetArt.price.toLocaleString("ko-KR")}
+                  </Price>
                 </PriceWrap>
                 <PriceWrap>
                   <Price color={"var(--purple)"}>수령 방법</Price>{" "}
