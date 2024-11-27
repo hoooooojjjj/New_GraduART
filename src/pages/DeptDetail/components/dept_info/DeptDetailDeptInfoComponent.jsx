@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   DeptDetailDeptInfo,
   DeptInfoImgActive,
@@ -9,35 +9,44 @@ import {
 import { curDepartmentObjContext } from "../../DeptDetail";
 
 // DeptInfoComponentImgs: 과 정보 컴포넌트에 들어갈 이미지들
-const DeptInfoComponentImgs = [
+const CeramicDeptInfoComponentImgs = [
   {
     id: 0,
-    departmentName: "oriental_painting",
-    src: "/assets/DeptInfoComponentImgs0.jpg",
+    departmentName: "ceramic",
+    src: "/assets/CeramicDeptInfoImgs0.jpg",
     alt: "painting",
   },
   {
     id: 1,
-    departmentName: "oriental_painting",
-    src: "/assets/DeptInfoComponentImgs1.jpg",
+    departmentName: "ceramic",
+    src: "/assets/CeramicDeptInfoImgs1.jpg",
     alt: "painting",
   },
   {
     id: 2,
-    departmentName: "oriental_painting",
-    src: "/assets/DeptInfoComponentImgs2.jpg",
+    departmentName: "ceramic",
+    src: "/assets/CeramicDeptInfoImgs2.jpg",
     alt: "painting",
   },
   {
     id: 3,
-    departmentName: "oriental_painting",
-    src: "/assets/DeptInfoComponentImgs3.jpg",
+    departmentName: "ceramic",
+    src: "/assets/CeramicDeptInfoImgs3.jpg",
     alt: "painting",
   },
   {
     id: 4,
-    departmentName: "oriental_painting",
-    src: "/assets/DeptInfoComponentImgs3.jpg",
+    departmentName: "ceramic",
+    src: "/assets/CeramicDeptInfoImgs4.jpg",
+    alt: "painting",
+  },
+];
+
+const MetalDeptInfoComponentImgs = [
+  {
+    id: 0,
+    departmentName: "metal",
+    src: "/assets/MetalDeptInfoImgs0.jpg",
     alt: "painting",
   },
 ];
@@ -46,13 +55,28 @@ function DeptDetailDeptInfoComponent() {
   // 현재 라우트에 해당하는 과 정보를 담는 context
   const curDepartmentObj = useContext(curDepartmentObjContext);
 
+  // 현재 departmentName에 따른 이미지 배열 선택
+  const DeptInfoComponentImgs =
+    curDepartmentObj?.Department === "Ceramic"
+      ? CeramicDeptInfoComponentImgs
+      : curDepartmentObj?.Department === "Metal"
+      ? MetalDeptInfoComponentImgs
+      : [];
+
   // 과 이미지 클릭 상태를 저장하는 state
   const [isClickedImg, setIsClickedImg] = useState(
-    DeptInfoComponentImgs.map((e, i) => {
-      if (i === 0) return true;
-      return false;
-    })
+    Array(DeptInfoComponentImgs.length).fill(false)
   );
+
+  // 페이지 로드 시 첫 번째 이미지를 기본 활성화 상태로 설정
+  useEffect(() => {
+    if (DeptInfoComponentImgs.length > 0) {
+      const updatedIsClickedImg = Array(DeptInfoComponentImgs.length).fill(false);
+      updatedIsClickedImg[0] = true;
+      setIsClickedImg(updatedIsClickedImg);
+    }
+  }, [DeptInfoComponentImgs]);
+
   return (
     <DeptDetailDeptInfo>
       <DeptInfoLeft>
