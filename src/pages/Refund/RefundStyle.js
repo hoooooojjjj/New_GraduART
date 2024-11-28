@@ -229,9 +229,10 @@ export const ButtonWrapper = styled.div`
   justify-content: center;
 `;
 
-export const RefundButton = styled.div`
+export const RefundButton = styled.button`
   background: #4e5a5b;
     border-radius: 20px;
+    border: none;
   color: #fff;
   text-align: center;
   font-size: 24px;
@@ -240,9 +241,11 @@ export const RefundButton = styled.div`
   line-height: 100%; /* 24px */
   padding: 20px;
   margin-top: 70px;
+    margin-bottom: 70px;
   font-family: KoddiUDOnGothic, sans-serif;
   display: flex;
   align-items: center;
+    
 
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 12px;
