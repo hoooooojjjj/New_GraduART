@@ -43,7 +43,7 @@ export const BackBtn = styled.div`
 `;
 
 export const Span = styled.span`
-  color: #909090;
+  color: #606060;
   font-family: "godo", sans-serif;
   font-size: 20px;
   line-height: 20px;

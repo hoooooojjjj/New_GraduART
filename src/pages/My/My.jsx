@@ -71,7 +71,7 @@ function My() {
       } catch (err) {
         setError(
           err.response?.data?.error ||
-            "구매 내역을 불러오는 중 오류가 발생했습니다."
+            "구매 내역을 불러오는 중 오류가 발생했습니다.",
         );
       } finally {
         setLoading(false);
@@ -93,7 +93,7 @@ function My() {
     } catch (err) {
       alert(
         err.response?.data?.error ||
-          "배송 조회에 실패했습니다. 아직 운송장이 입력되지 않았을 수 있습니다."
+          "배송 조회에 실패했습니다. 아직 운송장이 입력되지 않았을 수 있습니다.",
       );
     }
   };
@@ -187,7 +187,9 @@ function My() {
                             onClick={() => handleRefundNavigation(item.item_id)}
                             disabled={item.refund}
                             style={{
+
                               backgroundColor: item.refund ? "gray" : "transparent",
+
                               cursor: item.refund ? "not-allowed" : "pointer",
                             }}
                           >
@@ -246,7 +248,7 @@ function My() {
                         )}
                       </Right>
                     </Product1>
-                  )
+                  ),
                 )
               )}
             </Products>

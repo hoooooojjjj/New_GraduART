@@ -11,7 +11,7 @@ export const SearchInput = styled.input`
   border-radius: 20px;
   background: rgba(144, 144, 144, 0.4);
   backdrop-filter: blur(50px);
-  color: #a348f6;
+  color: #909090;
   text-align: center;
   font-family: "KoddiUD OnGothic";
   font-size: 16px;

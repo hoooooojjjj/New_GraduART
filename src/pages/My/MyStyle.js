@@ -10,7 +10,7 @@ export const Wrap = styled.div`
   padding: 0;
   background-color: #afb7b9;
   box-sizing: border-box;
-    overflow-y: auto; /* Enables vertical scrolling */
+  overflow-y: auto; /* Enables vertical scrolling */
 `;
 
 export const Frame = styled.div`
@@ -44,7 +44,7 @@ export const PageText = styled.div`
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 25px;
     padding-bottom: 40px;
-    color: #fff;
+    color: #444444;
     text-align: center;
   }
 `;
@@ -60,7 +60,7 @@ export const RectangleImage = styled.div`
 `;
 
 export const SubText = styled.div`
-  color: #fff;
+  color: #444444;
   font-family: "KoddiUD OnGothic";
   font-size: 24px;
   font-style: normal;
@@ -145,7 +145,7 @@ export const Title = styled.div`
 `;
 
 export const DetailDescription = styled.div`
-  color: #fff;
+  color: #444444;
   font-family: "KoddiUD OnGothic";
   font-size: 13px;
   font-style: normal;
@@ -162,10 +162,10 @@ export const DetailDescription = styled.div`
 `;
 
 export const SmallLine = styled.div`
-  border: 1px solid #fff;
+  border: 1px solid #444444;
 
   @media (max-width: 768px) and (min-width: 320px) {
-    border: 0.5px solid #fff;
+    border: 0.5px solid #444444;
   }
 `;
 
@@ -203,7 +203,8 @@ export const DeliveryTrackingButton = styled.div`
   align-items: center;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #4e5a5b;
+  border: 2px solid #4e5a5b;
+  //background: var(--CHANGE_GREEN2, #4e5a5b);
   color: #fff;
   font-family: "KoddiUD OnGothic", sans-serif;
   font-size: 15px;
@@ -229,6 +230,7 @@ export const RefundButton = styled.div`
   border-radius: 20px;
   border: 2px solid #4e5a5b;
   color: #fff;
+
   font-family: "KoddiUD OnGothic";
   font-size: 15px;
   font-style: normal;
@@ -244,7 +246,7 @@ export const RefundButton = styled.div`
 `;
 
 export const TotalProducts = styled.div`
-  color: #fff;
+  color: #444444;
   font-family: "KoddiUD OnGothic";
   font-size: 24px;
   font-style: normal;
@@ -261,7 +263,7 @@ export const TotalProducts = styled.div`
 `;
 
 export const WhiteText = styled.div`
-  color: #fff;
+  color: #444444;
 
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 10px;
