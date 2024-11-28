@@ -199,7 +199,7 @@ export const ArtWorkTitle = styled.div({
 });
 
 export const ArtWorkSubTitle = styled.div({
-  color: "#909090",
+  color: "#ECECEC",
   fontFamily: "KoddiUDOnGothic",
   fontSize: "clamp(8px, 0.924vw, 25px)",
   fontStyle: "normal",

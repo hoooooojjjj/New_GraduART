@@ -45,7 +45,7 @@ export const RectangleFrame = styled.div`
 `;
 
 export const PageText = styled.div`
-  color: #fff;
+  color: #444444;
   font-family: "KoddiUD OnGothic";
   font-size: 50px;
   font-style: normal;
@@ -78,7 +78,7 @@ export const RectangleImage = styled.div`
 `;
 
 export const SubText = styled.div`
-  color: #fff;
+  color: #444444;
   font-family: "KoddiUD OnGothic";
   font-size: 24px;
   font-style: normal;
@@ -161,7 +161,7 @@ export const Title = styled.div`
 `;
 
 export const DetailDescription = styled.div`
-  color: #fff;
+  color: #444444;
   font-family: "KoddiUD OnGothic";
   font-size: 13px;
   font-style: normal;
@@ -178,10 +178,10 @@ export const DetailDescription = styled.div`
 `;
 
 export const SmallLine = styled.div`
-  border: 2px solid #fff;
+  border: 2px solid #444444;
 
   @media (max-width: 768px) and (min-width: 320px) {
-    border: 0.5px solid #fff;
+    border: 0.5px solid #444444;
   }
 `;
 
@@ -207,7 +207,7 @@ export const ProductPrice = styled.div`
 `;
 
 export const TotalProducts = styled.div`
-  color: #fff;
+  color: #444444;
   font-family: "KoddiUD OnGothic";
   font-size: 24px;
   font-style: normal;
@@ -220,7 +220,7 @@ export const TotalProducts = styled.div`
 `;
 
 export const WhiteText = styled.div`
-  color: #fff;
+  color: #444444;
 
   @media (max-width: 768px) and (min-width: 320px) {
     font-size: 10px;
@@ -256,7 +256,7 @@ export const SelectAllButton = styled.div`
   flex-shrink: 0;
   border-radius: 20px;
   background: rgba(78, 90, 91, 0.5);
-  color: #fff;
+  color: #444444;
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
   font-style: normal;
@@ -280,7 +280,7 @@ export const SelectDeleteButton = styled.div`
   flex-shrink: 0;
   border-radius: 20px;
   border: 2px solid rgba(78, 90, 91, 0.7);
-  color: #fff;
+  color: #444444;
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
   font-style: normal;
@@ -299,7 +299,8 @@ export const CheckBox = styled.div`
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  border: 1px solid ${(props) => (props.isChecked ? "var(--purple)" : "#FFF")};
+  border: 1px solid
+    ${(props) => (props.isChecked ? "var(--purple)" : "#444444")};
   background-color: ${(props) =>
     props.isChecked ? "var(--purple)" : "transparent"};
   cursor: pointer;
@@ -348,7 +349,7 @@ export const Bar = styled.div`
 `;
 
 export const TotalPrice = styled.div`
-  color: var(--CHANGE_WHITE, #fff);
+  color: var(--CHANGE_WHITE, #444444);
   font-family: "KoddiUD OnGothic";
   font-size: 32px;
   font-style: normal;

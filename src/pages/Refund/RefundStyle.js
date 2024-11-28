@@ -134,7 +134,7 @@ export const OrderInfoWrapper = styled.div`
 // 주문 설명 텍스트 스타일
 export const OrderDescription = styled.p`
   align-self: stretch;
-  color: #ffffff;
+  color: #4e5a5b;
   font-size: 20px;
   font-weight: 400;
   line-height: 20px;
@@ -169,7 +169,7 @@ export const ValueWrapper = styled.div`
 
 // 금액 텍스트 스타일
 export const AmountValue = styled.span`
-  color: #ffffff;
+  color: #4e5a5b;
   font-size: 25px;
   font-weight: 700;
   line-height: 25px;
@@ -197,7 +197,7 @@ export const Currency = styled.span`
 
 // 결제수단 텍스트 스타일
 export const PaymentText = styled.div`
-  color: #ffffff;
+  color: #4e5a5b;
   font-size: 25px;
   font-weight: 400;
   line-height: 25px;
@@ -211,7 +211,7 @@ export const PaymentText = styled.div`
 
 // 결제 승인 시각 텍스트 스타일
 export const ApprovalTimeText = styled.div`
-  color: #ffffff;
+  color: #4e5a5b;
   font-size: 25px;
   font-weight: 400;
   line-height: 25px;
@@ -231,7 +231,7 @@ export const ButtonWrapper = styled.div`
 
 export const RefundButton = styled.div`
   background: #4e5a5b;
-    border-radius: 20px;
+  border-radius: 20px;
   color: #fff;
   text-align: center;
   font-size: 24px;
