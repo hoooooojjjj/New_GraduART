@@ -30,6 +30,26 @@ import {
   SmallWrapper,
 } from "./PaymentInfoStyle";
 import api from "../../utils/axios";
+import {useAuth} from "../../contexts/AuthContext";
+
+function formatDate(isoString) {
+  // Parse the ISO datetime string into a Date object
+  const utcDate = new Date(isoString);
+
+  // Adjust to UTC+9 (Korea Standard Time)
+  const localDate = new Date(utcDate.getTime() + 9 * 60 * 60 * 1000);
+
+  // Format the adjusted date
+  const year = localDate.getFullYear();
+  const month = String(localDate.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+  const day = String(localDate.getDate()).padStart(2, '0');
+  const hours = String(localDate.getHours()).padStart(2, '0');
+  const minutes = String(localDate.getMinutes()).padStart(2, '0');
+  const seconds = String(localDate.getSeconds()).padStart(2, '0');
+
+  return `${year}년 ${month}월 ${day}일 ${hours}:${minutes}:${seconds}`;
+}
+
 
 export const PaymentInfo = () => {
   const { itemId } = useParams();
@@ -37,6 +57,7 @@ export const PaymentInfo = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [purchaseItems, setPurchaseItems] = useState(null);
+  const {user} = useAuth();
 
   useEffect(() => {
     const fetchOrderInfo = async () => {
@@ -44,15 +65,14 @@ export const PaymentInfo = () => {
         setLoading(true);
         // 주문 정보 조회
         const orderResponse = await api.get(`/purchases/${itemId}/`);
+        console.log(orderResponse);
         setOrderInfo(orderResponse.data);
 
         // 구매 목록 조회
         const purchaseResponse = await api.get("/purchases");
         if (purchaseResponse.data) {
-          console.log(purchaseResponse);
           const itemsList = purchaseResponse.data[Object.keys(purchaseResponse.data)[0]]; // Get the array in the "data" key
           setPurchaseItems(itemsList); // Set the items array into the state
-          console.log(`purchaseItems: ${JSON.stringify(itemsList)}`);
         } else {
           console.error("No data found in purchaseResponse:", purchaseResponse.data);
         }
@@ -85,17 +105,17 @@ export const PaymentInfo = () => {
             <MiddleText>주문자</MiddleText>
             <TwoTextWrapper>
               <TextWrapper
-                width={'150px'}
+                width={30}
                 placeholder="이름이 없습니다"
                 name="orderName"
-                value={orderInfo.orderName}
+                value={user?.full_name}
                 readOnly
               />
               <TextWrapper
-                width={'150px'}
+                width={50}
                 placeholder="이메일이 없습니다"
                 name="orderEmail"
-                value={orderInfo.email}
+                value={user?.email}
                 readOnly
               />
             </TwoTextWrapper>
@@ -129,6 +149,7 @@ export const PaymentInfo = () => {
         </OrderInformationWrap>
         <OrderDetailWrap>
           <OrderText>주문 내역</OrderText>
+          <MiddleText style={{fontSize: '10px', textAlign:'right', marginRight: '30px'}}>{formatDate(orderInfo.created_at)}</MiddleText>
           <Line />
             <OrderMidWrap key={purchaseItems.num_code}>
               <LeftWrapper>

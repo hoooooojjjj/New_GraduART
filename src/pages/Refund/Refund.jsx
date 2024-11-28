@@ -27,15 +27,35 @@ import Loading from "../../components/common/Loading";
 import { DepartmentHeader } from "../../components/DepartmentHeader/DepartmentHeader";
 import api from "../../utils/axios";
 
+function formatDate(isoString) {
+  // Parse the ISO datetime string into a Date object
+  const utcDate = new Date(isoString);
+
+  // Adjust to UTC+9 (Korea Standard Time)
+  const localDate = new Date(utcDate.getTime() + 9 * 60 * 60 * 1000);
+
+  // Format the adjusted date
+  const year = localDate.getFullYear();
+  const month = String(localDate.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+  const day = String(localDate.getDate()).padStart(2, '0');
+  const hours = String(localDate.getHours()).padStart(2, '0');
+  const minutes = String(localDate.getMinutes()).padStart(2, '0');
+  const seconds = String(localDate.getSeconds()).padStart(2, '0');
+
+  return `${year}년 ${month}월 ${day}일 ${hours}:${minutes}:${seconds}`;
+}
+
+
 function Refund() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
-  const { state } = useLocation();
+  const [orderInfo, setOrderInfo] = useState(null);
   const navigate = useNavigate();
   const { itemId } = useParams();
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [refundStatus, setRefundStatus] = useState(null);
+  const [refundStatus, setRefundStatus] = useState(false);
   const [error, setError] = useState(null);
+  const [dbRefundStatus, setDBRefundStatus] = useState(null);
 
   useEffect(() => {
     if (!itemId) {
@@ -59,10 +79,35 @@ function Refund() {
       }
     };
 
+    const fetchOrderInfo = async () => {
+      try {
+        setLoading(true);
+        // 주문 정보 조회
+        const orderResponse = await api.get(`/purchases/${itemId}/`);
+        setOrderInfo(orderResponse.data);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    const fetchRefundState = async () => {
+      try{
+        const dbRefund = await api.get(`/refunds/${itemId}`);
+        setDBRefundStatus(dbRefund.data.refund_status);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
     fetchItemDetails();
+    fetchOrderInfo();
+    fetchRefundState()
   }, [itemId]);
 
   const handleRefundRequest = async () => {
+    console.log(refundStatus);
+    console.log(dbRefundStatus);
+
     if (!window.confirm("환불을 신청하시는 것이 맞으신가요?")) return; // UX 라이팅 레퍼런스 찾아서 바꾸기
 
     try {
@@ -118,6 +163,14 @@ function Refund() {
                   </PaymentText>
                 </ValueWrapper>
               </LabelValueWrapper>{" "}
+              <LabelValueWrapper>
+                <PurpleText>결제 승인 시각</PurpleText>
+                <ValueWrapper>
+                  <PaymentText>
+                    {formatDate(orderInfo.created_at)}
+                  </PaymentText>
+                </ValueWrapper>
+              </LabelValueWrapper>
             </MiddleWrapper>
           </>
         ) : (
@@ -146,14 +199,22 @@ function Refund() {
                     </PaymentText>
                   </ValueWrapper>
                 </LabelValueWrapper>
+                <LabelValueWrapper>
+                  <PurpleText>결제 승인 시각</PurpleText>
+                  <ValueWrapper>
+                    <PaymentText>
+                      {formatDate(orderInfo.created_at)}
+                    </PaymentText>
+                  </ValueWrapper>
+                </LabelValueWrapper>
               </MiddleWrapper>
             </TextWrapper>
           </>
         )}
       </MainFrame>
       <ButtonWrapper>
-        <RefundButton onClick={handleRefundRequest} disabled={refundStatus}>
-          {refundStatus ? "취소/환불 신청 완료" : "취소/환불 신청하기"}
+        <RefundButton onClick={handleRefundRequest} disabled={refundStatus || dbRefundStatus}>
+          {dbRefundStatus || refundStatus ? "취소/환불 신청 완료" : "취소/환불 신청하기"}
         </RefundButton>
       </ButtonWrapper>
     </Wrap>

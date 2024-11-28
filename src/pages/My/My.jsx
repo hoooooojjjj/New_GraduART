@@ -173,6 +173,7 @@ function My() {
                           onClick={() =>
                             navigate(`/payment-info/${item.item_id}`)
                           }
+                          style={{backgroundColor:'dimgray'}}
                         >
                           결제 정보
                         </RefundButton>
@@ -186,7 +187,9 @@ function My() {
                             onClick={() => handleRefundNavigation(item.item_id)}
                             disabled={item.refund}
                             style={{
-                              // backgroundColor: item.refund ? "gray" : "gray",
+
+                              backgroundColor: item.refund ? "gray" : "transparent",
+
                               cursor: item.refund ? "not-allowed" : "pointer",
                             }}
                           >
@@ -222,6 +225,7 @@ function My() {
                           onClick={() =>
                             navigate(`/payment-info/${item.item_id}`)
                           }
+                          style={{backgroundColor:'dimgray'}}
                         >
                           결제 정보
                         </RefundButton>
@@ -235,7 +239,7 @@ function My() {
                             onClick={() => handleRefundNavigation(item.item_id)}
                             disabled={item.refund}
                             style={{
-                              backgroundColor: item.refund ? "gray" : "#ff4d4f",
+                              backgroundColor: item.refund ? "gray" : "transparent",
                               cursor: item.refund ? "not-allowed" : "pointer",
                             }}
                           >
