@@ -142,7 +142,7 @@ export const Column = styled.div`
 `;
 
 export const Line = styled.div`
-  background: #a348f6;
+  background: #686868;
   width: 2px;
   height: 105%;
   align-self: stretch;
@@ -177,7 +177,7 @@ export const ArtworkInfo = styled.div`
 `;
 
 export const ArtworkTitle = styled.div`
-  color: #a348f6;
+  color: var(--CHANGE_GREEN2, #4e5a5b);
   font-family: "KoddiUD OnGothic";
   font-size: 20px;
   font-style: normal;
