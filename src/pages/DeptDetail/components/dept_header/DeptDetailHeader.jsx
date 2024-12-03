@@ -10,10 +10,11 @@ import {
   DeptDetailHeadernavinfowrapper,
   DeptDetailHeadernavinfo,
   DeptDetailHeadernavinfotext,
+  DeptDetailHeadersubTitleName,
 } from "./DeptDetailHeaderStyles";
 import dept_info from "../../../Department/Department.json";
 import { curDepartmentObjContext } from "../../DeptDetail";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 function DeptDetailHeaderComponent() {
   // 현재 라우트에 해당하는 과 정보를 담는 context
@@ -26,7 +27,9 @@ function DeptDetailHeaderComponent() {
     <DeptDetailHeader>
       <DeptDetailHeaderleft>
         <DeptDetailHeadertitle>
-          {curDepartmentObj.Department}
+          {curDepartmentObj.Department === "Metal"
+            ? curDepartmentObj.Department + "work"
+            : curDepartmentObj.Department}
         </DeptDetailHeadertitle>
         <DeptDetailHeadersubTitle>
           서울대학교{" "}
@@ -34,6 +37,13 @@ function DeptDetailHeaderComponent() {
             {curDepartmentObj && curDepartmentObj.departmentName?.slice(6)}
           </strong>
         </DeptDetailHeadersubTitle>
+        {curDepartmentObj.Department === "Metal" ? (
+          <DeptDetailHeadersubTitleName>
+            2024 판매전 'ON&ON'
+          </DeptDetailHeadersubTitleName>
+        ) : (
+          ""
+        )}
       </DeptDetailHeaderleft>
       <DeptDetailHeaderright>
         {dept_info.map((dept, i) => (
@@ -54,7 +64,7 @@ function DeptDetailHeaderComponent() {
               //동그라미 click 시, 해당 과 페이지로 이동
               onClick={() => {
                 navigate(`/dept_detail/${dept.Department}`);
-              }} 
+              }}
             ></DeptDetailHeadercircle>
             <DeptDetailHeadernavinfowrapper isNavHover={isNavHover[i]}>
               <DeptDetailHeadernavinfo isNavHover={isNavHover[i]} />

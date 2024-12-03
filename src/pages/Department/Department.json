@@ -1,5 +1,4 @@
 [
-
   {
     "Department": "Metal",
     "titleColor": "#EE5397",
@@ -9,7 +8,8 @@
     "collection": "https://art.snu.ac.kr/artexhibition/?cate%5B0%5D=20211&amp;cate%5B1%5D=painting&amp;cate%5B2%5D=&amp;cate%5B3%5D=&amp;cate%5B4%5D=",
     "homepage": "https://art.snu.ac.kr/category/painting/",
     "departmentDescription": "금속공예전공에서는 금속의 다양한 성형제작기법을 통하여 재료 및 기법을 이해하고, 기초과정에서부터 경험한 조형교육의 내용과 함께 개인적인 상상력을 바탕으로 창의적인 형태를 연구할 수 있도록 실기 및 이론 과목들을 구성한다."
-  },  {
+  },
+  {
     "Department": "Ceramic",
     "titleColor": "#FF983B",
     "imgPath": "landing-oriental.webp",
