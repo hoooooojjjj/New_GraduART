@@ -12,6 +12,10 @@ export const DeptDetailHeader = styled.section({
     marginBottom: "20px",
     alignItems: "flex-end",
   },
+
+  "@media (min-width: 1441px)": {
+    marginBottom: "60px",
+  },
 });
 
 export const DeptDetailHeaderleft = styled.div({
@@ -22,7 +26,7 @@ export const DeptDetailHeaderleft = styled.div({
   justifyContent: "center",
   flexShrink: 0,
   "@media (max-width: 768px)": {
-    width: "45%",
+    width: "50%",
   },
 });
 
@@ -56,6 +60,22 @@ export const DeptDetailHeadersubTitle = styled.div({
   },
 });
 
+export const DeptDetailHeadersubTitleName = styled.div({
+  marginTop: "10px",
+  alignSelf: "stretch",
+  color: "#FFF",
+  fontFamily: "KoddiUDOnGothic",
+  fontSize: "clamp(16px, 1.7vw, 40px)",
+  fontStyle: "normal",
+  fontWeight: 400,
+  lineHeight: "normal",
+  "@media (max-width: 768px)": {
+    fontSize: "14px",
+    whiteSpace: "nowrap",
+    marginTop: "5px",
+  },
+});
+
 export const DeptDetailHeaderright = styled.div({
   display: "flex",
   width: "60%",
@@ -65,7 +85,7 @@ export const DeptDetailHeaderright = styled.div({
   flexShrink: 0,
   marginLeft: 10,
   "@media (max-width: 768px)": {
-    width: "55%",
+    width: "40%",
     gap: 5,
     alignItems: "flex-end",
   },

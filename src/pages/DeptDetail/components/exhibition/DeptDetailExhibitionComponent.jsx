@@ -42,7 +42,7 @@ function ExhibitionTitle({ items, setItems, curDepartmentObj }) {
   const search = async (term) => {
     try {
       const response = await api.get(
-        `/items/search/?query=${term}&department=${curDepartmentObj.Department}`,
+        `/items/search/?query=${term}&department=${curDepartmentObj.Department}`
       );
       setItems(response.data); // 검색 결과 저장
     } catch (error) {
@@ -72,13 +72,13 @@ function ExhibitionTitle({ items, setItems, curDepartmentObj }) {
         setLoading(true);
         if (curDepartmentObj.Department) {
           const response = await api.get(
-            `/items/?department=${curDepartmentObj.Department}`,
+            `/items/?department=${curDepartmentObj.Department}`
           );
           setItems(response.data);
         }
       } catch (err) {
         setError(
-          err.response?.data?.error || "작품을 불러오는데 실패했습니다.",
+          err.response?.data?.error || "작품을 불러오는데 실패했습니다."
         );
       } finally {
         setLoading(false);
@@ -90,7 +90,12 @@ function ExhibitionTitle({ items, setItems, curDepartmentObj }) {
   return (
     <ExhibitionTitleWrap>
       <ExhibitionTitleTextWrap>
-        <TitleText>{curDepartmentObj.Department} exhibition</TitleText>
+        <TitleText>
+          {curDepartmentObj.Department === "Metal"
+            ? curDepartmentObj.Department + "work"
+            : curDepartmentObj.Department}{" "}
+          exhibition
+        </TitleText>
         <TitleYear>2024</TitleYear>
       </ExhibitionTitleTextWrap>
       <ExhibitionTitleSearchContainer onSubmit={handleSearchSubmit}>
@@ -99,10 +104,10 @@ function ExhibitionTitle({ items, setItems, curDepartmentObj }) {
           onChange={handleSearchChange}
           placeholder="작품명, 작가명 검색하기"
         />
-        <SearchIcon 
-        src={isSearching ? "/assets/vector.svg" : "/assets/searchIcon.svg"} 
-        alt={isSearching ? "search_cacel" : "search"} 
-        onClick={isSearching ? handleSearchReset : handleSearchSubmit}
+        <SearchIcon
+          src={isSearching ? "/assets/vector.svg" : "/assets/searchIcon.svg"}
+          alt={isSearching ? "search_cacel" : "search"}
+          onClick={isSearching ? handleSearchReset : handleSearchSubmit}
         />
       </ExhibitionTitleSearchContainer>
     </ExhibitionTitleWrap>
@@ -149,13 +154,13 @@ function ExhibitionGrid({ items, setItems, curDepartmentObj }) {
         setLoading(true);
         if (curDepartmentObj.Department) {
           const response = await api.get(
-            `/items/?department=${curDepartmentObj.Department}`,
+            `/items/?department=${curDepartmentObj.Department}`
           );
           setItems(response.data);
         }
       } catch (err) {
         setError(
-          err.response?.data?.error || "작품을 불러오는데 실패했습니다.",
+          err.response?.data?.error || "작품을 불러오는데 실패했습니다."
         );
       } finally {
         setLoading(false);

@@ -64,5 +64,6 @@ export const DeptInfoRight = styled.div({
   "@media (max-width: 768px)": {
     fontSize: 10,
     lineHeight: "normal",
+    width: "60%",
   },
 });

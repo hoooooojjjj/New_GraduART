@@ -19,5 +19,6 @@ export const Main = styled.main({
   "@media (max-width: 768px)": {
     paddingLeft: "5.12vw",
     paddingRight: "5.12vw",
+    paddingTop: "0vh",
   },
 });
