@@ -71,7 +71,9 @@ function DeptDetailDeptInfoComponent() {
   // 페이지 로드 시 첫 번째 이미지를 기본 활성화 상태로 설정
   useEffect(() => {
     if (DeptInfoComponentImgs.length > 0) {
-      const updatedIsClickedImg = Array(DeptInfoComponentImgs.length).fill(false);
+      const updatedIsClickedImg = Array(DeptInfoComponentImgs.length).fill(
+        false
+      );
       updatedIsClickedImg[0] = true;
       setIsClickedImg(updatedIsClickedImg);
     }
@@ -100,16 +102,7 @@ function DeptDetailDeptInfoComponent() {
           )
         )}
       </DeptInfoLeft>
-      {window.innerWidth > 768 ? (
-        <DeptInfoRight>{curDepartmentObj?.departmentDescription}</DeptInfoRight>
-      ) : (
-        <DeptInfoRight>
-          {curDepartmentObj?.departmentDescription?.slice(
-            0,
-            curDepartmentObj?.departmentDescription?.length / 2
-          )}
-        </DeptInfoRight>
-      )}
+      <DeptInfoRight>{curDepartmentObj?.departmentDescription}</DeptInfoRight>
     </DeptDetailDeptInfo>
   );
 }

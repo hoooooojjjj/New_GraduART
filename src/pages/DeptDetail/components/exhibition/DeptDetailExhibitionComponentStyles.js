@@ -204,7 +204,7 @@ export const ArtWorkSubTitle = styled.div({
   fontSize: "clamp(8px, 0.924vw, 25px)",
   fontStyle: "normal",
   fontWeight: "400",
-  lineHeight: "100%" /* 14px */,
+  lineHeight: "150%" /* 14px */,
   "@media (max-width: 768px)": {
     fontSize: 10,
   },

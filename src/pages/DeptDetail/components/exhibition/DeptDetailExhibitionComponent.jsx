@@ -119,7 +119,9 @@ function ExhibitionGrid({ items, setItems, curDepartmentObj }) {
   const itemsPerPage = 8;
 
   // 현재 페이지
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(
+    localStorage.getItem("currentPage") || 1
+  );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -133,12 +135,14 @@ function ExhibitionGrid({ items, setItems, curDepartmentObj }) {
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
+      localStorage.setItem("currentPage", currentPage + 1);
     }
   };
 
   const handlePreviousPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
+      localStorage.setItem("currentPage", currentPage - 1);
     }
   };
 
