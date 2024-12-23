@@ -49,6 +49,30 @@ const MetalDeptInfoComponentImgs = [
     src: "/assets/MetalDeptInfoImgs0.jpg",
     alt: "painting",
   },
+  {
+    id: 1,
+    departmentName: "metal",
+    src: "/assets/MetalDeptInfoImgs1.jpg",
+    alt: "painting",
+  },
+  {
+    id: 2,
+    departmentName: "metal",
+    src: "/assets/MetalDeptInfoImgs2.jpg",
+    alt: "painting",
+  },
+  {
+    id: 3,
+    departmentName: "metal",
+    src: "/assets/MetalDeptInfoImgs3.jpg",
+    alt: "painting",
+  },
+  {
+    id: 4,
+    departmentName: "metal",
+    src: "/assets/MetalDeptInfoImgs4.jpg",
+    alt: "painting",
+  },
 ];
 
 function DeptDetailDeptInfoComponent() {
