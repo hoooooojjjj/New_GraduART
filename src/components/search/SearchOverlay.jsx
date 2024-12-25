@@ -84,7 +84,7 @@ const SearchOverlay = ({ artworks, handleSearch }) => {
           )}
         </Logo>
         <Circles>
-          {!isMobile && <ItemSearch onSearch={handleItemSearch} />}
+          <ItemSearch onSearch={handleItemSearch} />
           <Ellipse2>
             <svg
               width="15"
@@ -126,11 +126,11 @@ const SearchOverlay = ({ artworks, handleSearch }) => {
           </Ellipse3>
         </Circles>
       </Head>
-      {isMobile && (
-        <SearchWrap>
-          <ItemSearch onSearch={handleItemSearch} />
-        </SearchWrap>
-      )}
+      {/*{isMobile && (*/}
+      {/*  <SearchWrap>*/}
+      {/*    <ItemSearch onSearch={handleItemSearch} />*/}
+      {/*  </SearchWrap>*/}
+      {/*)}*/}
       <ArtworkListContainer>
         {isSearchAttempted && filteredArtworks.length === 0 ? (
           <div

@@ -112,7 +112,7 @@ export const ArtworkListContainer = styled.div`
   justify-content: space-between; /* 공간 분배 */
   gap: 40px; /* 각 컬럼 간격 설정 */
   margin-top: 80px;
-  margin-bottom: 60px;
+  margin-bottom: 85px;
   max-height: 250px;
   overflow-y: scroll;
 
