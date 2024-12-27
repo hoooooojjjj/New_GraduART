@@ -154,7 +154,9 @@ export const Description = styled.div`
   color: var(--white);
   font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 400;
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 150%;
+  white-space: pre-wrap;
 `;
 
 export const PricingComponent = styled.div({
@@ -275,3 +277,11 @@ export const Tooltip = styled.div((props) => ({
   zIndex: 15, // Ensure it’s behind the modal
   backdropFilter: "blur(5px)", // Apply blur effect to the background
 }));
+
+export const SocialButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0;
+`;
