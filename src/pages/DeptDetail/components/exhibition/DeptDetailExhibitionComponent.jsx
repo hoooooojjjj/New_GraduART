@@ -62,7 +62,7 @@ function ExhibitionTitle({ items, setItems, curDepartmentObj }) {
       setIsSearching(true);
       search(searchTerm);
     } else {
-      handleSearchReset();// 검색창이 비어있으면 검색 리셋 동작 수행
+      handleSearchReset(); // 검색창이 비어있으면 검색 리셋 동작 수행
     }
   };
 
@@ -121,9 +121,12 @@ function ExhibitionGrid({ items, setItems, curDepartmentObj }) {
   const itemsPerPage = 8;
 
   // 현재 페이지
-  const [currentPage, setCurrentPage] = useState(
-    localStorage.getItem("currentPage") || 1
-  );
+  const [currentPage, setCurrentPage] = useState(() => {
+    const storedPage = localStorage.getItem(
+      `currentPage_${curDepartmentObj.Department}`
+    );
+    return storedPage ? parseInt(storedPage) : 1;
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -136,17 +139,33 @@ function ExhibitionGrid({ items, setItems, curDepartmentObj }) {
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-      localStorage.setItem("currentPage", parseInt(currentPage) + 1);
+      const newPage = currentPage + 1;
+      setCurrentPage(newPage);
+      localStorage.setItem(
+        `currentPage_${curDepartmentObj.Department}`,
+        newPage
+      );
     }
   };
 
   const handlePreviousPage = () => {
     if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-      localStorage.setItem("currentPage", parseInt(currentPage) - 1);
+      const newPage = currentPage - 1;
+      setCurrentPage(newPage);
+      localStorage.setItem(
+        `currentPage_${curDepartmentObj.Department}`,
+        newPage
+      );
     }
   };
+
+  // Department가 변경될 때 페이지 초기화
+  useEffect(() => {
+    const storedPage = localStorage.getItem(
+      `currentPage_${curDepartmentObj.Department}`
+    );
+    setCurrentPage(storedPage ? parseInt(storedPage) : 1);
+  }, [curDepartmentObj.Department]);
 
   const [minHeight, setMinHeight] = useState(0);
 
