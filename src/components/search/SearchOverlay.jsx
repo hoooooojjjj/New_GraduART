@@ -135,6 +135,7 @@ const SearchOverlay = ({ artworks, handleSearch }) => {
         {isSearchAttempted && filteredArtworks.length === 0 ? (
           <div
             style={{
+              width: "100%",
               textAlign: "center",
               marginTop: "20px",
               color: "#8f8f8f",
