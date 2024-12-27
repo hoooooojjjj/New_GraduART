@@ -96,6 +96,6 @@ export const BackgroundCircle = styled.div({
     position: "absolute",
     flexShrink: 0,
     borderRadius: "500px",
-    background: "#A348F6",
+    background: "var(--purple)",
   },
 });

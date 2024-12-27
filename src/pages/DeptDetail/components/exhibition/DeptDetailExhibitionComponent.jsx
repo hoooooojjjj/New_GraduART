@@ -61,6 +61,8 @@ function ExhibitionTitle({ items, setItems, curDepartmentObj }) {
     if (searchTerm.trim()) {
       setIsSearching(true);
       search(searchTerm);
+    } else {
+      handleSearchReset();// 검색창이 비어있으면 검색 리셋 동작 수행
     }
   };
 
