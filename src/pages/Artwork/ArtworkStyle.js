@@ -154,7 +154,7 @@ export const Description = styled.div`
   color: var(--white);
   font-family: KoddiUDOnGothic, sans-serif;
   font-weight: 400;
-  font-size: 12px;
+  font-size: clamp(10px, 1.3vw, 40px);
   line-height: 150%;
   white-space: pre-wrap;
 `;
