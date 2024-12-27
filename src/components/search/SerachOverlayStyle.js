@@ -118,7 +118,7 @@ export const ArtworkListContainer = styled.div`
 
   @media (max-width: 768px) {
     gap: 10px;
-    margin-top: 30px;
+    margin-top: 80px;
     width: 90%;
   }
 `;
