@@ -137,14 +137,14 @@ function ExhibitionGrid({ items, setItems, curDepartmentObj }) {
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
-      localStorage.setItem("currentPage", currentPage + 1);
+      localStorage.setItem("currentPage", parseInt(currentPage) + 1);
     }
   };
 
   const handlePreviousPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
-      localStorage.setItem("currentPage", currentPage - 1);
+      localStorage.setItem("currentPage", parseInt(currentPage) - 1);
     }
   };
 
