@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import api from "../../utils/axios";
-import Cookies from "js-cookie";
+//import Cookies from "js-cookie";
 import Loading from "../../components/common/Loading";
 
 function GoogleCallback() {
@@ -40,8 +40,8 @@ function GoogleCallback() {
         );
 
         // 서버에서 받은 토큰을 쿠키에 저장
-        Cookies.set("access_token", response.data.access_token);
-        Cookies.set("refresh_token", response.data.refresh_token);
+        //Cookies.set("access_token", response.data.access_token);
+        //Cookies.set("refresh_token", response.data.refresh_token);
 
         if (response.status === 200) {
           try {
