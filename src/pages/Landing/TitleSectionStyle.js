@@ -145,12 +145,12 @@ export const HoverContentRight = styled.div((props) => ({
   alignItems: "center",
   gap: "10px",
   zIndex: 10,
-  transform: props.isCraft ? "translateX(-70px)" : "translateX(130px)",
+  transform: props.isCraft ? "translateX(30px)" : "translateX(300px)",
   transition: "right 1.2s ease-in-out, transform 1.2s ease-in-out",
   "@media (max-width: 768px)": {
     right: "150px",
     top: `calc(${props.rowPosition - 1} * 150px)`,
-    transform: props.isCraft ? "translateX(150px)" : "translateX(200px)",
+    transform: props.isCraft ? "translateX(50px)" : "translateX(300px)",
   },
 }));
 
@@ -175,21 +175,21 @@ export const DesignText = styled(PaintingText)({
 });
 
 export const SculptureText = styled(PaintingText)({
-  transform: "translateX(-50px)",
+  transform: "translateX(-60px)",
   "@media (max-width: 768px)": {
-    transform: "translateX(-70px)",
+    transform: "translateX(-60px)",
   },
 });
 
 export const CraftText = styled(PaintingText)({
-  transform: "translateX(-190px)",
+  transform: "translateX(-30px)",
   "@media (max-width: 768px)": {
-    transform: "translateX(-160px)",
+    transform: "translateX(10px)",
   },
 });
 
 export const HoverButton = styled(Link)({
-  width: "391px",
+  width: "430px",
   height: "69px",
   position: "relative",
   textDecoration: "none",
