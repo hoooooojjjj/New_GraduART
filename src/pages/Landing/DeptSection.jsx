@@ -12,6 +12,7 @@ import {
 import api from "../../utils/axios";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../components/loading/LoadingMainpage";
+import styled from "@emotion/styled";
 
 const departments = [
   { title: "Ceramic", subtitle: "도자공예전공" },
@@ -21,8 +22,7 @@ const departments = [
 const DeptSection = () => {
   const [selectedDepts, setSelectedDepts] = useState([]);
   const [selectedItems, setSelectedItems] = useState({});
-  const [selectedItemsLoading, setSelectedItemsLoading] = useState({}); // 작품별 로딩 상태
-  const [loadingDepts, setLoadingDepts] = useState([]);
+  const [imageLoaded, setImageLoaded] = useState({}); // 이미지 로드 상태 추가
   const navigate = useNavigate();
 
   // 초기 렌더링 시 작품 데이터 로드
@@ -41,40 +41,21 @@ const DeptSection = () => {
   };
 
   const fetchItems = async (deptTitle) => {
-    setLoadingDepts((prev) => [...prev, deptTitle]); // 학과 로딩 시작
     try {
       const response = await api.get(`/items/?department=${deptTitle}`);
       const allItems = response.data;
-
       const shuffledItems = allItems.sort(() => 0.6 - Math.random());
       const selectedItems = shuffledItems.slice(0, 6);
-
-      // 초기 로딩 상태 설정
-      const loadingState = selectedItems.reduce((acc, item) => {
-        acc[item.item_id] = true;
-        return acc;
-      }, {});
-
-      setSelectedItemsLoading((prev) => ({ ...prev, ...loadingState }));
-
       setSelectedItems((prev) => ({ ...prev, [deptTitle]: selectedItems }));
-
-      // 작품별 로딩 상태 false로 설정 (데이터 로드 완료 후)
-      selectedItems.forEach((item) => {
-        setTimeout(() => {
-          setSelectedItemsLoading((prev) => ({
-            ...prev,
-            [item.item_id]: false,
-          }));
-        }, 100); // 시뮬레이션용 딜레이
-      });
     } catch (err) {
       console.error(
         err.response?.data?.error || "작품을 불러오는데 실패했습니다."
       );
-    } finally {
-      setLoadingDepts((prev) => prev.filter((title) => title !== deptTitle)); // 학과 로딩 종료
     }
+  };
+
+  const handleImageLoad = (itemId) => {
+    setImageLoaded((prev) => ({ ...prev, [itemId]: true }));
   };
 
   return (
@@ -98,11 +79,39 @@ const DeptSection = () => {
                   key={item.item_id}
                   onClick={() => navigate(`/artwork/${item.item_id}`)}
                 >
-                  {selectedItemsLoading[item.item_id] ? (
-                    <Loading />
-                  ) : (
-                    <img src={item.image_original} alt={item.title} />
-                  )}
+                  <PendingArtWorkImg imageLoaded={imageLoaded[item.item_id]}>
+                    <source
+                      srcSet="/assets/placeholder-large.png"
+                      media="(min-width: 1024px)"
+                      type="image/webp"
+                    />
+                    <source
+                      srcSet="/assets/placeholder-large.png"
+                      media="(min-width: 768px)"
+                      type="image/webp"
+                    />
+                    <img
+                      src="/assets/placeholder-large.png"
+                      alt="Placeholder"
+                    />
+                  </PendingArtWorkImg>
+                  <ArtWorkImg imageLoaded={imageLoaded[item.item_id]}>
+                    <source
+                      srcSet={item.image_original}
+                      media="(min-width: 1024px)"
+                      type="image/webp"
+                    />
+                    <source
+                      srcSet={item.image_original}
+                      media="(min-width: 768px)"
+                      type="image/webp"
+                    />
+                    <img
+                      src={item.image_original}
+                      onLoad={() => handleImageLoad(item.item_id)}
+                      alt={item.title}
+                    />
+                  </ArtWorkImg>
                 </ProductCard>
               ))}
             </ProductListContainer>
@@ -112,5 +121,24 @@ const DeptSection = () => {
     </DeptContainer>
   );
 };
+
+// Add new styled components
+const PendingArtWorkImg = styled.picture`
+  opacity: ${(props) => (props.imageLoaded ? 0 : 1)};
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+`;
+
+const ArtWorkImg = styled.picture`
+  opacity: ${(props) => (props.imageLoaded ? 1 : 0)};
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+`;
 
 export default DeptSection;
